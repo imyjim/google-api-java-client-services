@@ -159,7 +159,7 @@ public class CloudScheduler extends com.google.api.client.googleapis.services.js
      * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
      * methods to check whether the cancellation succeeded or whether the operation completed despite
      * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-     * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+     * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
      * `Code.CANCELLED`.
      *
      * Create a request for the method "operations.cancel".
@@ -190,7 +190,7 @@ public class CloudScheduler extends com.google.api.client.googleapis.services.js
        * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
        * methods to check whether the cancellation succeeded or whether the operation completed despite
        * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-       * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+       * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
        * `Code.CANCELLED`.
        *
        * Create a request for the method "operations.cancel".
@@ -1741,16 +1741,14 @@ public class CloudScheduler extends com.google.api.client.googleapis.services.js
           /**
            * A token identifying a page of results the server will return. To request the first page
            * results, page_token must be empty. To request the next page of results, page_token must
-           * be the value of next_page_token returned from the previous call to ListJobs. It is an
-           * error to switch the value of filter or order_by while iterating through pages.
+           * be the value of next_page_token returned from the previous call to ListJobs.
            */
           @com.google.api.client.util.Key
           private java.lang.String pageToken;
 
           /** A token identifying a page of results the server will return. To request the first page results,
          page_token must be empty. To request the next page of results, page_token must be the value of
-         next_page_token returned from the previous call to ListJobs. It is an error to switch the value of
-         filter or order_by while iterating through pages.
+         next_page_token returned from the previous call to ListJobs.
            */
           public java.lang.String getPageToken() {
             return pageToken;
@@ -1759,8 +1757,7 @@ public class CloudScheduler extends com.google.api.client.googleapis.services.js
           /**
            * A token identifying a page of results the server will return. To request the first page
            * results, page_token must be empty. To request the next page of results, page_token must
-           * be the value of next_page_token returned from the previous call to ListJobs. It is an
-           * error to switch the value of filter or order_by while iterating through pages.
+           * be the value of next_page_token returned from the previous call to ListJobs.
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;

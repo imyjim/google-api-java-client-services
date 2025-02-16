@@ -31,6 +31,13 @@ package com.google.api.services.aiplatform.v1beta1.model;
 public final class GoogleCloudAiplatformV1beta1Endpoint extends com.google.api.client.json.GenericJson {
 
   /**
+   * Configurations that are applied to the endpoint for online prediction.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1ClientConnectionConfig clientConnectionConfig;
+
+  /**
    * Output only. Timestamp when this Endpoint was created.
    * The value may be {@code null}.
    */
@@ -109,6 +116,15 @@ public final class GoogleCloudAiplatformV1beta1Endpoint extends com.google.api.c
    */
   @com.google.api.client.util.Key
   private java.lang.String etag;
+
+  /**
+   * Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models,
+   * advanced features like native RAG integration can be configured. Currently, only Model Garden
+   * models are supported.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1GenAiAdvancedFeaturesConfig genAiAdvancedFeaturesConfig;
 
   /**
    * The labels with user-defined metadata to organize your Endpoints. Label keys and values can be
@@ -195,6 +211,23 @@ public final class GoogleCloudAiplatformV1beta1Endpoint extends com.google.api.c
    */
   @com.google.api.client.util.Key
   private String updateTime;
+
+  /**
+   * Configurations that are applied to the endpoint for online prediction.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ClientConnectionConfig getClientConnectionConfig() {
+    return clientConnectionConfig;
+  }
+
+  /**
+   * Configurations that are applied to the endpoint for online prediction.
+   * @param clientConnectionConfig clientConnectionConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Endpoint setClientConnectionConfig(GoogleCloudAiplatformV1beta1ClientConnectionConfig clientConnectionConfig) {
+    this.clientConnectionConfig = clientConnectionConfig;
+    return this;
+  }
 
   /**
    * Output only. Timestamp when this Endpoint was created.
@@ -368,6 +401,27 @@ public final class GoogleCloudAiplatformV1beta1Endpoint extends com.google.api.c
    */
   public GoogleCloudAiplatformV1beta1Endpoint setEtag(java.lang.String etag) {
     this.etag = etag;
+    return this;
+  }
+
+  /**
+   * Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models,
+   * advanced features like native RAG integration can be configured. Currently, only Model Garden
+   * models are supported.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GenAiAdvancedFeaturesConfig getGenAiAdvancedFeaturesConfig() {
+    return genAiAdvancedFeaturesConfig;
+  }
+
+  /**
+   * Optional. Configuration for GenAiAdvancedFeatures. If the endpoint is serving GenAI models,
+   * advanced features like native RAG integration can be configured. Currently, only Model Garden
+   * models are supported.
+   * @param genAiAdvancedFeaturesConfig genAiAdvancedFeaturesConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1Endpoint setGenAiAdvancedFeaturesConfig(GoogleCloudAiplatformV1beta1GenAiAdvancedFeaturesConfig genAiAdvancedFeaturesConfig) {
+    this.genAiAdvancedFeaturesConfig = genAiAdvancedFeaturesConfig;
     return this;
   }
 

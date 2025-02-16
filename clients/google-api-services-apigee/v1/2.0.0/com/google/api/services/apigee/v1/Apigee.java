@@ -6828,6 +6828,218 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
       }
 
       /**
+       * An accessor for creating requests from the Debugsessions collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code Apigee apigee = new Apigee(...);}
+       *   {@code Apigee.Debugsessions.List request = apigee.debugsessions().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public Debugsessions debugsessions() {
+        return new Debugsessions();
+      }
+
+      /**
+       * The "debugsessions" collection of methods.
+       */
+      public class Debugsessions {
+
+        /**
+         * Lists debug sessions that are currently active in the given API Proxy.
+         *
+         * Create a request for the method "debugsessions.list".
+         *
+         * This request holds the parameters needed by the apigee server.  After setting any optional
+         * parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The name of the API Proxy for which to list debug sessions. Must be of the form:
+         *        `organizations/{organization}/apis/{api}`.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends ApigeeRequest<com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListApiDebugSessionsResponse> {
+
+          private static final String REST_PATH = "v1/{+parent}/debugsessions";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^organizations/[^/]+/apis/[^/]+$");
+
+          /**
+           * Lists debug sessions that are currently active in the given API Proxy.
+           *
+           * Create a request for the method "debugsessions.list".
+           *
+           * This request holds the parameters needed by the the apigee server.  After setting any optional
+           * parameters, call the {@link List#execute()} method to invoke the remote operation. <p> {@link
+           * List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
+           * called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The name of the API Proxy for which to list debug sessions. Must be of the form:
+         *        `organizations/{organization}/apis/{api}`.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(Apigee.this, "GET", REST_PATH, null, com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1ListApiDebugSessionsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^organizations/[^/]+/apis/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The name of the API Proxy for which to list debug sessions. Must be of the
+           * form: `organizations/{organization}/apis/{api}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The name of the API Proxy for which to list debug sessions. Must be of the form:
+         `organizations/{organization}/apis/{api}`.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The name of the API Proxy for which to list debug sessions. Must be of the
+           * form: `organizations/{organization}/apis/{api}`.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^organizations/[^/]+/apis/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          /**
+           * Optional. Maximum number of debug sessions to return. The page size defaults to 25.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Integer pageSize;
+
+          /** Optional. Maximum number of debug sessions to return. The page size defaults to 25.
+           */
+          public java.lang.Integer getPageSize() {
+            return pageSize;
+          }
+
+          /**
+           * Optional. Maximum number of debug sessions to return. The page size defaults to 25.
+           */
+          public List setPageSize(java.lang.Integer pageSize) {
+            this.pageSize = pageSize;
+            return this;
+          }
+
+          /**
+           * Optional. Page token, returned from a previous ListApiDebugSessions call, that you can
+           * use to retrieve the next page.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String pageToken;
+
+          /** Optional. Page token, returned from a previous ListApiDebugSessions call, that you can use to
+         retrieve the next page.
+           */
+          public java.lang.String getPageToken() {
+            return pageToken;
+          }
+
+          /**
+           * Optional. Page token, returned from a previous ListApiDebugSessions call, that you can
+           * use to retrieve the next page.
+           */
+          public List setPageToken(java.lang.String pageToken) {
+            this.pageToken = pageToken;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+
+      }
+      /**
        * An accessor for creating requests from the Deployments collection.
        *
        * <p>The typical use is:</p>
@@ -50564,7 +50776,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link Create#execute()} method to invoke the remote operation.
        *
-       * @param parent Required. The parent resource name.
+       * @param parent Required. The parent resource name. Format: `organizations/{org}`
        * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2}
        * @return the request
        */
@@ -50591,7 +50803,7 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param parent Required. The parent resource name.
+         * @param parent Required. The parent resource name. Format: `organizations/{org}`
          * @param content the {@link com.google.api.services.apigee.v1.model.GoogleCloudApigeeV1SecurityProfileV2}
          * @since 1.13
          */
@@ -50660,17 +50872,17 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return (Create) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** Required. The parent resource name. */
+        /** Required. The parent resource name. Format: `organizations/{org}` */
         @com.google.api.client.util.Key
         private java.lang.String parent;
 
-        /** Required. The parent resource name.
+        /** Required. The parent resource name. Format: `organizations/{org}`
          */
         public java.lang.String getParent() {
           return parent;
         }
 
-        /** Required. The parent resource name. */
+        /** Required. The parent resource name. Format: `organizations/{org}` */
         public Create setParent(java.lang.String parent) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
@@ -50710,7 +50922,8 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link Delete#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The name of the security profile v2 to delete.
+       * @param name Required. The name of the security profile v2 to delete. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
        * @return the request
        */
       public Delete delete(java.lang.String name) throws java.io.IOException {
@@ -50736,7 +50949,8 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The name of the security profile v2 to delete.
+         * @param name Required. The name of the security profile v2 to delete. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
          * @since 1.13
          */
         protected Delete(java.lang.String name) {
@@ -50804,17 +51018,24 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return (Delete) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** Required. The name of the security profile v2 to delete. */
+        /**
+         * Required. The name of the security profile v2 to delete. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The name of the security profile v2 to delete.
+        /** Required. The name of the security profile v2 to delete. Format:
+       `organizations/{org}/securityProfilesV2/{profile}`
          */
         public java.lang.String getName() {
           return name;
         }
 
-        /** Required. The name of the security profile v2 to delete. */
+        /**
+         * Required. The name of the security profile v2 to delete. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
         public Delete setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
@@ -50838,7 +51059,8 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
        * This request holds the parameters needed by the apigee server.  After setting any optional
        * parameters, call the {@link Get#execute()} method to invoke the remote operation.
        *
-       * @param name Required. The security profile id.
+       * @param name Required. The name of the security profile v2 to get. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
        * @return the request
        */
       public Get get(java.lang.String name) throws java.io.IOException {
@@ -50864,7 +51086,8 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
          * Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must be
          * called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Required. The security profile id.
+         * @param name Required. The name of the security profile v2 to get. Format:
+       *        `organizations/{org}/securityProfilesV2/{profile}`
          * @since 1.13
          */
         protected Get(java.lang.String name) {
@@ -50942,17 +51165,24 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return (Get) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** Required. The security profile id. */
+        /**
+         * Required. The name of the security profile v2 to get. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Required. The security profile id.
+        /** Required. The name of the security profile v2 to get. Format:
+       `organizations/{org}/securityProfilesV2/{profile}`
          */
         public java.lang.String getName() {
           return name;
         }
 
-        /** Required. The security profile id. */
+        /**
+         * Required. The name of the security profile v2 to get. Format:
+         * `organizations/{org}/securityProfilesV2/{profile}`
+         */
         public Get setName(java.lang.String name) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
@@ -51288,17 +51518,24 @@ public class Apigee extends com.google.api.client.googleapis.services.json.Abstr
           return this;
         }
 
-        /** Required. The list of fields to update. */
+        /**
+         * Optional. The list of fields to update. Valid fields to update are `description` and
+         * `profileAssessmentConfigs`.
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. The list of fields to update.
+        /** Optional. The list of fields to update. Valid fields to update are `description` and
+       `profileAssessmentConfigs`.
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. The list of fields to update. */
+        /**
+         * Optional. The list of fields to update. Valid fields to update are `description` and
+         * `profileAssessmentConfigs`.
+         */
         public Patch setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;

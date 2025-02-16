@@ -112,8 +112,8 @@ public final class QueryRequest extends com.google.api.client.json.GenericJson {
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * The geographic location where the job should run. See details at
-   * https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+   * The geographic location where the job should run. For more information, see how to [specify
+   * locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -227,6 +227,15 @@ public final class QueryRequest extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean useQueryCache;
+
+  /**
+   * Optional. This is only supported for SELECT query. If set, the query is allowed to write
+   * results incrementally to the temporary result table. This may incur a performance penalty. This
+   * option cannot be used with Legacy SQL. This feature is not yet available.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean writeIncrementalResults;
 
   /**
    * Optional. Connection properties which can modify the query behavior.
@@ -408,8 +417,8 @@ public final class QueryRequest extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The geographic location where the job should run. See details at
-   * https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+   * The geographic location where the job should run. For more information, see how to [specify
+   * locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
    * @return value or {@code null} for none
    */
   public java.lang.String getLocation() {
@@ -417,8 +426,8 @@ public final class QueryRequest extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The geographic location where the job should run. See details at
-   * https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+   * The geographic location where the job should run. For more information, see how to [specify
+   * locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
    * @param location location or {@code null} for none
    */
   public QueryRequest setLocation(java.lang.String location) {
@@ -718,6 +727,27 @@ public final class QueryRequest extends com.google.api.client.json.GenericJson {
       return true;
     }
     return useQueryCache;
+  }
+
+  /**
+   * Optional. This is only supported for SELECT query. If set, the query is allowed to write
+   * results incrementally to the temporary result table. This may incur a performance penalty. This
+   * option cannot be used with Legacy SQL. This feature is not yet available.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getWriteIncrementalResults() {
+    return writeIncrementalResults;
+  }
+
+  /**
+   * Optional. This is only supported for SELECT query. If set, the query is allowed to write
+   * results incrementally to the temporary result table. This may incur a performance penalty. This
+   * option cannot be used with Legacy SQL. This feature is not yet available.
+   * @param writeIncrementalResults writeIncrementalResults or {@code null} for none
+   */
+  public QueryRequest setWriteIncrementalResults(java.lang.Boolean writeIncrementalResults) {
+    this.writeIncrementalResults = writeIncrementalResults;
+    return this;
   }
 
   @Override

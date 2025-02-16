@@ -41,7 +41,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
-   * An optional description of the spoke.
+   * Optional. An optional description of the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -71,7 +71,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * VLAN attachments that are associated with the spoke.
+   * Optional. VLAN attachments that are associated with the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -85,7 +85,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private LinkedProducerVpcNetwork linkedProducerVpcNetwork;
 
   /**
-   * Router appliance instances that are associated with the spoke.
+   * Optional. Router appliance instances that are associated with the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -99,7 +99,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private LinkedVpcNetwork linkedVpcNetwork;
 
   /**
-   * VPN tunnels that are associated with the spoke.
+   * Optional. VPN tunnels that are associated with the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -114,8 +114,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
-   * Output only. The reasons for current state of the spoke. Only present when the spoke is in the
-   * `INACTIVE` state.
+   * Output only. The reasons for current state of the spoke.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -169,7 +168,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * An optional description of the spoke.
+   * Optional. An optional description of the spoke.
    * @return value or {@code null} for none
    */
   public java.lang.String getDescription() {
@@ -177,7 +176,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * An optional description of the spoke.
+   * Optional. An optional description of the spoke.
    * @param description description or {@code null} for none
    */
   public Spoke setDescription(java.lang.String description) {
@@ -241,7 +240,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VLAN attachments that are associated with the spoke.
+   * Optional. VLAN attachments that are associated with the spoke.
    * @return value or {@code null} for none
    */
   public LinkedInterconnectAttachments getLinkedInterconnectAttachments() {
@@ -249,7 +248,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VLAN attachments that are associated with the spoke.
+   * Optional. VLAN attachments that are associated with the spoke.
    * @param linkedInterconnectAttachments linkedInterconnectAttachments or {@code null} for none
    */
   public Spoke setLinkedInterconnectAttachments(LinkedInterconnectAttachments linkedInterconnectAttachments) {
@@ -275,7 +274,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Router appliance instances that are associated with the spoke.
+   * Optional. Router appliance instances that are associated with the spoke.
    * @return value or {@code null} for none
    */
   public LinkedRouterApplianceInstances getLinkedRouterApplianceInstances() {
@@ -283,7 +282,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Router appliance instances that are associated with the spoke.
+   * Optional. Router appliance instances that are associated with the spoke.
    * @param linkedRouterApplianceInstances linkedRouterApplianceInstances or {@code null} for none
    */
   public Spoke setLinkedRouterApplianceInstances(LinkedRouterApplianceInstances linkedRouterApplianceInstances) {
@@ -309,7 +308,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VPN tunnels that are associated with the spoke.
+   * Optional. VPN tunnels that are associated with the spoke.
    * @return value or {@code null} for none
    */
   public LinkedVpnTunnels getLinkedVpnTunnels() {
@@ -317,7 +316,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * VPN tunnels that are associated with the spoke.
+   * Optional. VPN tunnels that are associated with the spoke.
    * @param linkedVpnTunnels linkedVpnTunnels or {@code null} for none
    */
   public Spoke setLinkedVpnTunnels(LinkedVpnTunnels linkedVpnTunnels) {
@@ -345,8 +344,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. The reasons for current state of the spoke. Only present when the spoke is in the
-   * `INACTIVE` state.
+   * Output only. The reasons for current state of the spoke.
    * @return value or {@code null} for none
    */
   public java.util.List<StateReason> getReasons() {
@@ -354,8 +352,7 @@ public final class Spoke extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Output only. The reasons for current state of the spoke. Only present when the spoke is in the
-   * `INACTIVE` state.
+   * Output only. The reasons for current state of the spoke.
    * @param reasons reasons or {@code null} for none
    */
   public Spoke setReasons(java.util.List<StateReason> reasons) {

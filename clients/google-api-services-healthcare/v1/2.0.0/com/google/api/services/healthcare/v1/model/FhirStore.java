@@ -30,16 +30,25 @@ package com.google.api.services.healthcare.v1.model;
 public final class FhirStore extends com.google.api.client.json.GenericJson {
 
   /**
-   * Enable parsing of references within complex FHIR data types such as Extensions. If this value
-   * is set to ENABLED, then features like referential integrity and Bundle reference rewriting
-   * apply to all references. If this flag has not been specified the behavior of the FHIR store
-   * will not change, references in complex data types will not be parsed. New stores will have this
-   * value set to ENABLED after a notification period. Warning: turning on this flag causes
-   * processing existing resources to fail if they contain references to non-existent resources.
+   * Optional. Enable parsing of references within complex FHIR data types such as Extensions. If
+   * this value is set to ENABLED, then features like referential integrity and Bundle reference
+   * rewriting apply to all references. If this flag has not been specified the behavior of the FHIR
+   * store will not change, references in complex data types will not be parsed. New stores will
+   * have this value set to ENABLED after a notification period. Warning: turning on this flag
+   * causes processing existing resources to fail if they contain references to non-existent
+   * resources.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String complexDataTypeReferenceParsing;
+
+  /**
+   * Optional. Specifies whether this store has consent enforcement. Not available for DSTU2 FHIR
+   * version due to absence of Consent resources.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ConsentConfig consentConfig;
 
   /**
    * Optional. If true, overrides the default search behavior for this FHIR store to
@@ -149,7 +158,8 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   private java.util.List<StreamConfig> streamConfigs;
 
   /**
-   * Configuration for how to validate incoming FHIR resources against configured profiles.
+   * Optional. Configuration for how to validate incoming FHIR resources against configured
+   * profiles.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -165,12 +175,13 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   private java.lang.String version;
 
   /**
-   * Enable parsing of references within complex FHIR data types such as Extensions. If this value
-   * is set to ENABLED, then features like referential integrity and Bundle reference rewriting
-   * apply to all references. If this flag has not been specified the behavior of the FHIR store
-   * will not change, references in complex data types will not be parsed. New stores will have this
-   * value set to ENABLED after a notification period. Warning: turning on this flag causes
-   * processing existing resources to fail if they contain references to non-existent resources.
+   * Optional. Enable parsing of references within complex FHIR data types such as Extensions. If
+   * this value is set to ENABLED, then features like referential integrity and Bundle reference
+   * rewriting apply to all references. If this flag has not been specified the behavior of the FHIR
+   * store will not change, references in complex data types will not be parsed. New stores will
+   * have this value set to ENABLED after a notification period. Warning: turning on this flag
+   * causes processing existing resources to fail if they contain references to non-existent
+   * resources.
    * @return value or {@code null} for none
    */
   public java.lang.String getComplexDataTypeReferenceParsing() {
@@ -178,16 +189,36 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Enable parsing of references within complex FHIR data types such as Extensions. If this value
-   * is set to ENABLED, then features like referential integrity and Bundle reference rewriting
-   * apply to all references. If this flag has not been specified the behavior of the FHIR store
-   * will not change, references in complex data types will not be parsed. New stores will have this
-   * value set to ENABLED after a notification period. Warning: turning on this flag causes
-   * processing existing resources to fail if they contain references to non-existent resources.
+   * Optional. Enable parsing of references within complex FHIR data types such as Extensions. If
+   * this value is set to ENABLED, then features like referential integrity and Bundle reference
+   * rewriting apply to all references. If this flag has not been specified the behavior of the FHIR
+   * store will not change, references in complex data types will not be parsed. New stores will
+   * have this value set to ENABLED after a notification period. Warning: turning on this flag
+   * causes processing existing resources to fail if they contain references to non-existent
+   * resources.
    * @param complexDataTypeReferenceParsing complexDataTypeReferenceParsing or {@code null} for none
    */
   public FhirStore setComplexDataTypeReferenceParsing(java.lang.String complexDataTypeReferenceParsing) {
     this.complexDataTypeReferenceParsing = complexDataTypeReferenceParsing;
+    return this;
+  }
+
+  /**
+   * Optional. Specifies whether this store has consent enforcement. Not available for DSTU2 FHIR
+   * version due to absence of Consent resources.
+   * @return value or {@code null} for none
+   */
+  public ConsentConfig getConsentConfig() {
+    return consentConfig;
+  }
+
+  /**
+   * Optional. Specifies whether this store has consent enforcement. Not available for DSTU2 FHIR
+   * version due to absence of Consent resources.
+   * @param consentConfig consentConfig or {@code null} for none
+   */
+  public FhirStore setConsentConfig(ConsentConfig consentConfig) {
+    this.consentConfig = consentConfig;
     return this;
   }
 
@@ -421,7 +452,8 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for how to validate incoming FHIR resources against configured profiles.
+   * Optional. Configuration for how to validate incoming FHIR resources against configured
+   * profiles.
    * @return value or {@code null} for none
    */
   public ValidationConfig getValidationConfig() {
@@ -429,7 +461,8 @@ public final class FhirStore extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for how to validate incoming FHIR resources against configured profiles.
+   * Optional. Configuration for how to validate incoming FHIR resources against configured
+   * profiles.
    * @param validationConfig validationConfig or {@code null} for none
    */
   public FhirStore setValidationConfig(ValidationConfig validationConfig) {

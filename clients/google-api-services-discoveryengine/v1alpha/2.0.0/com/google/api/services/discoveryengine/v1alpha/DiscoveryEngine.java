@@ -876,6 +876,162 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
         }
       }
       /**
+       * Gets the CmekConfig.
+       *
+       * Create a request for the method "locations.getCmekConfig".
+       *
+       * This request holds the parameters needed by the discoveryengine server.  After setting any
+       * optional parameters, call the {@link GetCmekConfig#execute()} method to invoke the remote
+       * operation.
+       *
+       * @param name Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+       *        `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+       *        CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is returned.
+       * @return the request
+       */
+      public GetCmekConfig getCmekConfig(java.lang.String name) throws java.io.IOException {
+        GetCmekConfig result = new GetCmekConfig(name);
+        initialize(result);
+        return result;
+      }
+
+      public class GetCmekConfig extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig> {
+
+        private static final String REST_PATH = "v1alpha/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/cmekConfig$");
+
+        /**
+         * Gets the CmekConfig.
+         *
+         * Create a request for the method "locations.getCmekConfig".
+         *
+         * This request holds the parameters needed by the the discoveryengine server.  After setting any
+         * optional parameters, call the {@link GetCmekConfig#execute()} method to invoke the remote
+         * operation. <p> {@link GetCmekConfig#initialize(com.google.api.client.googleapis.services.Abstra
+         * ctGoogleClientRequest)} must be called to initialize this instance immediately after invoking
+         * the constructor. </p>
+         *
+         * @param name Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+       *        `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+       *        CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is returned.
+         * @since 1.13
+         */
+        protected GetCmekConfig(java.lang.String name) {
+          super(DiscoveryEngine.this, "GET", REST_PATH, null, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/cmekConfig$");
+          }
+        }
+
+        @Override
+        public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+          return super.executeUsingHead();
+        }
+
+        @Override
+        public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+          return super.buildHttpRequestUsingHead();
+        }
+
+        @Override
+        public GetCmekConfig set$Xgafv(java.lang.String $Xgafv) {
+          return (GetCmekConfig) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public GetCmekConfig setAccessToken(java.lang.String accessToken) {
+          return (GetCmekConfig) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public GetCmekConfig setAlt(java.lang.String alt) {
+          return (GetCmekConfig) super.setAlt(alt);
+        }
+
+        @Override
+        public GetCmekConfig setCallback(java.lang.String callback) {
+          return (GetCmekConfig) super.setCallback(callback);
+        }
+
+        @Override
+        public GetCmekConfig setFields(java.lang.String fields) {
+          return (GetCmekConfig) super.setFields(fields);
+        }
+
+        @Override
+        public GetCmekConfig setKey(java.lang.String key) {
+          return (GetCmekConfig) super.setKey(key);
+        }
+
+        @Override
+        public GetCmekConfig setOauthToken(java.lang.String oauthToken) {
+          return (GetCmekConfig) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public GetCmekConfig setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (GetCmekConfig) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public GetCmekConfig setQuotaUser(java.lang.String quotaUser) {
+          return (GetCmekConfig) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public GetCmekConfig setUploadType(java.lang.String uploadType) {
+          return (GetCmekConfig) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public GetCmekConfig setUploadProtocol(java.lang.String uploadProtocol) {
+          return (GetCmekConfig) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+         * `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+         * CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is
+         * returned.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+       `projects/locations/cmekConfigs`. If the caller does not have permission to access the CmekConfig,
+       regardless of whether or not it exists, a PERMISSION_DENIED error is returned.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+         * `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+         * CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is
+         * returned.
+         */
+        public GetCmekConfig setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/cmekConfig$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        @Override
+        public GetCmekConfig set(String parameterName, Object value) {
+          return (GetCmekConfig) super.set(parameterName, value);
+        }
+      }
+      /**
        * Default ACL configuration for use in a location of a customer's project. Updates will only
        * reflect to new data stores. Existing data stores will still use the old value.
        *
@@ -1023,7 +1179,674 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
           return (UpdateAclConfig) super.set(parameterName, value);
         }
       }
+      /**
+       * Provisions a CMEK key for use in a location of a customer's project. This method will also
+       * conduct location validation on the provided cmekConfig to make sure the key is valid and can be
+       * used in the selected location.
+       *
+       * Create a request for the method "locations.updateCmekConfig".
+       *
+       * This request holds the parameters needed by the discoveryengine server.  After setting any
+       * optional parameters, call the {@link UpdateCmekConfig#execute()} method to invoke the remote
+       * operation.
+       *
+       * @param name Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig`
+       *        or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+       * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig}
+       * @return the request
+       */
+      public UpdateCmekConfig updateCmekConfig(java.lang.String name, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig content) throws java.io.IOException {
+        UpdateCmekConfig result = new UpdateCmekConfig(name, content);
+        initialize(result);
+        return result;
+      }
 
+      public class UpdateCmekConfig extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation> {
+
+        private static final String REST_PATH = "v1alpha/{+name}";
+
+        private final java.util.regex.Pattern NAME_PATTERN =
+            java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/cmekConfig$");
+
+        /**
+         * Provisions a CMEK key for use in a location of a customer's project. This method will also
+         * conduct location validation on the provided cmekConfig to make sure the key is valid and can be
+         * used in the selected location.
+         *
+         * Create a request for the method "locations.updateCmekConfig".
+         *
+         * This request holds the parameters needed by the the discoveryengine server.  After setting any
+         * optional parameters, call the {@link UpdateCmekConfig#execute()} method to invoke the remote
+         * operation. <p> {@link UpdateCmekConfig#initialize(com.google.api.client.googleapis.services.Abs
+         * tractGoogleClientRequest)} must be called to initialize this instance immediately after
+         * invoking the constructor. </p>
+         *
+         * @param name Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig`
+       *        or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+         * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig}
+         * @since 1.13
+         */
+        protected UpdateCmekConfig(java.lang.String name, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig content) {
+          super(DiscoveryEngine.this, "PATCH", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation.class);
+          this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/cmekConfig$");
+          }
+        }
+
+        @Override
+        public UpdateCmekConfig set$Xgafv(java.lang.String $Xgafv) {
+          return (UpdateCmekConfig) super.set$Xgafv($Xgafv);
+        }
+
+        @Override
+        public UpdateCmekConfig setAccessToken(java.lang.String accessToken) {
+          return (UpdateCmekConfig) super.setAccessToken(accessToken);
+        }
+
+        @Override
+        public UpdateCmekConfig setAlt(java.lang.String alt) {
+          return (UpdateCmekConfig) super.setAlt(alt);
+        }
+
+        @Override
+        public UpdateCmekConfig setCallback(java.lang.String callback) {
+          return (UpdateCmekConfig) super.setCallback(callback);
+        }
+
+        @Override
+        public UpdateCmekConfig setFields(java.lang.String fields) {
+          return (UpdateCmekConfig) super.setFields(fields);
+        }
+
+        @Override
+        public UpdateCmekConfig setKey(java.lang.String key) {
+          return (UpdateCmekConfig) super.setKey(key);
+        }
+
+        @Override
+        public UpdateCmekConfig setOauthToken(java.lang.String oauthToken) {
+          return (UpdateCmekConfig) super.setOauthToken(oauthToken);
+        }
+
+        @Override
+        public UpdateCmekConfig setPrettyPrint(java.lang.Boolean prettyPrint) {
+          return (UpdateCmekConfig) super.setPrettyPrint(prettyPrint);
+        }
+
+        @Override
+        public UpdateCmekConfig setQuotaUser(java.lang.String quotaUser) {
+          return (UpdateCmekConfig) super.setQuotaUser(quotaUser);
+        }
+
+        @Override
+        public UpdateCmekConfig setUploadType(java.lang.String uploadType) {
+          return (UpdateCmekConfig) super.setUploadType(uploadType);
+        }
+
+        @Override
+        public UpdateCmekConfig setUploadProtocol(java.lang.String uploadProtocol) {
+          return (UpdateCmekConfig) super.setUploadProtocol(uploadProtocol);
+        }
+
+        /**
+         * Required. Name of the CmekConfig, of the form
+         * `projects/{project}/locations/{location}/cmekConfig` or
+         * `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.String name;
+
+        /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig`
+       or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+         */
+        public java.lang.String getName() {
+          return name;
+        }
+
+        /**
+         * Required. Name of the CmekConfig, of the form
+         * `projects/{project}/locations/{location}/cmekConfig` or
+         * `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+         */
+        public UpdateCmekConfig setName(java.lang.String name) {
+          if (!getSuppressPatternChecks()) {
+            com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                "Parameter name must conform to the pattern " +
+                "^projects/[^/]+/locations/[^/]+/cmekConfig$");
+          }
+          this.name = name;
+          return this;
+        }
+
+        /**
+         * Set the following CmekConfig as the default to be used for child resources if one is not
+         * specified.
+         */
+        @com.google.api.client.util.Key
+        private java.lang.Boolean setDefault;
+
+        /** Set the following CmekConfig as the default to be used for child resources if one is not specified.
+         */
+        public java.lang.Boolean getSetDefault() {
+          return setDefault;
+        }
+
+        /**
+         * Set the following CmekConfig as the default to be used for child resources if one is not
+         * specified.
+         */
+        public UpdateCmekConfig setSetDefault(java.lang.Boolean setDefault) {
+          this.setDefault = setDefault;
+          return this;
+        }
+
+        @Override
+        public UpdateCmekConfig set(String parameterName, Object value) {
+          return (UpdateCmekConfig) super.set(parameterName, value);
+        }
+      }
+
+      /**
+       * An accessor for creating requests from the CmekConfigs collection.
+       *
+       * <p>The typical use is:</p>
+       * <pre>
+       *   {@code DiscoveryEngine discoveryengine = new DiscoveryEngine(...);}
+       *   {@code DiscoveryEngine.CmekConfigs.List request = discoveryengine.cmekConfigs().list(parameters ...)}
+       * </pre>
+       *
+       * @return the resource collection
+       */
+      public CmekConfigs cmekConfigs() {
+        return new CmekConfigs();
+      }
+
+      /**
+       * The "cmekConfigs" collection of methods.
+       */
+      public class CmekConfigs {
+
+        /**
+         * Gets the CmekConfig.
+         *
+         * Create a request for the method "cmekConfigs.get".
+         *
+         * This request holds the parameters needed by the discoveryengine server.  After setting any
+         * optional parameters, call the {@link Get#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+         *        `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+         *        CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is returned.
+         * @return the request
+         */
+        public Get get(java.lang.String name) throws java.io.IOException {
+          Get result = new Get(name);
+          initialize(result);
+          return result;
+        }
+
+        public class Get extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig> {
+
+          private static final String REST_PATH = "v1alpha/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/cmekConfigs/[^/]+$");
+
+          /**
+           * Gets the CmekConfig.
+           *
+           * Create a request for the method "cmekConfigs.get".
+           *
+           * This request holds the parameters needed by the the discoveryengine server.  After setting any
+           * optional parameters, call the {@link Get#execute()} method to invoke the remote operation. <p>
+           * {@link Get#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+         *        `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+         *        CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is returned.
+           * @since 1.13
+           */
+          protected Get(java.lang.String name) {
+            super(DiscoveryEngine.this, "GET", REST_PATH, null, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/cmekConfigs/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public Get set$Xgafv(java.lang.String $Xgafv) {
+            return (Get) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Get setAccessToken(java.lang.String accessToken) {
+            return (Get) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Get setAlt(java.lang.String alt) {
+            return (Get) super.setAlt(alt);
+          }
+
+          @Override
+          public Get setCallback(java.lang.String callback) {
+            return (Get) super.setCallback(callback);
+          }
+
+          @Override
+          public Get setFields(java.lang.String fields) {
+            return (Get) super.setFields(fields);
+          }
+
+          @Override
+          public Get setKey(java.lang.String key) {
+            return (Get) super.setKey(key);
+          }
+
+          @Override
+          public Get setOauthToken(java.lang.String oauthToken) {
+            return (Get) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Get setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Get) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Get setQuotaUser(java.lang.String quotaUser) {
+            return (Get) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Get setUploadType(java.lang.String uploadType) {
+            return (Get) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Get setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Get) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+           * `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+           * CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is
+           * returned.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+         `projects/locations/cmekConfigs`. If the caller does not have permission to access the CmekConfig,
+         regardless of whether or not it exists, a PERMISSION_DENIED error is returned.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. Resource name of CmekConfig, such as `projects/locations/cmekConfig` or
+           * `projects/locations/cmekConfigs`. If the caller does not have permission to access the
+           * CmekConfig, regardless of whether or not it exists, a PERMISSION_DENIED error is
+           * returned.
+           */
+          public Get setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/cmekConfigs/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          @Override
+          public Get set(String parameterName, Object value) {
+            return (Get) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Lists all the CmekConfigs with the project.
+         *
+         * Create a request for the method "cmekConfigs.list".
+         *
+         * This request holds the parameters needed by the discoveryengine server.  After setting any
+         * optional parameters, call the {@link List#execute()} method to invoke the remote operation.
+         *
+         * @param parent Required. The parent location resource name, such as `projects/{project}/locations/{location}`. If
+         *        the caller does not have permission to list CmekConfigs under this location, regardless of
+         *        whether or not a CmekConfig exists, a PERMISSION_DENIED error is returned.
+         * @return the request
+         */
+        public List list(java.lang.String parent) throws java.io.IOException {
+          List result = new List(parent);
+          initialize(result);
+          return result;
+        }
+
+        public class List extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaListCmekConfigsResponse> {
+
+          private static final String REST_PATH = "v1alpha/{+parent}/cmekConfigs";
+
+          private final java.util.regex.Pattern PARENT_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+$");
+
+          /**
+           * Lists all the CmekConfigs with the project.
+           *
+           * Create a request for the method "cmekConfigs.list".
+           *
+           * This request holds the parameters needed by the the discoveryengine server.  After setting any
+           * optional parameters, call the {@link List#execute()} method to invoke the remote operation. <p>
+           * {@link List#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+           * must be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param parent Required. The parent location resource name, such as `projects/{project}/locations/{location}`. If
+         *        the caller does not have permission to list CmekConfigs under this location, regardless of
+         *        whether or not a CmekConfig exists, a PERMISSION_DENIED error is returned.
+           * @since 1.13
+           */
+          protected List(java.lang.String parent) {
+            super(DiscoveryEngine.this, "GET", REST_PATH, null, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaListCmekConfigsResponse.class);
+            this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+          }
+
+          @Override
+          public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+            return super.executeUsingHead();
+          }
+
+          @Override
+          public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+            return super.buildHttpRequestUsingHead();
+          }
+
+          @Override
+          public List set$Xgafv(java.lang.String $Xgafv) {
+            return (List) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public List setAccessToken(java.lang.String accessToken) {
+            return (List) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public List setAlt(java.lang.String alt) {
+            return (List) super.setAlt(alt);
+          }
+
+          @Override
+          public List setCallback(java.lang.String callback) {
+            return (List) super.setCallback(callback);
+          }
+
+          @Override
+          public List setFields(java.lang.String fields) {
+            return (List) super.setFields(fields);
+          }
+
+          @Override
+          public List setKey(java.lang.String key) {
+            return (List) super.setKey(key);
+          }
+
+          @Override
+          public List setOauthToken(java.lang.String oauthToken) {
+            return (List) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public List setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (List) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public List setQuotaUser(java.lang.String quotaUser) {
+            return (List) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public List setUploadType(java.lang.String uploadType) {
+            return (List) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public List setUploadProtocol(java.lang.String uploadProtocol) {
+            return (List) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The parent location resource name, such as
+           * `projects/{project}/locations/{location}`. If the caller does not have permission to
+           * list CmekConfigs under this location, regardless of whether or not a CmekConfig exists,
+           * a PERMISSION_DENIED error is returned.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String parent;
+
+          /** Required. The parent location resource name, such as `projects/{project}/locations/{location}`. If
+         the caller does not have permission to list CmekConfigs under this location, regardless of whether
+         or not a CmekConfig exists, a PERMISSION_DENIED error is returned.
+           */
+          public java.lang.String getParent() {
+            return parent;
+          }
+
+          /**
+           * Required. The parent location resource name, such as
+           * `projects/{project}/locations/{location}`. If the caller does not have permission to
+           * list CmekConfigs under this location, regardless of whether or not a CmekConfig exists,
+           * a PERMISSION_DENIED error is returned.
+           */
+          public List setParent(java.lang.String parent) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                  "Parameter parent must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+$");
+            }
+            this.parent = parent;
+            return this;
+          }
+
+          @Override
+          public List set(String parameterName, Object value) {
+            return (List) super.set(parameterName, value);
+          }
+        }
+        /**
+         * Provisions a CMEK key for use in a location of a customer's project. This method will also
+         * conduct location validation on the provided cmekConfig to make sure the key is valid and can be
+         * used in the selected location.
+         *
+         * Create a request for the method "cmekConfigs.patch".
+         *
+         * This request holds the parameters needed by the discoveryengine server.  After setting any
+         * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+         *
+         * @param name Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig`
+         *        or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+         * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig}
+         * @return the request
+         */
+        public Patch patch(java.lang.String name, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig content) throws java.io.IOException {
+          Patch result = new Patch(name, content);
+          initialize(result);
+          return result;
+        }
+
+        public class Patch extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation> {
+
+          private static final String REST_PATH = "v1alpha/{+name}";
+
+          private final java.util.regex.Pattern NAME_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/cmekConfigs/[^/]+$");
+
+          /**
+           * Provisions a CMEK key for use in a location of a customer's project. This method will also
+           * conduct location validation on the provided cmekConfig to make sure the key is valid and can be
+           * used in the selected location.
+           *
+           * Create a request for the method "cmekConfigs.patch".
+           *
+           * This request holds the parameters needed by the the discoveryengine server.  After setting any
+           * optional parameters, call the {@link Patch#execute()} method to invoke the remote operation.
+           * <p> {@link
+           * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+           * be called to initialize this instance immediately after invoking the constructor. </p>
+           *
+           * @param name Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig`
+         *        or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+           * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig}
+           * @since 1.13
+           */
+          protected Patch(java.lang.String name, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaCmekConfig content) {
+            super(DiscoveryEngine.this, "PATCH", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation.class);
+            this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/cmekConfigs/[^/]+$");
+            }
+          }
+
+          @Override
+          public Patch set$Xgafv(java.lang.String $Xgafv) {
+            return (Patch) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public Patch setAccessToken(java.lang.String accessToken) {
+            return (Patch) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public Patch setAlt(java.lang.String alt) {
+            return (Patch) super.setAlt(alt);
+          }
+
+          @Override
+          public Patch setCallback(java.lang.String callback) {
+            return (Patch) super.setCallback(callback);
+          }
+
+          @Override
+          public Patch setFields(java.lang.String fields) {
+            return (Patch) super.setFields(fields);
+          }
+
+          @Override
+          public Patch setKey(java.lang.String key) {
+            return (Patch) super.setKey(key);
+          }
+
+          @Override
+          public Patch setOauthToken(java.lang.String oauthToken) {
+            return (Patch) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public Patch setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (Patch) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public Patch setQuotaUser(java.lang.String quotaUser) {
+            return (Patch) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public Patch setUploadType(java.lang.String uploadType) {
+            return (Patch) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public Patch setUploadProtocol(java.lang.String uploadProtocol) {
+            return (Patch) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. Name of the CmekConfig, of the form
+           * `projects/{project}/locations/{location}/cmekConfig` or
+           * `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String name;
+
+          /** Required. Name of the CmekConfig, of the form `projects/{project}/locations/{location}/cmekConfig`
+         or `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+           */
+          public java.lang.String getName() {
+            return name;
+          }
+
+          /**
+           * Required. Name of the CmekConfig, of the form
+           * `projects/{project}/locations/{location}/cmekConfig` or
+           * `projects/{project}/locations/{location}/cmekConfigs/{cmekConfig}`.
+           */
+          public Patch setName(java.lang.String name) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                  "Parameter name must conform to the pattern " +
+                  "^projects/[^/]+/locations/[^/]+/cmekConfigs/[^/]+$");
+            }
+            this.name = name;
+            return this;
+          }
+
+          /**
+           * Set the following CmekConfig as the default to be used for child resources if one is
+           * not specified.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean setDefault;
+
+          /** Set the following CmekConfig as the default to be used for child resources if one is not specified.
+           */
+          public java.lang.Boolean getSetDefault() {
+            return setDefault;
+          }
+
+          /**
+           * Set the following CmekConfig as the default to be used for child resources if one is
+           * not specified.
+           */
+          public Patch setSetDefault(java.lang.Boolean setDefault) {
+            this.setDefault = setDefault;
+            return this;
+          }
+
+          @Override
+          public Patch set(String parameterName, Object value) {
+            return (Patch) super.set(parameterName, value);
+          }
+        }
+
+      }
       /**
        * An accessor for creating requests from the Collections collection.
        *
@@ -1853,6 +2676,22 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
               return this;
             }
 
+            /** Resource name of the CmekConfig to use for protecting this DataStore. */
+            @com.google.api.client.util.Key
+            private java.lang.String cmekConfigName;
+
+            /** Resource name of the CmekConfig to use for protecting this DataStore.
+             */
+            public java.lang.String getCmekConfigName() {
+              return cmekConfigName;
+            }
+
+            /** Resource name of the CmekConfig to use for protecting this DataStore. */
+            public Create setCmekConfigName(java.lang.String cmekConfigName) {
+              this.cmekConfigName = cmekConfigName;
+              return this;
+            }
+
             /**
              * A boolean flag indicating whether user want to directly create an advanced data store
              * for site search. If the data store is not configured as site search (GENERIC vertical
@@ -1904,6 +2743,29 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
              */
             public Create setDataStoreId(java.lang.String dataStoreId) {
               this.dataStoreId = dataStoreId;
+              return this;
+            }
+
+            /**
+             * DataStore without CMEK protections. If a default CmekConfig is set for the project,
+             * setting this field will override the default CmekConfig as well.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.Boolean disableCmek;
+
+            /** DataStore without CMEK protections. If a default CmekConfig is set for the project, setting this
+           field will override the default CmekConfig as well.
+             */
+            public java.lang.Boolean getDisableCmek() {
+              return disableCmek;
+            }
+
+            /**
+             * DataStore without CMEK protections. If a default CmekConfig is set for the project,
+             * setting this field will override the default CmekConfig as well.
+             */
+            public Create setDisableCmek(java.lang.Boolean disableCmek) {
+              this.disableCmek = disableCmek;
               return this;
             }
 
@@ -5812,6 +6674,179 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
               }
 
             }
+          }
+          /**
+           * An accessor for creating requests from the CompletionConfig collection.
+           *
+           * <p>The typical use is:</p>
+           * <pre>
+           *   {@code DiscoveryEngine discoveryengine = new DiscoveryEngine(...);}
+           *   {@code DiscoveryEngine.CompletionConfig.List request = discoveryengine.completionConfig().list(parameters ...)}
+           * </pre>
+           *
+           * @return the resource collection
+           */
+          public CompletionConfig completionConfig() {
+            return new CompletionConfig();
+          }
+
+          /**
+           * The "completionConfig" collection of methods.
+           */
+          public class CompletionConfig {
+
+            /**
+             * Completes the user input with advanced keyword suggestions.
+             *
+             * Create a request for the method "completionConfig.completeQuery".
+             *
+             * This request holds the parameters needed by the discoveryengine server.  After setting any
+             * optional parameters, call the {@link CompleteQuery#execute()} method to invoke the remote
+             * operation.
+             *
+             * @param completionConfig Required. The completion_config of the parent dataStore or engine resource name for which the
+             *        completion is performed, such as
+             *        `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+             *        `projects/locations/global/collections/default_collection/engines/completionConfig`.
+             * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest}
+             * @return the request
+             */
+            public CompleteQuery completeQuery(java.lang.String completionConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest content) throws java.io.IOException {
+              CompleteQuery result = new CompleteQuery(completionConfig, content);
+              initialize(result);
+              return result;
+            }
+
+            public class CompleteQuery extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryResponse> {
+
+              private static final String REST_PATH = "v1alpha/{+completionConfig}:completeQuery";
+
+              private final java.util.regex.Pattern COMPLETION_CONFIG_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/completionConfig$");
+
+              /**
+               * Completes the user input with advanced keyword suggestions.
+               *
+               * Create a request for the method "completionConfig.completeQuery".
+               *
+               * This request holds the parameters needed by the the discoveryengine server.  After setting any
+               * optional parameters, call the {@link CompleteQuery#execute()} method to invoke the remote
+               * operation. <p> {@link CompleteQuery#initialize(com.google.api.client.googleapis.services.Abstra
+               * ctGoogleClientRequest)} must be called to initialize this instance immediately after invoking
+               * the constructor. </p>
+               *
+               * @param completionConfig Required. The completion_config of the parent dataStore or engine resource name for which the
+             *        completion is performed, such as
+             *        `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+             *        `projects/locations/global/collections/default_collection/engines/completionConfig`.
+               * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest}
+               * @since 1.13
+               */
+              protected CompleteQuery(java.lang.String completionConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest content) {
+                super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryResponse.class);
+                this.completionConfig = com.google.api.client.util.Preconditions.checkNotNull(completionConfig, "Required parameter completionConfig must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(COMPLETION_CONFIG_PATTERN.matcher(completionConfig).matches(),
+                      "Parameter completionConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/completionConfig$");
+                }
+              }
+
+              @Override
+              public CompleteQuery set$Xgafv(java.lang.String $Xgafv) {
+                return (CompleteQuery) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public CompleteQuery setAccessToken(java.lang.String accessToken) {
+                return (CompleteQuery) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public CompleteQuery setAlt(java.lang.String alt) {
+                return (CompleteQuery) super.setAlt(alt);
+              }
+
+              @Override
+              public CompleteQuery setCallback(java.lang.String callback) {
+                return (CompleteQuery) super.setCallback(callback);
+              }
+
+              @Override
+              public CompleteQuery setFields(java.lang.String fields) {
+                return (CompleteQuery) super.setFields(fields);
+              }
+
+              @Override
+              public CompleteQuery setKey(java.lang.String key) {
+                return (CompleteQuery) super.setKey(key);
+              }
+
+              @Override
+              public CompleteQuery setOauthToken(java.lang.String oauthToken) {
+                return (CompleteQuery) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public CompleteQuery setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (CompleteQuery) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public CompleteQuery setQuotaUser(java.lang.String quotaUser) {
+                return (CompleteQuery) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public CompleteQuery setUploadType(java.lang.String uploadType) {
+                return (CompleteQuery) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public CompleteQuery setUploadProtocol(java.lang.String uploadProtocol) {
+                return (CompleteQuery) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. The completion_config of the parent dataStore or engine resource name for
+               * which the completion is performed, such as `projects/locations/global/collections/d
+               * efault_collection/dataStores/completionConfig` `projects/locations/global/collectio
+               * ns/default_collection/engines/completionConfig`.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String completionConfig;
+
+              /** Required. The completion_config of the parent dataStore or engine resource name for which the
+             completion is performed, such as
+             `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+             `projects/locations/global/collections/default_collection/engines/completionConfig`.
+               */
+              public java.lang.String getCompletionConfig() {
+                return completionConfig;
+              }
+
+              /**
+               * Required. The completion_config of the parent dataStore or engine resource name for
+               * which the completion is performed, such as `projects/locations/global/collections/d
+               * efault_collection/dataStores/completionConfig` `projects/locations/global/collectio
+               * ns/default_collection/engines/completionConfig`.
+               */
+              public CompleteQuery setCompletionConfig(java.lang.String completionConfig) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(COMPLETION_CONFIG_PATTERN.matcher(completionConfig).matches(),
+                      "Parameter completionConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/completionConfig$");
+                }
+                this.completionConfig = completionConfig;
+                return this;
+              }
+
+              @Override
+              public CompleteQuery set(String parameterName, Object value) {
+                return (CompleteQuery) super.set(parameterName, value);
+              }
+            }
+
           }
           /**
            * An accessor for creating requests from the CompletionSuggestions collection.
@@ -11120,6 +12155,173 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
                 return (Search) super.set(parameterName, value);
               }
             }
+            /**
+             * Performs a search. Similar to the SearchService.Search method, but a lite version that allows API
+             * key for authentication, where OAuth and IAM checks are not required. Only public website search
+             * is supported by this method. If data stores and engines not associated with public website search
+             * are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy
+             * onboarding without having to implement an authentication backend. However, it is strongly
+             * recommended to use SearchService.Search instead with required OAuth and IAM checks to provide
+             * better data security.
+             *
+             * Create a request for the method "servingConfigs.searchLite".
+             *
+             * This request holds the parameters needed by the discoveryengine server.  After setting any
+             * optional parameters, call the {@link SearchLite#execute()} method to invoke the remote operation.
+             *
+             * @param servingConfig Required. The resource name of the Search serving config, such as `projects/locations/global/collect
+             *        ions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locat
+             *        ions/global/collections/default_collection/dataStores/default_data_store/servingConfigs/de
+             *        fault_serving_config`. This field is used to identify the serving configuration name, set
+             *        of models used to make the search.
+             * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest}
+             * @return the request
+             */
+            public SearchLite searchLite(java.lang.String servingConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest content) throws java.io.IOException {
+              SearchLite result = new SearchLite(servingConfig, content);
+              initialize(result);
+              return result;
+            }
+
+            public class SearchLite extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchResponse> {
+
+              private static final String REST_PATH = "v1alpha/{+servingConfig}:searchLite";
+
+              private final java.util.regex.Pattern SERVING_CONFIG_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/servingConfigs/[^/]+$");
+
+              /**
+               * Performs a search. Similar to the SearchService.Search method, but a lite version that allows
+               * API key for authentication, where OAuth and IAM checks are not required. Only public website
+               * search is supported by this method. If data stores and engines not associated with public
+               * website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be
+               * used for easy onboarding without having to implement an authentication backend. However, it is
+               * strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to
+               * provide better data security.
+               *
+               * Create a request for the method "servingConfigs.searchLite".
+               *
+               * This request holds the parameters needed by the the discoveryengine server.  After setting any
+               * optional parameters, call the {@link SearchLite#execute()} method to invoke the remote
+               * operation. <p> {@link
+               * SearchLite#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+               * must be called to initialize this instance immediately after invoking the constructor. </p>
+               *
+               * @param servingConfig Required. The resource name of the Search serving config, such as `projects/locations/global/collect
+             *        ions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locat
+             *        ions/global/collections/default_collection/dataStores/default_data_store/servingConfigs/de
+             *        fault_serving_config`. This field is used to identify the serving configuration name, set
+             *        of models used to make the search.
+               * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest}
+               * @since 1.13
+               */
+              protected SearchLite(java.lang.String servingConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest content) {
+                super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchResponse.class);
+                this.servingConfig = com.google.api.client.util.Preconditions.checkNotNull(servingConfig, "Required parameter servingConfig must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(SERVING_CONFIG_PATTERN.matcher(servingConfig).matches(),
+                      "Parameter servingConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/servingConfigs/[^/]+$");
+                }
+              }
+
+              @Override
+              public SearchLite set$Xgafv(java.lang.String $Xgafv) {
+                return (SearchLite) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public SearchLite setAccessToken(java.lang.String accessToken) {
+                return (SearchLite) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public SearchLite setAlt(java.lang.String alt) {
+                return (SearchLite) super.setAlt(alt);
+              }
+
+              @Override
+              public SearchLite setCallback(java.lang.String callback) {
+                return (SearchLite) super.setCallback(callback);
+              }
+
+              @Override
+              public SearchLite setFields(java.lang.String fields) {
+                return (SearchLite) super.setFields(fields);
+              }
+
+              @Override
+              public SearchLite setKey(java.lang.String key) {
+                return (SearchLite) super.setKey(key);
+              }
+
+              @Override
+              public SearchLite setOauthToken(java.lang.String oauthToken) {
+                return (SearchLite) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public SearchLite setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (SearchLite) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public SearchLite setQuotaUser(java.lang.String quotaUser) {
+                return (SearchLite) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public SearchLite setUploadType(java.lang.String uploadType) {
+                return (SearchLite) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public SearchLite setUploadProtocol(java.lang.String uploadProtocol) {
+                return (SearchLite) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. The resource name of the Search serving config, such as `projects/locatio
+               * ns/global/collections/default_collection/engines/servingConfigs/default_serving_con
+               * fig`, or `projects/locations/global/collections/default_collection/dataStores/defau
+               * lt_data_store/servingConfigs/default_serving_config`. This field is used to
+               * identify the serving configuration name, set of models used to make the search.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String servingConfig;
+
+              /** Required. The resource name of the Search serving config, such as `projects/locations/global/collec
+             tions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locations/glo
+             bal/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_con
+             fig`. This field is used to identify the serving configuration name, set of models used to make the
+             search.
+               */
+              public java.lang.String getServingConfig() {
+                return servingConfig;
+              }
+
+              /**
+               * Required. The resource name of the Search serving config, such as `projects/locatio
+               * ns/global/collections/default_collection/engines/servingConfigs/default_serving_con
+               * fig`, or `projects/locations/global/collections/default_collection/dataStores/defau
+               * lt_data_store/servingConfigs/default_serving_config`. This field is used to
+               * identify the serving configuration name, set of models used to make the search.
+               */
+              public SearchLite setServingConfig(java.lang.String servingConfig) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(SERVING_CONFIG_PATTERN.matcher(servingConfig).matches(),
+                      "Parameter servingConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/servingConfigs/[^/]+$");
+                }
+                this.servingConfig = servingConfig;
+                return this;
+              }
+
+              @Override
+              public SearchLite set(String parameterName, Object value) {
+                return (SearchLite) super.set(parameterName, value);
+              }
+            }
 
           }
           /**
@@ -13592,6 +14794,321 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
                 @Override
                 public List set(String parameterName, Object value) {
                   return (List) super.set(parameterName, value);
+                }
+              }
+
+            }
+            /**
+             * An accessor for creating requests from the Sitemaps collection.
+             *
+             * <p>The typical use is:</p>
+             * <pre>
+             *   {@code DiscoveryEngine discoveryengine = new DiscoveryEngine(...);}
+             *   {@code DiscoveryEngine.Sitemaps.List request = discoveryengine.sitemaps().list(parameters ...)}
+             * </pre>
+             *
+             * @return the resource collection
+             */
+            public Sitemaps sitemaps() {
+              return new Sitemaps();
+            }
+
+            /**
+             * The "sitemaps" collection of methods.
+             */
+            public class Sitemaps {
+
+              /**
+               * Creates a Sitemap.
+               *
+               * Create a request for the method "sitemaps.create".
+               *
+               * This request holds the parameters needed by the discoveryengine server.  After setting any
+               * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+               *
+               * @param parent Required. Parent resource name of the SiteSearchEngine, such as
+               *        `projects/locations/collections/dataStores/siteSearchEngine`.
+               * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap}
+               * @return the request
+               */
+              public Create create(java.lang.String parent, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap content) throws java.io.IOException {
+                Create result = new Create(parent, content);
+                initialize(result);
+                return result;
+              }
+
+              public class Create extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation> {
+
+                private static final String REST_PATH = "v1alpha/{+parent}/sitemaps";
+
+                private final java.util.regex.Pattern PARENT_PATTERN =
+                    java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+
+                /**
+                 * Creates a Sitemap.
+                 *
+                 * Create a request for the method "sitemaps.create".
+                 *
+                 * This request holds the parameters needed by the the discoveryengine server.  After setting any
+                 * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+                 * <p> {@link
+                 * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+                 * be called to initialize this instance immediately after invoking the constructor. </p>
+                 *
+                 * @param parent Required. Parent resource name of the SiteSearchEngine, such as
+               *        `projects/locations/collections/dataStores/siteSearchEngine`.
+                 * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap}
+                 * @since 1.13
+                 */
+                protected Create(java.lang.String parent, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap content) {
+                  super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation.class);
+                  this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+                  if (!getSuppressPatternChecks()) {
+                    com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                        "Parameter parent must conform to the pattern " +
+                        "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+                  }
+                }
+
+                @Override
+                public Create set$Xgafv(java.lang.String $Xgafv) {
+                  return (Create) super.set$Xgafv($Xgafv);
+                }
+
+                @Override
+                public Create setAccessToken(java.lang.String accessToken) {
+                  return (Create) super.setAccessToken(accessToken);
+                }
+
+                @Override
+                public Create setAlt(java.lang.String alt) {
+                  return (Create) super.setAlt(alt);
+                }
+
+                @Override
+                public Create setCallback(java.lang.String callback) {
+                  return (Create) super.setCallback(callback);
+                }
+
+                @Override
+                public Create setFields(java.lang.String fields) {
+                  return (Create) super.setFields(fields);
+                }
+
+                @Override
+                public Create setKey(java.lang.String key) {
+                  return (Create) super.setKey(key);
+                }
+
+                @Override
+                public Create setOauthToken(java.lang.String oauthToken) {
+                  return (Create) super.setOauthToken(oauthToken);
+                }
+
+                @Override
+                public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+                  return (Create) super.setPrettyPrint(prettyPrint);
+                }
+
+                @Override
+                public Create setQuotaUser(java.lang.String quotaUser) {
+                  return (Create) super.setQuotaUser(quotaUser);
+                }
+
+                @Override
+                public Create setUploadType(java.lang.String uploadType) {
+                  return (Create) super.setUploadType(uploadType);
+                }
+
+                @Override
+                public Create setUploadProtocol(java.lang.String uploadProtocol) {
+                  return (Create) super.setUploadProtocol(uploadProtocol);
+                }
+
+                /**
+                 * Required. Parent resource name of the SiteSearchEngine, such as
+                 * `projects/locations/collections/dataStores/siteSearchEngine`.
+                 */
+                @com.google.api.client.util.Key
+                private java.lang.String parent;
+
+                /** Required. Parent resource name of the SiteSearchEngine, such as
+               `projects/locations/collections/dataStores/siteSearchEngine`.
+                 */
+                public java.lang.String getParent() {
+                  return parent;
+                }
+
+                /**
+                 * Required. Parent resource name of the SiteSearchEngine, such as
+                 * `projects/locations/collections/dataStores/siteSearchEngine`.
+                 */
+                public Create setParent(java.lang.String parent) {
+                  if (!getSuppressPatternChecks()) {
+                    com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                        "Parameter parent must conform to the pattern " +
+                        "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+                  }
+                  this.parent = parent;
+                  return this;
+                }
+
+                @Override
+                public Create set(String parameterName, Object value) {
+                  return (Create) super.set(parameterName, value);
+                }
+              }
+              /**
+               * Deletes a Sitemap.
+               *
+               * Create a request for the method "sitemaps.delete".
+               *
+               * This request holds the parameters needed by the discoveryengine server.  After setting any
+               * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+               *
+               * @param name Required. Full resource name of Sitemap, such as `projects/{project}/locations/{location}/collection
+               *        s/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`. If the caller
+               *        does not have permission to access the Sitemap, regardless of whether or not it exists, a
+               *        PERMISSION_DENIED error is returned. If the requested Sitemap does not exist, a NOT_FOUND
+               *        error is returned.
+               * @return the request
+               */
+              public Delete delete(java.lang.String name) throws java.io.IOException {
+                Delete result = new Delete(name);
+                initialize(result);
+                return result;
+              }
+
+              public class Delete extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation> {
+
+                private static final String REST_PATH = "v1alpha/{+name}";
+
+                private final java.util.regex.Pattern NAME_PATTERN =
+                    java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/siteSearchEngine/sitemaps/[^/]+$");
+
+                /**
+                 * Deletes a Sitemap.
+                 *
+                 * Create a request for the method "sitemaps.delete".
+                 *
+                 * This request holds the parameters needed by the the discoveryengine server.  After setting any
+                 * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+                 * <p> {@link
+                 * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+                 * be called to initialize this instance immediately after invoking the constructor. </p>
+                 *
+                 * @param name Required. Full resource name of Sitemap, such as `projects/{project}/locations/{location}/collection
+               *        s/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`. If the caller
+               *        does not have permission to access the Sitemap, regardless of whether or not it exists, a
+               *        PERMISSION_DENIED error is returned. If the requested Sitemap does not exist, a NOT_FOUND
+               *        error is returned.
+                 * @since 1.13
+                 */
+                protected Delete(java.lang.String name) {
+                  super(DiscoveryEngine.this, "DELETE", REST_PATH, null, com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation.class);
+                  this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+                  if (!getSuppressPatternChecks()) {
+                    com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                        "Parameter name must conform to the pattern " +
+                        "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/siteSearchEngine/sitemaps/[^/]+$");
+                  }
+                }
+
+                @Override
+                public Delete set$Xgafv(java.lang.String $Xgafv) {
+                  return (Delete) super.set$Xgafv($Xgafv);
+                }
+
+                @Override
+                public Delete setAccessToken(java.lang.String accessToken) {
+                  return (Delete) super.setAccessToken(accessToken);
+                }
+
+                @Override
+                public Delete setAlt(java.lang.String alt) {
+                  return (Delete) super.setAlt(alt);
+                }
+
+                @Override
+                public Delete setCallback(java.lang.String callback) {
+                  return (Delete) super.setCallback(callback);
+                }
+
+                @Override
+                public Delete setFields(java.lang.String fields) {
+                  return (Delete) super.setFields(fields);
+                }
+
+                @Override
+                public Delete setKey(java.lang.String key) {
+                  return (Delete) super.setKey(key);
+                }
+
+                @Override
+                public Delete setOauthToken(java.lang.String oauthToken) {
+                  return (Delete) super.setOauthToken(oauthToken);
+                }
+
+                @Override
+                public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+                  return (Delete) super.setPrettyPrint(prettyPrint);
+                }
+
+                @Override
+                public Delete setQuotaUser(java.lang.String quotaUser) {
+                  return (Delete) super.setQuotaUser(quotaUser);
+                }
+
+                @Override
+                public Delete setUploadType(java.lang.String uploadType) {
+                  return (Delete) super.setUploadType(uploadType);
+                }
+
+                @Override
+                public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+                  return (Delete) super.setUploadProtocol(uploadProtocol);
+                }
+
+                /**
+                 * Required. Full resource name of Sitemap, such as `projects/{project}/locations/{l
+                 * ocation}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitema
+                 * ps/{sitemap}`. If the caller does not have permission to access the Sitemap,
+                 * regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If
+                 * the requested Sitemap does not exist, a NOT_FOUND error is returned.
+                 */
+                @com.google.api.client.util.Key
+                private java.lang.String name;
+
+                /** Required. Full resource name of Sitemap, such as `projects/{project}/locations/{location}/collectio
+               ns/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`. If the caller does
+               not have permission to access the Sitemap, regardless of whether or not it exists, a
+               PERMISSION_DENIED error is returned. If the requested Sitemap does not exist, a NOT_FOUND error is
+               returned.
+                 */
+                public java.lang.String getName() {
+                  return name;
+                }
+
+                /**
+                 * Required. Full resource name of Sitemap, such as `projects/{project}/locations/{l
+                 * ocation}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitema
+                 * ps/{sitemap}`. If the caller does not have permission to access the Sitemap,
+                 * regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If
+                 * the requested Sitemap does not exist, a NOT_FOUND error is returned.
+                 */
+                public Delete setName(java.lang.String name) {
+                  if (!getSuppressPatternChecks()) {
+                    com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                        "Parameter name must conform to the pattern " +
+                        "^projects/[^/]+/locations/[^/]+/collections/[^/]+/dataStores/[^/]+/siteSearchEngine/sitemaps/[^/]+$");
+                  }
+                  this.name = name;
+                  return this;
+                }
+
+                @Override
+                public Delete set(String parameterName, Object value) {
+                  return (Delete) super.set(parameterName, value);
                 }
               }
 
@@ -17244,6 +18761,179 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
           }
 
           /**
+           * An accessor for creating requests from the CompletionConfig collection.
+           *
+           * <p>The typical use is:</p>
+           * <pre>
+           *   {@code DiscoveryEngine discoveryengine = new DiscoveryEngine(...);}
+           *   {@code DiscoveryEngine.CompletionConfig.List request = discoveryengine.completionConfig().list(parameters ...)}
+           * </pre>
+           *
+           * @return the resource collection
+           */
+          public CompletionConfig completionConfig() {
+            return new CompletionConfig();
+          }
+
+          /**
+           * The "completionConfig" collection of methods.
+           */
+          public class CompletionConfig {
+
+            /**
+             * Completes the user input with advanced keyword suggestions.
+             *
+             * Create a request for the method "completionConfig.completeQuery".
+             *
+             * This request holds the parameters needed by the discoveryengine server.  After setting any
+             * optional parameters, call the {@link CompleteQuery#execute()} method to invoke the remote
+             * operation.
+             *
+             * @param completionConfig Required. The completion_config of the parent dataStore or engine resource name for which the
+             *        completion is performed, such as
+             *        `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+             *        `projects/locations/global/collections/default_collection/engines/completionConfig`.
+             * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest}
+             * @return the request
+             */
+            public CompleteQuery completeQuery(java.lang.String completionConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest content) throws java.io.IOException {
+              CompleteQuery result = new CompleteQuery(completionConfig, content);
+              initialize(result);
+              return result;
+            }
+
+            public class CompleteQuery extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryResponse> {
+
+              private static final String REST_PATH = "v1alpha/{+completionConfig}:completeQuery";
+
+              private final java.util.regex.Pattern COMPLETION_CONFIG_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/collections/[^/]+/engines/[^/]+/completionConfig$");
+
+              /**
+               * Completes the user input with advanced keyword suggestions.
+               *
+               * Create a request for the method "completionConfig.completeQuery".
+               *
+               * This request holds the parameters needed by the the discoveryengine server.  After setting any
+               * optional parameters, call the {@link CompleteQuery#execute()} method to invoke the remote
+               * operation. <p> {@link CompleteQuery#initialize(com.google.api.client.googleapis.services.Abstra
+               * ctGoogleClientRequest)} must be called to initialize this instance immediately after invoking
+               * the constructor. </p>
+               *
+               * @param completionConfig Required. The completion_config of the parent dataStore or engine resource name for which the
+             *        completion is performed, such as
+             *        `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+             *        `projects/locations/global/collections/default_collection/engines/completionConfig`.
+               * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest}
+               * @since 1.13
+               */
+              protected CompleteQuery(java.lang.String completionConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest content) {
+                super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryResponse.class);
+                this.completionConfig = com.google.api.client.util.Preconditions.checkNotNull(completionConfig, "Required parameter completionConfig must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(COMPLETION_CONFIG_PATTERN.matcher(completionConfig).matches(),
+                      "Parameter completionConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/engines/[^/]+/completionConfig$");
+                }
+              }
+
+              @Override
+              public CompleteQuery set$Xgafv(java.lang.String $Xgafv) {
+                return (CompleteQuery) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public CompleteQuery setAccessToken(java.lang.String accessToken) {
+                return (CompleteQuery) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public CompleteQuery setAlt(java.lang.String alt) {
+                return (CompleteQuery) super.setAlt(alt);
+              }
+
+              @Override
+              public CompleteQuery setCallback(java.lang.String callback) {
+                return (CompleteQuery) super.setCallback(callback);
+              }
+
+              @Override
+              public CompleteQuery setFields(java.lang.String fields) {
+                return (CompleteQuery) super.setFields(fields);
+              }
+
+              @Override
+              public CompleteQuery setKey(java.lang.String key) {
+                return (CompleteQuery) super.setKey(key);
+              }
+
+              @Override
+              public CompleteQuery setOauthToken(java.lang.String oauthToken) {
+                return (CompleteQuery) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public CompleteQuery setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (CompleteQuery) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public CompleteQuery setQuotaUser(java.lang.String quotaUser) {
+                return (CompleteQuery) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public CompleteQuery setUploadType(java.lang.String uploadType) {
+                return (CompleteQuery) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public CompleteQuery setUploadProtocol(java.lang.String uploadProtocol) {
+                return (CompleteQuery) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. The completion_config of the parent dataStore or engine resource name for
+               * which the completion is performed, such as `projects/locations/global/collections/d
+               * efault_collection/dataStores/completionConfig` `projects/locations/global/collectio
+               * ns/default_collection/engines/completionConfig`.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String completionConfig;
+
+              /** Required. The completion_config of the parent dataStore or engine resource name for which the
+             completion is performed, such as
+             `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+             `projects/locations/global/collections/default_collection/engines/completionConfig`.
+               */
+              public java.lang.String getCompletionConfig() {
+                return completionConfig;
+              }
+
+              /**
+               * Required. The completion_config of the parent dataStore or engine resource name for
+               * which the completion is performed, such as `projects/locations/global/collections/d
+               * efault_collection/dataStores/completionConfig` `projects/locations/global/collectio
+               * ns/default_collection/engines/completionConfig`.
+               */
+              public CompleteQuery setCompletionConfig(java.lang.String completionConfig) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(COMPLETION_CONFIG_PATTERN.matcher(completionConfig).matches(),
+                      "Parameter completionConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/engines/[^/]+/completionConfig$");
+                }
+                this.completionConfig = completionConfig;
+                return this;
+              }
+
+              @Override
+              public CompleteQuery set(String parameterName, Object value) {
+                return (CompleteQuery) super.set(parameterName, value);
+              }
+            }
+
+          }
+          /**
            * An accessor for creating requests from the Controls collection.
            *
            * <p>The typical use is:</p>
@@ -20498,6 +22188,173 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
                 return (Search) super.set(parameterName, value);
               }
             }
+            /**
+             * Performs a search. Similar to the SearchService.Search method, but a lite version that allows API
+             * key for authentication, where OAuth and IAM checks are not required. Only public website search
+             * is supported by this method. If data stores and engines not associated with public website search
+             * are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy
+             * onboarding without having to implement an authentication backend. However, it is strongly
+             * recommended to use SearchService.Search instead with required OAuth and IAM checks to provide
+             * better data security.
+             *
+             * Create a request for the method "servingConfigs.searchLite".
+             *
+             * This request holds the parameters needed by the discoveryengine server.  After setting any
+             * optional parameters, call the {@link SearchLite#execute()} method to invoke the remote operation.
+             *
+             * @param servingConfig Required. The resource name of the Search serving config, such as `projects/locations/global/collect
+             *        ions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locat
+             *        ions/global/collections/default_collection/dataStores/default_data_store/servingConfigs/de
+             *        fault_serving_config`. This field is used to identify the serving configuration name, set
+             *        of models used to make the search.
+             * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest}
+             * @return the request
+             */
+            public SearchLite searchLite(java.lang.String servingConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest content) throws java.io.IOException {
+              SearchLite result = new SearchLite(servingConfig, content);
+              initialize(result);
+              return result;
+            }
+
+            public class SearchLite extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchResponse> {
+
+              private static final String REST_PATH = "v1alpha/{+servingConfig}:searchLite";
+
+              private final java.util.regex.Pattern SERVING_CONFIG_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/collections/[^/]+/engines/[^/]+/servingConfigs/[^/]+$");
+
+              /**
+               * Performs a search. Similar to the SearchService.Search method, but a lite version that allows
+               * API key for authentication, where OAuth and IAM checks are not required. Only public website
+               * search is supported by this method. If data stores and engines not associated with public
+               * website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be
+               * used for easy onboarding without having to implement an authentication backend. However, it is
+               * strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to
+               * provide better data security.
+               *
+               * Create a request for the method "servingConfigs.searchLite".
+               *
+               * This request holds the parameters needed by the the discoveryengine server.  After setting any
+               * optional parameters, call the {@link SearchLite#execute()} method to invoke the remote
+               * operation. <p> {@link
+               * SearchLite#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+               * must be called to initialize this instance immediately after invoking the constructor. </p>
+               *
+               * @param servingConfig Required. The resource name of the Search serving config, such as `projects/locations/global/collect
+             *        ions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locat
+             *        ions/global/collections/default_collection/dataStores/default_data_store/servingConfigs/de
+             *        fault_serving_config`. This field is used to identify the serving configuration name, set
+             *        of models used to make the search.
+               * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest}
+               * @since 1.13
+               */
+              protected SearchLite(java.lang.String servingConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest content) {
+                super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchResponse.class);
+                this.servingConfig = com.google.api.client.util.Preconditions.checkNotNull(servingConfig, "Required parameter servingConfig must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(SERVING_CONFIG_PATTERN.matcher(servingConfig).matches(),
+                      "Parameter servingConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/engines/[^/]+/servingConfigs/[^/]+$");
+                }
+              }
+
+              @Override
+              public SearchLite set$Xgafv(java.lang.String $Xgafv) {
+                return (SearchLite) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public SearchLite setAccessToken(java.lang.String accessToken) {
+                return (SearchLite) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public SearchLite setAlt(java.lang.String alt) {
+                return (SearchLite) super.setAlt(alt);
+              }
+
+              @Override
+              public SearchLite setCallback(java.lang.String callback) {
+                return (SearchLite) super.setCallback(callback);
+              }
+
+              @Override
+              public SearchLite setFields(java.lang.String fields) {
+                return (SearchLite) super.setFields(fields);
+              }
+
+              @Override
+              public SearchLite setKey(java.lang.String key) {
+                return (SearchLite) super.setKey(key);
+              }
+
+              @Override
+              public SearchLite setOauthToken(java.lang.String oauthToken) {
+                return (SearchLite) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public SearchLite setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (SearchLite) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public SearchLite setQuotaUser(java.lang.String quotaUser) {
+                return (SearchLite) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public SearchLite setUploadType(java.lang.String uploadType) {
+                return (SearchLite) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public SearchLite setUploadProtocol(java.lang.String uploadProtocol) {
+                return (SearchLite) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. The resource name of the Search serving config, such as `projects/locatio
+               * ns/global/collections/default_collection/engines/servingConfigs/default_serving_con
+               * fig`, or `projects/locations/global/collections/default_collection/dataStores/defau
+               * lt_data_store/servingConfigs/default_serving_config`. This field is used to
+               * identify the serving configuration name, set of models used to make the search.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String servingConfig;
+
+              /** Required. The resource name of the Search serving config, such as `projects/locations/global/collec
+             tions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locations/glo
+             bal/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_con
+             fig`. This field is used to identify the serving configuration name, set of models used to make the
+             search.
+               */
+              public java.lang.String getServingConfig() {
+                return servingConfig;
+              }
+
+              /**
+               * Required. The resource name of the Search serving config, such as `projects/locatio
+               * ns/global/collections/default_collection/engines/servingConfigs/default_serving_con
+               * fig`, or `projects/locations/global/collections/default_collection/dataStores/defau
+               * lt_data_store/servingConfigs/default_serving_config`. This field is used to
+               * identify the serving configuration name, set of models used to make the search.
+               */
+              public SearchLite setServingConfig(java.lang.String servingConfig) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(SERVING_CONFIG_PATTERN.matcher(servingConfig).matches(),
+                      "Parameter servingConfig must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/collections/[^/]+/engines/[^/]+/servingConfigs/[^/]+$");
+                }
+                this.servingConfig = servingConfig;
+                return this;
+              }
+
+              @Override
+              public SearchLite set(String parameterName, Object value) {
+                return (SearchLite) super.set(parameterName, value);
+              }
+            }
 
           }
           /**
@@ -22321,6 +24178,22 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
             return this;
           }
 
+          /** Resource name of the CmekConfig to use for protecting this DataStore. */
+          @com.google.api.client.util.Key
+          private java.lang.String cmekConfigName;
+
+          /** Resource name of the CmekConfig to use for protecting this DataStore.
+           */
+          public java.lang.String getCmekConfigName() {
+            return cmekConfigName;
+          }
+
+          /** Resource name of the CmekConfig to use for protecting this DataStore. */
+          public Create setCmekConfigName(java.lang.String cmekConfigName) {
+            this.cmekConfigName = cmekConfigName;
+            return this;
+          }
+
           /**
            * A boolean flag indicating whether user want to directly create an advanced data store
            * for site search. If the data store is not configured as site search (GENERIC vertical
@@ -22372,6 +24245,29 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
            */
           public Create setDataStoreId(java.lang.String dataStoreId) {
             this.dataStoreId = dataStoreId;
+            return this;
+          }
+
+          /**
+           * DataStore without CMEK protections. If a default CmekConfig is set for the project,
+           * setting this field will override the default CmekConfig as well.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.Boolean disableCmek;
+
+          /** DataStore without CMEK protections. If a default CmekConfig is set for the project, setting this
+         field will override the default CmekConfig as well.
+           */
+          public java.lang.Boolean getDisableCmek() {
+            return disableCmek;
+          }
+
+          /**
+           * DataStore without CMEK protections. If a default CmekConfig is set for the project,
+           * setting this field will override the default CmekConfig as well.
+           */
+          public Create setDisableCmek(java.lang.Boolean disableCmek) {
+            this.disableCmek = disableCmek;
             return this;
           }
 
@@ -26124,6 +28020,179 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
             }
 
           }
+        }
+        /**
+         * An accessor for creating requests from the CompletionConfig collection.
+         *
+         * <p>The typical use is:</p>
+         * <pre>
+         *   {@code DiscoveryEngine discoveryengine = new DiscoveryEngine(...);}
+         *   {@code DiscoveryEngine.CompletionConfig.List request = discoveryengine.completionConfig().list(parameters ...)}
+         * </pre>
+         *
+         * @return the resource collection
+         */
+        public CompletionConfig completionConfig() {
+          return new CompletionConfig();
+        }
+
+        /**
+         * The "completionConfig" collection of methods.
+         */
+        public class CompletionConfig {
+
+          /**
+           * Completes the user input with advanced keyword suggestions.
+           *
+           * Create a request for the method "completionConfig.completeQuery".
+           *
+           * This request holds the parameters needed by the discoveryengine server.  After setting any
+           * optional parameters, call the {@link CompleteQuery#execute()} method to invoke the remote
+           * operation.
+           *
+           * @param completionConfig Required. The completion_config of the parent dataStore or engine resource name for which the
+           *        completion is performed, such as
+           *        `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+           *        `projects/locations/global/collections/default_collection/engines/completionConfig`.
+           * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest}
+           * @return the request
+           */
+          public CompleteQuery completeQuery(java.lang.String completionConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest content) throws java.io.IOException {
+            CompleteQuery result = new CompleteQuery(completionConfig, content);
+            initialize(result);
+            return result;
+          }
+
+          public class CompleteQuery extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryResponse> {
+
+            private static final String REST_PATH = "v1alpha/{+completionConfig}:completeQuery";
+
+            private final java.util.regex.Pattern COMPLETION_CONFIG_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/completionConfig$");
+
+            /**
+             * Completes the user input with advanced keyword suggestions.
+             *
+             * Create a request for the method "completionConfig.completeQuery".
+             *
+             * This request holds the parameters needed by the the discoveryengine server.  After setting any
+             * optional parameters, call the {@link CompleteQuery#execute()} method to invoke the remote
+             * operation. <p> {@link CompleteQuery#initialize(com.google.api.client.googleapis.services.Abstra
+             * ctGoogleClientRequest)} must be called to initialize this instance immediately after invoking
+             * the constructor. </p>
+             *
+             * @param completionConfig Required. The completion_config of the parent dataStore or engine resource name for which the
+           *        completion is performed, such as
+           *        `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+           *        `projects/locations/global/collections/default_collection/engines/completionConfig`.
+             * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest}
+             * @since 1.13
+             */
+            protected CompleteQuery(java.lang.String completionConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryRequest content) {
+              super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaAdvancedCompleteQueryResponse.class);
+              this.completionConfig = com.google.api.client.util.Preconditions.checkNotNull(completionConfig, "Required parameter completionConfig must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(COMPLETION_CONFIG_PATTERN.matcher(completionConfig).matches(),
+                    "Parameter completionConfig must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/completionConfig$");
+              }
+            }
+
+            @Override
+            public CompleteQuery set$Xgafv(java.lang.String $Xgafv) {
+              return (CompleteQuery) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public CompleteQuery setAccessToken(java.lang.String accessToken) {
+              return (CompleteQuery) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public CompleteQuery setAlt(java.lang.String alt) {
+              return (CompleteQuery) super.setAlt(alt);
+            }
+
+            @Override
+            public CompleteQuery setCallback(java.lang.String callback) {
+              return (CompleteQuery) super.setCallback(callback);
+            }
+
+            @Override
+            public CompleteQuery setFields(java.lang.String fields) {
+              return (CompleteQuery) super.setFields(fields);
+            }
+
+            @Override
+            public CompleteQuery setKey(java.lang.String key) {
+              return (CompleteQuery) super.setKey(key);
+            }
+
+            @Override
+            public CompleteQuery setOauthToken(java.lang.String oauthToken) {
+              return (CompleteQuery) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public CompleteQuery setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (CompleteQuery) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public CompleteQuery setQuotaUser(java.lang.String quotaUser) {
+              return (CompleteQuery) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public CompleteQuery setUploadType(java.lang.String uploadType) {
+              return (CompleteQuery) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public CompleteQuery setUploadProtocol(java.lang.String uploadProtocol) {
+              return (CompleteQuery) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The completion_config of the parent dataStore or engine resource name for
+             * which the completion is performed, such as `projects/locations/global/collections/def
+             * ault_collection/dataStores/completionConfig`
+             * `projects/locations/global/collections/default_collection/engines/completionConfig`.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String completionConfig;
+
+            /** Required. The completion_config of the parent dataStore or engine resource name for which the
+           completion is performed, such as
+           `projects/locations/global/collections/default_collection/dataStores/completionConfig`
+           `projects/locations/global/collections/default_collection/engines/completionConfig`.
+             */
+            public java.lang.String getCompletionConfig() {
+              return completionConfig;
+            }
+
+            /**
+             * Required. The completion_config of the parent dataStore or engine resource name for
+             * which the completion is performed, such as `projects/locations/global/collections/def
+             * ault_collection/dataStores/completionConfig`
+             * `projects/locations/global/collections/default_collection/engines/completionConfig`.
+             */
+            public CompleteQuery setCompletionConfig(java.lang.String completionConfig) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(COMPLETION_CONFIG_PATTERN.matcher(completionConfig).matches(),
+                    "Parameter completionConfig must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/completionConfig$");
+              }
+              this.completionConfig = completionConfig;
+              return this;
+            }
+
+            @Override
+            public CompleteQuery set(String parameterName, Object value) {
+              return (CompleteQuery) super.set(parameterName, value);
+            }
+          }
+
         }
         /**
          * An accessor for creating requests from the CompletionSuggestions collection.
@@ -30902,6 +32971,173 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
               return (Search) super.set(parameterName, value);
             }
           }
+          /**
+           * Performs a search. Similar to the SearchService.Search method, but a lite version that allows API
+           * key for authentication, where OAuth and IAM checks are not required. Only public website search
+           * is supported by this method. If data stores and engines not associated with public website search
+           * are specified, a `FAILED_PRECONDITION` error is returned. This method can be used for easy
+           * onboarding without having to implement an authentication backend. However, it is strongly
+           * recommended to use SearchService.Search instead with required OAuth and IAM checks to provide
+           * better data security.
+           *
+           * Create a request for the method "servingConfigs.searchLite".
+           *
+           * This request holds the parameters needed by the discoveryengine server.  After setting any
+           * optional parameters, call the {@link SearchLite#execute()} method to invoke the remote operation.
+           *
+           * @param servingConfig Required. The resource name of the Search serving config, such as `projects/locations/global/collect
+           *        ions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locat
+           *        ions/global/collections/default_collection/dataStores/default_data_store/servingConfigs/de
+           *        fault_serving_config`. This field is used to identify the serving configuration name, set
+           *        of models used to make the search.
+           * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest}
+           * @return the request
+           */
+          public SearchLite searchLite(java.lang.String servingConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest content) throws java.io.IOException {
+            SearchLite result = new SearchLite(servingConfig, content);
+            initialize(result);
+            return result;
+          }
+
+          public class SearchLite extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchResponse> {
+
+            private static final String REST_PATH = "v1alpha/{+servingConfig}:searchLite";
+
+            private final java.util.regex.Pattern SERVING_CONFIG_PATTERN =
+                java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/servingConfigs/[^/]+$");
+
+            /**
+             * Performs a search. Similar to the SearchService.Search method, but a lite version that allows
+             * API key for authentication, where OAuth and IAM checks are not required. Only public website
+             * search is supported by this method. If data stores and engines not associated with public
+             * website search are specified, a `FAILED_PRECONDITION` error is returned. This method can be
+             * used for easy onboarding without having to implement an authentication backend. However, it is
+             * strongly recommended to use SearchService.Search instead with required OAuth and IAM checks to
+             * provide better data security.
+             *
+             * Create a request for the method "servingConfigs.searchLite".
+             *
+             * This request holds the parameters needed by the the discoveryengine server.  After setting any
+             * optional parameters, call the {@link SearchLite#execute()} method to invoke the remote
+             * operation. <p> {@link
+             * SearchLite#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)}
+             * must be called to initialize this instance immediately after invoking the constructor. </p>
+             *
+             * @param servingConfig Required. The resource name of the Search serving config, such as `projects/locations/global/collect
+           *        ions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locat
+           *        ions/global/collections/default_collection/dataStores/default_data_store/servingConfigs/de
+           *        fault_serving_config`. This field is used to identify the serving configuration name, set
+           *        of models used to make the search.
+             * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest}
+             * @since 1.13
+             */
+            protected SearchLite(java.lang.String servingConfig, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchRequest content) {
+              super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSearchResponse.class);
+              this.servingConfig = com.google.api.client.util.Preconditions.checkNotNull(servingConfig, "Required parameter servingConfig must be specified.");
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(SERVING_CONFIG_PATTERN.matcher(servingConfig).matches(),
+                    "Parameter servingConfig must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/servingConfigs/[^/]+$");
+              }
+            }
+
+            @Override
+            public SearchLite set$Xgafv(java.lang.String $Xgafv) {
+              return (SearchLite) super.set$Xgafv($Xgafv);
+            }
+
+            @Override
+            public SearchLite setAccessToken(java.lang.String accessToken) {
+              return (SearchLite) super.setAccessToken(accessToken);
+            }
+
+            @Override
+            public SearchLite setAlt(java.lang.String alt) {
+              return (SearchLite) super.setAlt(alt);
+            }
+
+            @Override
+            public SearchLite setCallback(java.lang.String callback) {
+              return (SearchLite) super.setCallback(callback);
+            }
+
+            @Override
+            public SearchLite setFields(java.lang.String fields) {
+              return (SearchLite) super.setFields(fields);
+            }
+
+            @Override
+            public SearchLite setKey(java.lang.String key) {
+              return (SearchLite) super.setKey(key);
+            }
+
+            @Override
+            public SearchLite setOauthToken(java.lang.String oauthToken) {
+              return (SearchLite) super.setOauthToken(oauthToken);
+            }
+
+            @Override
+            public SearchLite setPrettyPrint(java.lang.Boolean prettyPrint) {
+              return (SearchLite) super.setPrettyPrint(prettyPrint);
+            }
+
+            @Override
+            public SearchLite setQuotaUser(java.lang.String quotaUser) {
+              return (SearchLite) super.setQuotaUser(quotaUser);
+            }
+
+            @Override
+            public SearchLite setUploadType(java.lang.String uploadType) {
+              return (SearchLite) super.setUploadType(uploadType);
+            }
+
+            @Override
+            public SearchLite setUploadProtocol(java.lang.String uploadProtocol) {
+              return (SearchLite) super.setUploadProtocol(uploadProtocol);
+            }
+
+            /**
+             * Required. The resource name of the Search serving config, such as `projects/locations
+             * /global/collections/default_collection/engines/servingConfigs/default_serving_config`
+             * , or `projects/locations/global/collections/default_collection/dataStores/default_dat
+             * a_store/servingConfigs/default_serving_config`. This field is used to identify the
+             * serving configuration name, set of models used to make the search.
+             */
+            @com.google.api.client.util.Key
+            private java.lang.String servingConfig;
+
+            /** Required. The resource name of the Search serving config, such as `projects/locations/global/collec
+           tions/default_collection/engines/servingConfigs/default_serving_config`, or `projects/locations/glo
+           bal/collections/default_collection/dataStores/default_data_store/servingConfigs/default_serving_con
+           fig`. This field is used to identify the serving configuration name, set of models used to make the
+           search.
+             */
+            public java.lang.String getServingConfig() {
+              return servingConfig;
+            }
+
+            /**
+             * Required. The resource name of the Search serving config, such as `projects/locations
+             * /global/collections/default_collection/engines/servingConfigs/default_serving_config`
+             * , or `projects/locations/global/collections/default_collection/dataStores/default_dat
+             * a_store/servingConfigs/default_serving_config`. This field is used to identify the
+             * serving configuration name, set of models used to make the search.
+             */
+            public SearchLite setServingConfig(java.lang.String servingConfig) {
+              if (!getSuppressPatternChecks()) {
+                com.google.api.client.util.Preconditions.checkArgument(SERVING_CONFIG_PATTERN.matcher(servingConfig).matches(),
+                    "Parameter servingConfig must conform to the pattern " +
+                    "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/servingConfigs/[^/]+$");
+              }
+              this.servingConfig = servingConfig;
+              return this;
+            }
+
+            @Override
+            public SearchLite set(String parameterName, Object value) {
+              return (SearchLite) super.set(parameterName, value);
+            }
+          }
 
         }
         /**
@@ -32381,6 +34617,485 @@ public class DiscoveryEngine extends com.google.api.client.googleapis.services.j
             }
           }
 
+          /**
+           * An accessor for creating requests from the Sitemaps collection.
+           *
+           * <p>The typical use is:</p>
+           * <pre>
+           *   {@code DiscoveryEngine discoveryengine = new DiscoveryEngine(...);}
+           *   {@code DiscoveryEngine.Sitemaps.List request = discoveryengine.sitemaps().list(parameters ...)}
+           * </pre>
+           *
+           * @return the resource collection
+           */
+          public Sitemaps sitemaps() {
+            return new Sitemaps();
+          }
+
+          /**
+           * The "sitemaps" collection of methods.
+           */
+          public class Sitemaps {
+
+            /**
+             * Creates a Sitemap.
+             *
+             * Create a request for the method "sitemaps.create".
+             *
+             * This request holds the parameters needed by the discoveryengine server.  After setting any
+             * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+             *
+             * @param parent Required. Parent resource name of the SiteSearchEngine, such as
+             *        `projects/locations/collections/dataStores/siteSearchEngine`.
+             * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap}
+             * @return the request
+             */
+            public Create create(java.lang.String parent, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap content) throws java.io.IOException {
+              Create result = new Create(parent, content);
+              initialize(result);
+              return result;
+            }
+
+            public class Create extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation> {
+
+              private static final String REST_PATH = "v1alpha/{+parent}/sitemaps";
+
+              private final java.util.regex.Pattern PARENT_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+
+              /**
+               * Creates a Sitemap.
+               *
+               * Create a request for the method "sitemaps.create".
+               *
+               * This request holds the parameters needed by the the discoveryengine server.  After setting any
+               * optional parameters, call the {@link Create#execute()} method to invoke the remote operation.
+               * <p> {@link
+               * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+               * be called to initialize this instance immediately after invoking the constructor. </p>
+               *
+               * @param parent Required. Parent resource name of the SiteSearchEngine, such as
+             *        `projects/locations/collections/dataStores/siteSearchEngine`.
+               * @param content the {@link com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap}
+               * @since 1.13
+               */
+              protected Create(java.lang.String parent, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaSitemap content) {
+                super(DiscoveryEngine.this, "POST", REST_PATH, content, com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation.class);
+                this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                      "Parameter parent must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+                }
+              }
+
+              @Override
+              public Create set$Xgafv(java.lang.String $Xgafv) {
+                return (Create) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public Create setAccessToken(java.lang.String accessToken) {
+                return (Create) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public Create setAlt(java.lang.String alt) {
+                return (Create) super.setAlt(alt);
+              }
+
+              @Override
+              public Create setCallback(java.lang.String callback) {
+                return (Create) super.setCallback(callback);
+              }
+
+              @Override
+              public Create setFields(java.lang.String fields) {
+                return (Create) super.setFields(fields);
+              }
+
+              @Override
+              public Create setKey(java.lang.String key) {
+                return (Create) super.setKey(key);
+              }
+
+              @Override
+              public Create setOauthToken(java.lang.String oauthToken) {
+                return (Create) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public Create setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (Create) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public Create setQuotaUser(java.lang.String quotaUser) {
+                return (Create) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public Create setUploadType(java.lang.String uploadType) {
+                return (Create) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public Create setUploadProtocol(java.lang.String uploadProtocol) {
+                return (Create) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. Parent resource name of the SiteSearchEngine, such as
+               * `projects/locations/collections/dataStores/siteSearchEngine`.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String parent;
+
+              /** Required. Parent resource name of the SiteSearchEngine, such as
+             `projects/locations/collections/dataStores/siteSearchEngine`.
+               */
+              public java.lang.String getParent() {
+                return parent;
+              }
+
+              /**
+               * Required. Parent resource name of the SiteSearchEngine, such as
+               * `projects/locations/collections/dataStores/siteSearchEngine`.
+               */
+              public Create setParent(java.lang.String parent) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                      "Parameter parent must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+                }
+                this.parent = parent;
+                return this;
+              }
+
+              @Override
+              public Create set(String parameterName, Object value) {
+                return (Create) super.set(parameterName, value);
+              }
+            }
+            /**
+             * Deletes a Sitemap.
+             *
+             * Create a request for the method "sitemaps.delete".
+             *
+             * This request holds the parameters needed by the discoveryengine server.  After setting any
+             * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+             *
+             * @param name Required. Full resource name of Sitemap, such as `projects/{project}/locations/{location}/collection
+             *        s/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`. If the caller
+             *        does not have permission to access the Sitemap, regardless of whether or not it exists, a
+             *        PERMISSION_DENIED error is returned. If the requested Sitemap does not exist, a NOT_FOUND
+             *        error is returned.
+             * @return the request
+             */
+            public Delete delete(java.lang.String name) throws java.io.IOException {
+              Delete result = new Delete(name);
+              initialize(result);
+              return result;
+            }
+
+            public class Delete extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation> {
+
+              private static final String REST_PATH = "v1alpha/{+name}";
+
+              private final java.util.regex.Pattern NAME_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine/sitemaps/[^/]+$");
+
+              /**
+               * Deletes a Sitemap.
+               *
+               * Create a request for the method "sitemaps.delete".
+               *
+               * This request holds the parameters needed by the the discoveryengine server.  After setting any
+               * optional parameters, call the {@link Delete#execute()} method to invoke the remote operation.
+               * <p> {@link
+               * Delete#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+               * be called to initialize this instance immediately after invoking the constructor. </p>
+               *
+               * @param name Required. Full resource name of Sitemap, such as `projects/{project}/locations/{location}/collection
+             *        s/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`. If the caller
+             *        does not have permission to access the Sitemap, regardless of whether or not it exists, a
+             *        PERMISSION_DENIED error is returned. If the requested Sitemap does not exist, a NOT_FOUND
+             *        error is returned.
+               * @since 1.13
+               */
+              protected Delete(java.lang.String name) {
+                super(DiscoveryEngine.this, "DELETE", REST_PATH, null, com.google.api.services.discoveryengine.v1alpha.model.GoogleLongrunningOperation.class);
+                this.name = com.google.api.client.util.Preconditions.checkNotNull(name, "Required parameter name must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                      "Parameter name must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine/sitemaps/[^/]+$");
+                }
+              }
+
+              @Override
+              public Delete set$Xgafv(java.lang.String $Xgafv) {
+                return (Delete) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public Delete setAccessToken(java.lang.String accessToken) {
+                return (Delete) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public Delete setAlt(java.lang.String alt) {
+                return (Delete) super.setAlt(alt);
+              }
+
+              @Override
+              public Delete setCallback(java.lang.String callback) {
+                return (Delete) super.setCallback(callback);
+              }
+
+              @Override
+              public Delete setFields(java.lang.String fields) {
+                return (Delete) super.setFields(fields);
+              }
+
+              @Override
+              public Delete setKey(java.lang.String key) {
+                return (Delete) super.setKey(key);
+              }
+
+              @Override
+              public Delete setOauthToken(java.lang.String oauthToken) {
+                return (Delete) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public Delete setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (Delete) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public Delete setQuotaUser(java.lang.String quotaUser) {
+                return (Delete) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public Delete setUploadType(java.lang.String uploadType) {
+                return (Delete) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public Delete setUploadProtocol(java.lang.String uploadProtocol) {
+                return (Delete) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. Full resource name of Sitemap, such as `projects/{project}/locations/{loc
+               * ation}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{
+               * sitemap}`. If the caller does not have permission to access the Sitemap, regardless
+               * of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+               * requested Sitemap does not exist, a NOT_FOUND error is returned.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String name;
+
+              /** Required. Full resource name of Sitemap, such as `projects/{project}/locations/{location}/collectio
+             ns/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{sitemap}`. If the caller does
+             not have permission to access the Sitemap, regardless of whether or not it exists, a
+             PERMISSION_DENIED error is returned. If the requested Sitemap does not exist, a NOT_FOUND error is
+             returned.
+               */
+              public java.lang.String getName() {
+                return name;
+              }
+
+              /**
+               * Required. Full resource name of Sitemap, such as `projects/{project}/locations/{loc
+               * ation}/collections/{collection}/dataStores/{data_store}/siteSearchEngine/sitemaps/{
+               * sitemap}`. If the caller does not have permission to access the Sitemap, regardless
+               * of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+               * requested Sitemap does not exist, a NOT_FOUND error is returned.
+               */
+              public Delete setName(java.lang.String name) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(NAME_PATTERN.matcher(name).matches(),
+                      "Parameter name must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine/sitemaps/[^/]+$");
+                }
+                this.name = name;
+                return this;
+              }
+
+              @Override
+              public Delete set(String parameterName, Object value) {
+                return (Delete) super.set(parameterName, value);
+              }
+            }
+            /**
+             * Fetch Sitemaps in a DataStore.
+             *
+             * Create a request for the method "sitemaps.fetch".
+             *
+             * This request holds the parameters needed by the discoveryengine server.  After setting any
+             * optional parameters, call the {@link Fetch#execute()} method to invoke the remote operation.
+             *
+             * @param parent Required. Parent resource name of the SiteSearchEngine, such as
+             *        `projects/locations/collections/dataStores/siteSearchEngine`.
+             * @return the request
+             */
+            public Fetch fetch(java.lang.String parent) throws java.io.IOException {
+              Fetch result = new Fetch(parent);
+              initialize(result);
+              return result;
+            }
+
+            public class Fetch extends DiscoveryEngineRequest<com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaFetchSitemapsResponse> {
+
+              private static final String REST_PATH = "v1alpha/{+parent}/sitemaps:fetch";
+
+              private final java.util.regex.Pattern PARENT_PATTERN =
+                  java.util.regex.Pattern.compile("^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+
+              /**
+               * Fetch Sitemaps in a DataStore.
+               *
+               * Create a request for the method "sitemaps.fetch".
+               *
+               * This request holds the parameters needed by the the discoveryengine server.  After setting any
+               * optional parameters, call the {@link Fetch#execute()} method to invoke the remote operation.
+               * <p> {@link
+               * Fetch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
+               * be called to initialize this instance immediately after invoking the constructor. </p>
+               *
+               * @param parent Required. Parent resource name of the SiteSearchEngine, such as
+             *        `projects/locations/collections/dataStores/siteSearchEngine`.
+               * @since 1.13
+               */
+              protected Fetch(java.lang.String parent) {
+                super(DiscoveryEngine.this, "GET", REST_PATH, null, com.google.api.services.discoveryengine.v1alpha.model.GoogleCloudDiscoveryengineV1alphaFetchSitemapsResponse.class);
+                this.parent = com.google.api.client.util.Preconditions.checkNotNull(parent, "Required parameter parent must be specified.");
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                      "Parameter parent must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+                }
+              }
+
+              @Override
+              public com.google.api.client.http.HttpResponse executeUsingHead() throws java.io.IOException {
+                return super.executeUsingHead();
+              }
+
+              @Override
+              public com.google.api.client.http.HttpRequest buildHttpRequestUsingHead() throws java.io.IOException {
+                return super.buildHttpRequestUsingHead();
+              }
+
+              @Override
+              public Fetch set$Xgafv(java.lang.String $Xgafv) {
+                return (Fetch) super.set$Xgafv($Xgafv);
+              }
+
+              @Override
+              public Fetch setAccessToken(java.lang.String accessToken) {
+                return (Fetch) super.setAccessToken(accessToken);
+              }
+
+              @Override
+              public Fetch setAlt(java.lang.String alt) {
+                return (Fetch) super.setAlt(alt);
+              }
+
+              @Override
+              public Fetch setCallback(java.lang.String callback) {
+                return (Fetch) super.setCallback(callback);
+              }
+
+              @Override
+              public Fetch setFields(java.lang.String fields) {
+                return (Fetch) super.setFields(fields);
+              }
+
+              @Override
+              public Fetch setKey(java.lang.String key) {
+                return (Fetch) super.setKey(key);
+              }
+
+              @Override
+              public Fetch setOauthToken(java.lang.String oauthToken) {
+                return (Fetch) super.setOauthToken(oauthToken);
+              }
+
+              @Override
+              public Fetch setPrettyPrint(java.lang.Boolean prettyPrint) {
+                return (Fetch) super.setPrettyPrint(prettyPrint);
+              }
+
+              @Override
+              public Fetch setQuotaUser(java.lang.String quotaUser) {
+                return (Fetch) super.setQuotaUser(quotaUser);
+              }
+
+              @Override
+              public Fetch setUploadType(java.lang.String uploadType) {
+                return (Fetch) super.setUploadType(uploadType);
+              }
+
+              @Override
+              public Fetch setUploadProtocol(java.lang.String uploadProtocol) {
+                return (Fetch) super.setUploadProtocol(uploadProtocol);
+              }
+
+              /**
+               * Required. Parent resource name of the SiteSearchEngine, such as
+               * `projects/locations/collections/dataStores/siteSearchEngine`.
+               */
+              @com.google.api.client.util.Key
+              private java.lang.String parent;
+
+              /** Required. Parent resource name of the SiteSearchEngine, such as
+             `projects/locations/collections/dataStores/siteSearchEngine`.
+               */
+              public java.lang.String getParent() {
+                return parent;
+              }
+
+              /**
+               * Required. Parent resource name of the SiteSearchEngine, such as
+               * `projects/locations/collections/dataStores/siteSearchEngine`.
+               */
+              public Fetch setParent(java.lang.String parent) {
+                if (!getSuppressPatternChecks()) {
+                  com.google.api.client.util.Preconditions.checkArgument(PARENT_PATTERN.matcher(parent).matches(),
+                      "Parameter parent must conform to the pattern " +
+                      "^projects/[^/]+/locations/[^/]+/dataStores/[^/]+/siteSearchEngine$");
+                }
+                this.parent = parent;
+                return this;
+              }
+
+              /** The Sitemap uris. */
+              @com.google.api.client.util.Key("matcher.urisMatcher.uris")
+              private java.util.List<java.lang.String> matcherUrisMatcherUris;
+
+              /** The Sitemap uris.
+               */
+              public java.util.List<java.lang.String> getMatcherUrisMatcherUris() {
+                return matcherUrisMatcherUris;
+              }
+
+              /** The Sitemap uris. */
+              public Fetch setMatcherUrisMatcherUris(java.util.List<java.lang.String> matcherUrisMatcherUris) {
+                this.matcherUrisMatcherUris = matcherUrisMatcherUris;
+                return this;
+              }
+
+              @Override
+              public Fetch set(String parameterName, Object value) {
+                return (Fetch) super.set(parameterName, value);
+              }
+            }
+
+          }
           /**
            * An accessor for creating requests from the TargetSites collection.
            *

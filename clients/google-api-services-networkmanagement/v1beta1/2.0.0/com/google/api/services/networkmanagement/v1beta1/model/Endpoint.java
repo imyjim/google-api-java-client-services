@@ -31,6 +31,13 @@ package com.google.api.services.networkmanagement.v1beta1.model;
 public final class Endpoint extends com.google.api.client.json.GenericJson {
 
   /**
+   * An [AlloyDB Instance](https://cloud.google.com/alloydb) URI.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String alloyDbInstance;
+
+  /**
    * An [App Engine](https://cloud.google.com/appengine) [service
    * version](https://cloud.google.com/appengine/docs/admin-
    * api/reference/rest/v1/apps.services.versions).
@@ -80,8 +87,18 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   private java.lang.String forwardingRuleTarget;
 
   /**
-   * A cluster URI for [Google Kubernetes Engine master](https://cloud.google.com/kubernetes-
-   * engine/docs/concepts/cluster-architecture).
+   * DNS endpoint of [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Requires
+   * gke_master_cluster to be set, can't be used simultaneoulsly with ip_address or network.
+   * Applicable only to destination endpoint.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String fqdn;
+
+  /**
+   * A cluster URI for [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -163,6 +180,23 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String redisInstance;
+
+  /**
+   * An [AlloyDB Instance](https://cloud.google.com/alloydb) URI.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getAlloyDbInstance() {
+    return alloyDbInstance;
+  }
+
+  /**
+   * An [AlloyDB Instance](https://cloud.google.com/alloydb) URI.
+   * @param alloyDbInstance alloyDbInstance or {@code null} for none
+   */
+  public Endpoint setAlloyDbInstance(java.lang.String alloyDbInstance) {
+    this.alloyDbInstance = alloyDbInstance;
+    return this;
+  }
 
   /**
    * An [App Engine](https://cloud.google.com/appengine) [service
@@ -281,8 +315,31 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A cluster URI for [Google Kubernetes Engine master](https://cloud.google.com/kubernetes-
-   * engine/docs/concepts/cluster-architecture).
+   * DNS endpoint of [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Requires
+   * gke_master_cluster to be set, can't be used simultaneoulsly with ip_address or network.
+   * Applicable only to destination endpoint.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getFqdn() {
+    return fqdn;
+  }
+
+  /**
+   * DNS endpoint of [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Requires
+   * gke_master_cluster to be set, can't be used simultaneoulsly with ip_address or network.
+   * Applicable only to destination endpoint.
+   * @param fqdn fqdn or {@code null} for none
+   */
+  public Endpoint setFqdn(java.lang.String fqdn) {
+    this.fqdn = fqdn;
+    return this;
+  }
+
+  /**
+   * A cluster URI for [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
    * @return value or {@code null} for none
    */
   public java.lang.String getGkeMasterCluster() {
@@ -290,8 +347,8 @@ public final class Endpoint extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * A cluster URI for [Google Kubernetes Engine master](https://cloud.google.com/kubernetes-
-   * engine/docs/concepts/cluster-architecture).
+   * A cluster URI for [Google Kubernetes Engine cluster control
+   * plane](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
    * @param gkeMasterCluster gkeMasterCluster or {@code null} for none
    */
   public Endpoint setGkeMasterCluster(java.lang.String gkeMasterCluster) {

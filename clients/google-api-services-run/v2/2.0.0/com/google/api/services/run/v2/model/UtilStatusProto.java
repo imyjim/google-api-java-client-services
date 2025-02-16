@@ -32,6 +32,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
   /**
    * The canonical error code (see codes.proto) that most closely corresponds to this status. This
    * may be missing, and in the common case of the generic space, it definitely will be.
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional int32 canonical_code
+   * = 6;
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -39,14 +41,16 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * Numeric code drawn from the space specified below. Often, this is the canonical error space,
-   * and code is drawn from google3/util/task/codes.proto
+   * and code is drawn from google3/util/task/codes.proto copybara:strip_begin(b/383363683)
+   * copybara:strip_end_and_replace optional int32 code = 1;
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Integer code;
 
   /**
-   * Detail message
+   * Detail message copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional string
+   * message = 3;
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -54,6 +58,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * message_set associates an arbitrary proto message with the status.
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+   * proto2.bridge.MessageSet message_set = 5;
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -61,6 +67,7 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * The following are usually only present when code != 0 Space to which this status belongs
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional string space = 2;
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -69,6 +76,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
   /**
    * The canonical error code (see codes.proto) that most closely corresponds to this status. This
    * may be missing, and in the common case of the generic space, it definitely will be.
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional int32 canonical_code
+   * = 6;
    * @return value or {@code null} for none
    */
   public java.lang.Integer getCanonicalCode() {
@@ -78,6 +87,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
   /**
    * The canonical error code (see codes.proto) that most closely corresponds to this status. This
    * may be missing, and in the common case of the generic space, it definitely will be.
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional int32 canonical_code
+   * = 6;
    * @param canonicalCode canonicalCode or {@code null} for none
    */
   public UtilStatusProto setCanonicalCode(java.lang.Integer canonicalCode) {
@@ -87,7 +98,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * Numeric code drawn from the space specified below. Often, this is the canonical error space,
-   * and code is drawn from google3/util/task/codes.proto
+   * and code is drawn from google3/util/task/codes.proto copybara:strip_begin(b/383363683)
+   * copybara:strip_end_and_replace optional int32 code = 1;
    * @return value or {@code null} for none
    */
   public java.lang.Integer getCode() {
@@ -96,7 +108,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * Numeric code drawn from the space specified below. Often, this is the canonical error space,
-   * and code is drawn from google3/util/task/codes.proto
+   * and code is drawn from google3/util/task/codes.proto copybara:strip_begin(b/383363683)
+   * copybara:strip_end_and_replace optional int32 code = 1;
    * @param code code or {@code null} for none
    */
   public UtilStatusProto setCode(java.lang.Integer code) {
@@ -105,7 +118,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
   }
 
   /**
-   * Detail message
+   * Detail message copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional string
+   * message = 3;
    * @return value or {@code null} for none
    */
   public java.lang.String getMessage() {
@@ -113,7 +127,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
   }
 
   /**
-   * Detail message
+   * Detail message copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional string
+   * message = 3;
    * @param message message or {@code null} for none
    */
   public UtilStatusProto setMessage(java.lang.String message) {
@@ -123,6 +138,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * message_set associates an arbitrary proto message with the status.
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+   * proto2.bridge.MessageSet message_set = 5;
    * @return value or {@code null} for none
    */
   public Proto2BridgeMessageSet getMessageSet() {
@@ -131,6 +148,8 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * message_set associates an arbitrary proto message with the status.
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+   * proto2.bridge.MessageSet message_set = 5;
    * @param messageSet messageSet or {@code null} for none
    */
   public UtilStatusProto setMessageSet(Proto2BridgeMessageSet messageSet) {
@@ -140,6 +159,7 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * The following are usually only present when code != 0 Space to which this status belongs
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional string space = 2;
    * @return value or {@code null} for none
    */
   public java.lang.String getSpace() {
@@ -148,6 +168,7 @@ public final class UtilStatusProto extends com.google.api.client.json.GenericJso
 
   /**
    * The following are usually only present when code != 0 Space to which this status belongs
+   * copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional string space = 2;
    * @param space space or {@code null} for none
    */
   public UtilStatusProto setSpace(java.lang.String space) {

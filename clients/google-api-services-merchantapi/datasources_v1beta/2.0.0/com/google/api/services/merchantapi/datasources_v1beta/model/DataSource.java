@@ -60,12 +60,18 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   private java.lang.String input;
 
   /**
-   * Required. The [local inventory](https://support.google.com/merchants/answer/7023001) data
-   * source.
+   * The [local inventory](https://support.google.com/merchants/answer/7023001) data source.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private LocalInventoryDataSource localInventoryDataSource;
+
+  /**
+   * The [merchant review](https://support.google.com/merchants/answer/7045996) data source.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private MerchantReviewDataSource merchantReviewDataSource;
 
   /**
    * Identifier. The name of the data source. Format:
@@ -76,31 +82,37 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
-   * Required. The [primary data source](https://support.google.com/merchants/answer/7439058) for
-   * local and online products.
+   * The [primary data source](https://support.google.com/merchants/answer/7439058) for local and
+   * online products.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private PrimaryProductDataSource primaryProductDataSource;
 
   /**
-   * Required. The [promotion](https://support.google.com/merchants/answer/2906014) data source.
+   * The [product review](https://support.google.com/merchants/answer/7045996) data source.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ProductReviewDataSource productReviewDataSource;
+
+  /**
+   * The [promotion](https://support.google.com/merchants/answer/2906014) data source.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private PromotionDataSource promotionDataSource;
 
   /**
-   * Required. The [regional inventory](https://support.google.com/merchants/answer/7439058) data
-   * source.
+   * The [regional inventory](https://support.google.com/merchants/answer/7439058) data source.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private RegionalInventoryDataSource regionalInventoryDataSource;
 
   /**
-   * Required. The [supplemental data source](https://support.google.com/merchants/answer/7439058)
-   * for local and online products.
+   * The [supplemental data source](https://support.google.com/merchants/answer/7439058) for local
+   * and online products.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -177,8 +189,7 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [local inventory](https://support.google.com/merchants/answer/7023001) data
-   * source.
+   * The [local inventory](https://support.google.com/merchants/answer/7023001) data source.
    * @return value or {@code null} for none
    */
   public LocalInventoryDataSource getLocalInventoryDataSource() {
@@ -186,12 +197,28 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [local inventory](https://support.google.com/merchants/answer/7023001) data
-   * source.
+   * The [local inventory](https://support.google.com/merchants/answer/7023001) data source.
    * @param localInventoryDataSource localInventoryDataSource or {@code null} for none
    */
   public DataSource setLocalInventoryDataSource(LocalInventoryDataSource localInventoryDataSource) {
     this.localInventoryDataSource = localInventoryDataSource;
+    return this;
+  }
+
+  /**
+   * The [merchant review](https://support.google.com/merchants/answer/7045996) data source.
+   * @return value or {@code null} for none
+   */
+  public MerchantReviewDataSource getMerchantReviewDataSource() {
+    return merchantReviewDataSource;
+  }
+
+  /**
+   * The [merchant review](https://support.google.com/merchants/answer/7045996) data source.
+   * @param merchantReviewDataSource merchantReviewDataSource or {@code null} for none
+   */
+  public DataSource setMerchantReviewDataSource(MerchantReviewDataSource merchantReviewDataSource) {
+    this.merchantReviewDataSource = merchantReviewDataSource;
     return this;
   }
 
@@ -215,8 +242,8 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [primary data source](https://support.google.com/merchants/answer/7439058) for
-   * local and online products.
+   * The [primary data source](https://support.google.com/merchants/answer/7439058) for local and
+   * online products.
    * @return value or {@code null} for none
    */
   public PrimaryProductDataSource getPrimaryProductDataSource() {
@@ -224,8 +251,8 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [primary data source](https://support.google.com/merchants/answer/7439058) for
-   * local and online products.
+   * The [primary data source](https://support.google.com/merchants/answer/7439058) for local and
+   * online products.
    * @param primaryProductDataSource primaryProductDataSource or {@code null} for none
    */
   public DataSource setPrimaryProductDataSource(PrimaryProductDataSource primaryProductDataSource) {
@@ -234,7 +261,24 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [promotion](https://support.google.com/merchants/answer/2906014) data source.
+   * The [product review](https://support.google.com/merchants/answer/7045996) data source.
+   * @return value or {@code null} for none
+   */
+  public ProductReviewDataSource getProductReviewDataSource() {
+    return productReviewDataSource;
+  }
+
+  /**
+   * The [product review](https://support.google.com/merchants/answer/7045996) data source.
+   * @param productReviewDataSource productReviewDataSource or {@code null} for none
+   */
+  public DataSource setProductReviewDataSource(ProductReviewDataSource productReviewDataSource) {
+    this.productReviewDataSource = productReviewDataSource;
+    return this;
+  }
+
+  /**
+   * The [promotion](https://support.google.com/merchants/answer/2906014) data source.
    * @return value or {@code null} for none
    */
   public PromotionDataSource getPromotionDataSource() {
@@ -242,7 +286,7 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [promotion](https://support.google.com/merchants/answer/2906014) data source.
+   * The [promotion](https://support.google.com/merchants/answer/2906014) data source.
    * @param promotionDataSource promotionDataSource or {@code null} for none
    */
   public DataSource setPromotionDataSource(PromotionDataSource promotionDataSource) {
@@ -251,8 +295,7 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [regional inventory](https://support.google.com/merchants/answer/7439058) data
-   * source.
+   * The [regional inventory](https://support.google.com/merchants/answer/7439058) data source.
    * @return value or {@code null} for none
    */
   public RegionalInventoryDataSource getRegionalInventoryDataSource() {
@@ -260,8 +303,7 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [regional inventory](https://support.google.com/merchants/answer/7439058) data
-   * source.
+   * The [regional inventory](https://support.google.com/merchants/answer/7439058) data source.
    * @param regionalInventoryDataSource regionalInventoryDataSource or {@code null} for none
    */
   public DataSource setRegionalInventoryDataSource(RegionalInventoryDataSource regionalInventoryDataSource) {
@@ -270,8 +312,8 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [supplemental data source](https://support.google.com/merchants/answer/7439058)
-   * for local and online products.
+   * The [supplemental data source](https://support.google.com/merchants/answer/7439058) for local
+   * and online products.
    * @return value or {@code null} for none
    */
   public SupplementalProductDataSource getSupplementalProductDataSource() {
@@ -279,8 +321,8 @@ public final class DataSource extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. The [supplemental data source](https://support.google.com/merchants/answer/7439058)
-   * for local and online products.
+   * The [supplemental data source](https://support.google.com/merchants/answer/7439058) for local
+   * and online products.
    * @param supplementalProductDataSource supplementalProductDataSource or {@code null} for none
    */
   public DataSource setSupplementalProductDataSource(SupplementalProductDataSource supplementalProductDataSource) {

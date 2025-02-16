@@ -45,13 +45,6 @@ public final class CompilationResultAction extends com.google.api.client.json.Ge
   private Target canonicalTarget;
 
   /**
-   * The data preparation executed by this action.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private DataPreparation dataPreparation;
-
-  /**
    * The declaration declared by this action.
    * The value may be {@code null}.
    */
@@ -65,6 +58,14 @@ public final class CompilationResultAction extends com.google.api.client.json.Ge
    */
   @com.google.api.client.util.Key
   private java.lang.String filePath;
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String internalMetadata;
 
   /**
    * The notebook executed by this action.
@@ -131,23 +132,6 @@ public final class CompilationResultAction extends com.google.api.client.json.Ge
   }
 
   /**
-   * The data preparation executed by this action.
-   * @return value or {@code null} for none
-   */
-  public DataPreparation getDataPreparation() {
-    return dataPreparation;
-  }
-
-  /**
-   * The data preparation executed by this action.
-   * @param dataPreparation dataPreparation or {@code null} for none
-   */
-  public CompilationResultAction setDataPreparation(DataPreparation dataPreparation) {
-    this.dataPreparation = dataPreparation;
-    return this;
-  }
-
-  /**
    * The declaration declared by this action.
    * @return value or {@code null} for none
    */
@@ -180,6 +164,25 @@ public final class CompilationResultAction extends com.google.api.client.json.Ge
    */
   public CompilationResultAction setFilePath(java.lang.String filePath) {
     this.filePath = filePath;
+    return this;
+  }
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getInternalMetadata() {
+    return internalMetadata;
+  }
+
+  /**
+   * Output only. All the metadata information that is used internally to serve the resource. For
+   * example: timestamps, flags, status fields, etc. The format of this field is a JSON string.
+   * @param internalMetadata internalMetadata or {@code null} for none
+   */
+  public CompilationResultAction setInternalMetadata(java.lang.String internalMetadata) {
+    this.internalMetadata = internalMetadata;
     return this;
   }
 

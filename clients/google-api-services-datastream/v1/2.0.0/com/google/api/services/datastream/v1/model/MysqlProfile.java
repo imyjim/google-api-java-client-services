@@ -37,7 +37,8 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
   private java.lang.String hostname;
 
   /**
-   * Required. Input only. Password for the MySQL connection.
+   * Optional. Input only. Password for the MySQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -82,7 +83,8 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Input only. Password for the MySQL connection.
+   * Optional. Input only. Password for the MySQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @return value or {@code null} for none
    */
   public java.lang.String getPassword() {
@@ -90,7 +92,8 @@ public final class MysqlProfile extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Input only. Password for the MySQL connection.
+   * Optional. Input only. Password for the MySQL connection. Mutually exclusive with the
+   * `secret_manager_stored_password` field.
    * @param password password or {@code null} for none
    */
   public MysqlProfile setPassword(java.lang.String password) {

@@ -39,14 +39,16 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   private java.util.List<java.lang.String> accountTypesWithManagementDisabled;
 
   /**
-   * Whether adding new users and profiles is disabled.
+   * Whether adding new users and profiles is disabled. For devices where managementMode is
+   * DEVICE_OWNER this field is ignored and the user is never allowed to add or remove users.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean addUserDisabled;
 
   /**
-   * Whether adjusting the master volume is disabled. Also mutes the device.
+   * Whether adjusting the master volume is disabled. Also mutes the device. The setting has effect
+   * only on fully managed devices.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -346,7 +348,7 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   /**
    * If true, this disables the Lock Screen
    * (https://source.android.com/docs/core/display/multi_display/lock-screen) for primary and/or
-   * secondary displays.
+   * secondary displays. This policy is supported only in dedicated device management mode.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -652,7 +654,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean screenCaptureDisabled;
 
   /**
-   * Whether changing the user icon is disabled.
+   * Whether changing the user icon is disabled. The setting has effect only on fully managed
+   * devices.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -842,7 +845,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adding new users and profiles is disabled.
+   * Whether adding new users and profiles is disabled. For devices where managementMode is
+   * DEVICE_OWNER this field is ignored and the user is never allowed to add or remove users.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAddUserDisabled() {
@@ -850,7 +854,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adding new users and profiles is disabled.
+   * Whether adding new users and profiles is disabled. For devices where managementMode is
+   * DEVICE_OWNER this field is ignored and the user is never allowed to add or remove users.
    * @param addUserDisabled addUserDisabled or {@code null} for none
    */
   public Policy setAddUserDisabled(java.lang.Boolean addUserDisabled) {
@@ -859,7 +864,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adjusting the master volume is disabled. Also mutes the device.
+   * Whether adjusting the master volume is disabled. Also mutes the device. The setting has effect
+   * only on fully managed devices.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAdjustVolumeDisabled() {
@@ -867,7 +873,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether adjusting the master volume is disabled. Also mutes the device.
+   * Whether adjusting the master volume is disabled. Also mutes the device. The setting has effect
+   * only on fully managed devices.
    * @param adjustVolumeDisabled adjustVolumeDisabled or {@code null} for none
    */
   public Policy setAdjustVolumeDisabled(java.lang.Boolean adjustVolumeDisabled) {
@@ -1529,7 +1536,7 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   /**
    * If true, this disables the Lock Screen
    * (https://source.android.com/docs/core/display/multi_display/lock-screen) for primary and/or
-   * secondary displays.
+   * secondary displays. This policy is supported only in dedicated device management mode.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getKeyguardDisabled() {
@@ -1539,7 +1546,7 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   /**
    * If true, this disables the Lock Screen
    * (https://source.android.com/docs/core/display/multi_display/lock-screen) for primary and/or
-   * secondary displays.
+   * secondary displays. This policy is supported only in dedicated device management mode.
    * @param keyguardDisabled keyguardDisabled or {@code null} for none
    */
   public Policy setKeyguardDisabled(java.lang.Boolean keyguardDisabled) {
@@ -2200,7 +2207,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether changing the user icon is disabled.
+   * Whether changing the user icon is disabled. The setting has effect only on fully managed
+   * devices.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getSetUserIconDisabled() {
@@ -2208,7 +2216,8 @@ public final class Policy extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Whether changing the user icon is disabled.
+   * Whether changing the user icon is disabled. The setting has effect only on fully managed
+   * devices.
    * @param setUserIconDisabled setUserIconDisabled or {@code null} for none
    */
   public Policy setSetUserIconDisabled(java.lang.Boolean setUserIconDisabled) {

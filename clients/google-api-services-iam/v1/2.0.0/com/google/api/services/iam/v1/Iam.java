@@ -413,7 +413,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
        * This request holds the parameters needed by the iam server.  After setting any optional
        * parameters, call the {@link Create#execute()} method to invoke the remote operation.
        *
-       * @param location The location of the pool to create. Format: `locations/{location}`.
+       * @param location Optional. The location of the pool to create. Format: `locations/{location}`.
        * @param content the {@link com.google.api.services.iam.v1.model.WorkforcePool}
        * @return the request
        */
@@ -441,7 +441,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
          * Create#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param location The location of the pool to create. Format: `locations/{location}`.
+         * @param location Optional. The location of the pool to create. Format: `locations/{location}`.
          * @param content the {@link com.google.api.services.iam.v1.model.WorkforcePool}
          * @since 1.13
          */
@@ -510,17 +510,17 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
           return (Create) super.setUploadProtocol(uploadProtocol);
         }
 
-        /** The location of the pool to create. Format: `locations/{location}`. */
+        /** Optional. The location of the pool to create. Format: `locations/{location}`. */
         @com.google.api.client.util.Key
         private java.lang.String location;
 
-        /** The location of the pool to create. Format: `locations/{location}`.
+        /** Optional. The location of the pool to create. Format: `locations/{location}`.
          */
         public java.lang.String getLocation() {
           return location;
         }
 
-        /** The location of the pool to create. Format: `locations/{location}`. */
+        /** Optional. The location of the pool to create. Format: `locations/{location}`. */
         public Create setLocation(java.lang.String location) {
           if (!getSuppressPatternChecks()) {
             com.google.api.client.util.Preconditions.checkArgument(LOCATION_PATTERN.matcher(location).matches(),
@@ -532,28 +532,28 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
         }
 
         /**
-         * The ID to use for the pool, which becomes the final component of the resource name. The
-         * IDs must be a globally unique string of 6 to 63 lowercase letters, digits, or hyphens. It
-         * must start with a letter, and cannot have a trailing hyphen. The prefix `gcp-` is
-         * reserved for use by Google, and may not be specified.
+         * Optional. The ID to use for the pool, which becomes the final component of the resource
+         * name. The IDs must be a globally unique string of 6 to 63 lowercase letters, digits, or
+         * hyphens. It must start with a letter, and cannot have a trailing hyphen. The prefix
+         * `gcp-` is reserved for use by Google, and may not be specified.
          */
         @com.google.api.client.util.Key
         private java.lang.String workforcePoolId;
 
-        /** The ID to use for the pool, which becomes the final component of the resource name. The IDs must be
-       a globally unique string of 6 to 63 lowercase letters, digits, or hyphens. It must start with a
-       letter, and cannot have a trailing hyphen. The prefix `gcp-` is reserved for use by Google, and may
-       not be specified.
+        /** Optional. The ID to use for the pool, which becomes the final component of the resource name. The
+       IDs must be a globally unique string of 6 to 63 lowercase letters, digits, or hyphens. It must
+       start with a letter, and cannot have a trailing hyphen. The prefix `gcp-` is reserved for use by
+       Google, and may not be specified.
          */
         public java.lang.String getWorkforcePoolId() {
           return workforcePoolId;
         }
 
         /**
-         * The ID to use for the pool, which becomes the final component of the resource name. The
-         * IDs must be a globally unique string of 6 to 63 lowercase letters, digits, or hyphens. It
-         * must start with a letter, and cannot have a trailing hyphen. The prefix `gcp-` is
-         * reserved for use by Google, and may not be specified.
+         * Optional. The ID to use for the pool, which becomes the final component of the resource
+         * name. The IDs must be a globally unique string of 6 to 63 lowercase letters, digits, or
+         * hyphens. It must start with a letter, and cannot have a trailing hyphen. The prefix
+         * `gcp-` is reserved for use by Google, and may not be specified.
          */
         public Create setWorkforcePoolId(java.lang.String workforcePoolId) {
           this.workforcePoolId = workforcePoolId;
@@ -1230,7 +1230,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
        * This request holds the parameters needed by the iam server.  After setting any optional
        * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
        *
-       * @param name Output only. The resource name of the pool. Format:
+       * @param name Identifier. The resource name of the pool. Format:
        *        `locations/{location}/workforcePools/{workforce_pool_id}`
        * @param content the {@link com.google.api.services.iam.v1.model.WorkforcePool}
        * @return the request
@@ -1258,7 +1258,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
          * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
          * be called to initialize this instance immediately after invoking the constructor. </p>
          *
-         * @param name Output only. The resource name of the pool. Format:
+         * @param name Identifier. The resource name of the pool. Format:
        *        `locations/{location}/workforcePools/{workforce_pool_id}`
          * @param content the {@link com.google.api.services.iam.v1.model.WorkforcePool}
          * @since 1.13
@@ -1329,13 +1329,13 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
         }
 
         /**
-         * Output only. The resource name of the pool. Format:
+         * Identifier. The resource name of the pool. Format:
          * `locations/{location}/workforcePools/{workforce_pool_id}`
          */
         @com.google.api.client.util.Key
         private java.lang.String name;
 
-        /** Output only. The resource name of the pool. Format:
+        /** Identifier. The resource name of the pool. Format:
        `locations/{location}/workforcePools/{workforce_pool_id}`
          */
         public java.lang.String getName() {
@@ -1343,7 +1343,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
         }
 
         /**
-         * Output only. The resource name of the pool. Format:
+         * Identifier. The resource name of the pool. Format:
          * `locations/{location}/workforcePools/{workforce_pool_id}`
          */
         public Patch setName(java.lang.String name) {
@@ -2668,7 +2668,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
          * This request holds the parameters needed by the iam server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Output only. The resource name of the provider. Format:
+         * @param name Identifier. The resource name of the provider. Format:
          *        `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
          * @param content the {@link com.google.api.services.iam.v1.model.WorkforcePoolProvider}
          * @return the request
@@ -2696,7 +2696,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Output only. The resource name of the provider. Format:
+           * @param name Identifier. The resource name of the provider. Format:
          *        `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
            * @param content the {@link com.google.api.services.iam.v1.model.WorkforcePoolProvider}
            * @since 1.13
@@ -2767,13 +2767,13 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
           }
 
           /**
-           * Output only. The resource name of the provider. Format:
+           * Identifier. The resource name of the provider. Format:
            * `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Output only. The resource name of the provider. Format:
+          /** Identifier. The resource name of the provider. Format:
          `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
            */
           public java.lang.String getName() {
@@ -2781,7 +2781,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
           }
 
           /**
-           * Output only. The resource name of the provider. Format:
+           * Identifier. The resource name of the provider. Format:
            * `locations/{location}/workforcePools/{workforce_pool_id}/providers/{provider_id}`
            */
           public Patch setName(java.lang.String name) {
@@ -6892,7 +6892,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
          * This request holds the parameters needed by the iam server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Immutable. The resource name of the OauthClient.
+         * @param name Immutable. Identifier. The resource name of the OauthClient.
          *        Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
          * @param content the {@link com.google.api.services.iam.v1.model.OauthClient}
          * @return the request
@@ -6920,7 +6920,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Immutable. The resource name of the OauthClient.
+           * @param name Immutable. Identifier. The resource name of the OauthClient.
          *        Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
            * @param content the {@link com.google.api.services.iam.v1.model.OauthClient}
            * @since 1.13
@@ -6991,13 +6991,13 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
           }
 
           /**
-           * Immutable. The resource name of the OauthClient.
+           * Immutable. Identifier. The resource name of the OauthClient.
            * Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Immutable. The resource name of the OauthClient.
+          /** Immutable. Identifier. The resource name of the OauthClient.
          Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
            */
           public java.lang.String getName() {
@@ -7005,7 +7005,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
           }
 
           /**
-           * Immutable. The resource name of the OauthClient.
+           * Immutable. Identifier. The resource name of the OauthClient.
            * Format:`projects/{project}/locations/{location}/oauthClients/{oauth_client}`.
            */
           public Patch setName(java.lang.String name) {
@@ -7794,7 +7794,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
            * This request holds the parameters needed by the iam server.  After setting any optional
            * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
            *
-           * @param name Immutable. The resource name of the OauthClientCredential. Format:
+           * @param name Immutable. Identifier. The resource name of the OauthClientCredential. Format:
            *        `projects/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credenti
            *        al}`
            * @param content the {@link com.google.api.services.iam.v1.model.OauthClientCredential}
@@ -7823,7 +7823,7 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
              * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
              * be called to initialize this instance immediately after invoking the constructor. </p>
              *
-             * @param name Immutable. The resource name of the OauthClientCredential. Format:
+             * @param name Immutable. Identifier. The resource name of the OauthClientCredential. Format:
            *        `projects/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credenti
            *        al}`
              * @param content the {@link com.google.api.services.iam.v1.model.OauthClientCredential}
@@ -7895,13 +7895,14 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
             }
 
             /**
-             * Immutable. The resource name of the OauthClientCredential. Format: `projects/{project
-             * }/locations/{location}/oauthClients/{oauth_client}/credentials/{credential}`
+             * Immutable. Identifier. The resource name of the OauthClientCredential. Format: `proje
+             * cts/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credentia
+             * l}`
              */
             @com.google.api.client.util.Key
             private java.lang.String name;
 
-            /** Immutable. The resource name of the OauthClientCredential. Format:
+            /** Immutable. Identifier. The resource name of the OauthClientCredential. Format:
            `projects/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credential}`
              */
             public java.lang.String getName() {
@@ -7909,8 +7910,9 @@ public class Iam extends com.google.api.client.googleapis.services.json.Abstract
             }
 
             /**
-             * Immutable. The resource name of the OauthClientCredential. Format: `projects/{project
-             * }/locations/{location}/oauthClients/{oauth_client}/credentials/{credential}`
+             * Immutable. Identifier. The resource name of the OauthClientCredential. Format: `proje
+             * cts/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credentia
+             * l}`
              */
             public Patch setName(java.lang.String name) {
               if (!getSuppressPatternChecks()) {

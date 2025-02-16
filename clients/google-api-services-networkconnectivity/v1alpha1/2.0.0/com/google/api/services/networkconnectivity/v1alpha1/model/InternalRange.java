@@ -18,7 +18,7 @@ package com.google.api.services.networkconnectivity.v1alpha1.model;
 
 /**
  * The internal range resource for IPAM operations within a VPC network. Used to represent a private
- * address range along with behavioral characterstics of that range (its usage and peering
+ * address range along with behavioral characteristics of that range (its usage and peering
  * behavior). Networking resources can link to this range if they are created as belonging to it.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
@@ -47,6 +47,14 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   private java.lang.String description;
 
   /**
+   * Optional. Immutable ranges cannot have their fields modified, except for labels and
+   * description.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean immutable;
+
+  /**
    * IP range that this internal range defines. NOTE: IPv6 ranges are limited to
    * usage=EXTERNAL_TO_VPC and peering=FOR_SELF. NOTE: For IPv6 Ranges this field is compulsory,
    * i.e. the address range must be specified explicitly.
@@ -63,7 +71,7 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * Optional. Should be present if usage is set to FOR_MIGRATION.
+   * Optional. Must be present if usage is set to FOR_MIGRATION.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -185,6 +193,25 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   }
 
   /**
+   * Optional. Immutable ranges cannot have their fields modified, except for labels and
+   * description.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getImmutable() {
+    return immutable;
+  }
+
+  /**
+   * Optional. Immutable ranges cannot have their fields modified, except for labels and
+   * description.
+   * @param immutable immutable or {@code null} for none
+   */
+  public InternalRange setImmutable(java.lang.Boolean immutable) {
+    this.immutable = immutable;
+    return this;
+  }
+
+  /**
    * IP range that this internal range defines. NOTE: IPv6 ranges are limited to
    * usage=EXTERNAL_TO_VPC and peering=FOR_SELF. NOTE: For IPv6 Ranges this field is compulsory,
    * i.e. the address range must be specified explicitly.
@@ -223,7 +250,7 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Optional. Should be present if usage is set to FOR_MIGRATION.
+   * Optional. Must be present if usage is set to FOR_MIGRATION.
    * @return value or {@code null} for none
    */
   public Migration getMigration() {
@@ -231,7 +258,7 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Optional. Should be present if usage is set to FOR_MIGRATION.
+   * Optional. Must be present if usage is set to FOR_MIGRATION.
    * @param migration migration or {@code null} for none
    */
   public InternalRange setMigration(Migration migration) {

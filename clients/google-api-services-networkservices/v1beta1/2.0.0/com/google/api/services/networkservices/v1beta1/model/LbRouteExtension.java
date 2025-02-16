@@ -62,7 +62,7 @@ public final class LbRouteExtension extends com.google.api.client.json.GenericJs
 
   /**
    * Required. A list of references to the forwarding rules to which this service extension is
-   * attached to. At least one forwarding rule is required. There can be only one `LbRouteExtension`
+   * attached. At least one forwarding rule is required. There can be only one `LbRouteExtension`
    * resource per forwarding rule.
    * The value may be {@code null}.
    */
@@ -93,7 +93,8 @@ public final class LbRouteExtension extends com.google.api.client.json.GenericJs
    * `google.protobuf.Struct`) in the `ProcessingRequest` message sent to the extension server. The
    * metadata is available under the namespace `com.google.lb_route_extension.`. The following
    * variables are supported in the metadata Struct: `{forwarding_rule_id}` - substituted with the
-   * forwarding rule's fully qualified resource name.
+   * forwarding rule's fully qualified resource name. This field is not supported for plugin
+   * extensions. Setting it results in a validation error.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -173,7 +174,7 @@ public final class LbRouteExtension extends com.google.api.client.json.GenericJs
 
   /**
    * Required. A list of references to the forwarding rules to which this service extension is
-   * attached to. At least one forwarding rule is required. There can be only one `LbRouteExtension`
+   * attached. At least one forwarding rule is required. There can be only one `LbRouteExtension`
    * resource per forwarding rule.
    * @return value or {@code null} for none
    */
@@ -183,7 +184,7 @@ public final class LbRouteExtension extends com.google.api.client.json.GenericJs
 
   /**
    * Required. A list of references to the forwarding rules to which this service extension is
-   * attached to. At least one forwarding rule is required. There can be only one `LbRouteExtension`
+   * attached. At least one forwarding rule is required. There can be only one `LbRouteExtension`
    * resource per forwarding rule.
    * @param forwardingRules forwardingRules or {@code null} for none
    */
@@ -241,7 +242,8 @@ public final class LbRouteExtension extends com.google.api.client.json.GenericJs
    * `google.protobuf.Struct`) in the `ProcessingRequest` message sent to the extension server. The
    * metadata is available under the namespace `com.google.lb_route_extension.`. The following
    * variables are supported in the metadata Struct: `{forwarding_rule_id}` - substituted with the
-   * forwarding rule's fully qualified resource name.
+   * forwarding rule's fully qualified resource name. This field is not supported for plugin
+   * extensions. Setting it results in a validation error.
    * @return value or {@code null} for none
    */
   public java.util.Map<String, java.lang.Object> getMetadata() {
@@ -253,7 +255,8 @@ public final class LbRouteExtension extends com.google.api.client.json.GenericJs
    * `google.protobuf.Struct`) in the `ProcessingRequest` message sent to the extension server. The
    * metadata is available under the namespace `com.google.lb_route_extension.`. The following
    * variables are supported in the metadata Struct: `{forwarding_rule_id}` - substituted with the
-   * forwarding rule's fully qualified resource name.
+   * forwarding rule's fully qualified resource name. This field is not supported for plugin
+   * extensions. Setting it results in a validation error.
    * @param metadata metadata or {@code null} for none
    */
   public LbRouteExtension setMetadata(java.util.Map<String, java.lang.Object> metadata) {

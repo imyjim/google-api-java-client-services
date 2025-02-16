@@ -142,14 +142,22 @@ public final class GoogleCloudDiscoveryengineV1UserEvent extends com.google.api.
    * Required. User event type. Allowed values are: Generic values: * `search`: Search for
    * Documents. * `view-item`: Detailed page view of a Document. * `view-item-list`: View of a panel
    * or ordered list of Documents. * `view-home-page`: View of the home page. * `view-category-
-   * page`: View of a category page, e.g. Home > Men > Jeans Retail-related values: * `add-to-cart`:
-   * Add an item(s) to cart, e.g. in Retail online shopping * `purchase`: Purchase an item(s) Media-
-   * related values: * `media-play`: Start/resume watching a video, playing a song, etc. * `media-
-   * complete`: Finished or stopped midway through a video, song, etc.
+   * page`: View of a category page, e.g. Home > Men > Jeans * `add-feedback`: Add a user feedback.
+   * Retail-related values: * `add-to-cart`: Add an item(s) to cart, e.g. in Retail online shopping
+   * * `purchase`: Purchase an item(s) Media-related values: * `media-play`: Start/resume watching a
+   * video, playing a song, etc. * `media-complete`: Finished or stopped midway through a video,
+   * song, etc.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String eventType;
+
+  /**
+   * Optional. This field is optional except for the `add-feedback` event types.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudDiscoveryengineV1Feedback feedback;
 
   /**
    * The filter syntax consists of an expression language for constructing a predicate from one or
@@ -185,6 +193,19 @@ public final class GoogleCloudDiscoveryengineV1UserEvent extends com.google.api.
    */
   @com.google.api.client.util.Key
   private GoogleCloudDiscoveryengineV1PanelInfo panel;
+
+  /**
+   * Optional. List of panels associated with this event. Used for page-level impression data.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<GoogleCloudDiscoveryengineV1PanelInfo> panels;
+
+  static {
+    // hack to force ProGuard to consider GoogleCloudDiscoveryengineV1PanelInfo used, since otherwise it would be stripped out
+    // see https://github.com/google/google-api-java-client/issues/543
+    com.google.api.client.util.Data.nullOf(GoogleCloudDiscoveryengineV1PanelInfo.class);
+  }
 
   /**
    * The promotion IDs if this is an event associated with promotions. Currently, this field is
@@ -469,10 +490,11 @@ public final class GoogleCloudDiscoveryengineV1UserEvent extends com.google.api.
    * Required. User event type. Allowed values are: Generic values: * `search`: Search for
    * Documents. * `view-item`: Detailed page view of a Document. * `view-item-list`: View of a panel
    * or ordered list of Documents. * `view-home-page`: View of the home page. * `view-category-
-   * page`: View of a category page, e.g. Home > Men > Jeans Retail-related values: * `add-to-cart`:
-   * Add an item(s) to cart, e.g. in Retail online shopping * `purchase`: Purchase an item(s) Media-
-   * related values: * `media-play`: Start/resume watching a video, playing a song, etc. * `media-
-   * complete`: Finished or stopped midway through a video, song, etc.
+   * page`: View of a category page, e.g. Home > Men > Jeans * `add-feedback`: Add a user feedback.
+   * Retail-related values: * `add-to-cart`: Add an item(s) to cart, e.g. in Retail online shopping
+   * * `purchase`: Purchase an item(s) Media-related values: * `media-play`: Start/resume watching a
+   * video, playing a song, etc. * `media-complete`: Finished or stopped midway through a video,
+   * song, etc.
    * @return value or {@code null} for none
    */
   public java.lang.String getEventType() {
@@ -483,14 +505,32 @@ public final class GoogleCloudDiscoveryengineV1UserEvent extends com.google.api.
    * Required. User event type. Allowed values are: Generic values: * `search`: Search for
    * Documents. * `view-item`: Detailed page view of a Document. * `view-item-list`: View of a panel
    * or ordered list of Documents. * `view-home-page`: View of the home page. * `view-category-
-   * page`: View of a category page, e.g. Home > Men > Jeans Retail-related values: * `add-to-cart`:
-   * Add an item(s) to cart, e.g. in Retail online shopping * `purchase`: Purchase an item(s) Media-
-   * related values: * `media-play`: Start/resume watching a video, playing a song, etc. * `media-
-   * complete`: Finished or stopped midway through a video, song, etc.
+   * page`: View of a category page, e.g. Home > Men > Jeans * `add-feedback`: Add a user feedback.
+   * Retail-related values: * `add-to-cart`: Add an item(s) to cart, e.g. in Retail online shopping
+   * * `purchase`: Purchase an item(s) Media-related values: * `media-play`: Start/resume watching a
+   * video, playing a song, etc. * `media-complete`: Finished or stopped midway through a video,
+   * song, etc.
    * @param eventType eventType or {@code null} for none
    */
   public GoogleCloudDiscoveryengineV1UserEvent setEventType(java.lang.String eventType) {
     this.eventType = eventType;
+    return this;
+  }
+
+  /**
+   * Optional. This field is optional except for the `add-feedback` event types.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1Feedback getFeedback() {
+    return feedback;
+  }
+
+  /**
+   * Optional. This field is optional except for the `add-feedback` event types.
+   * @param feedback feedback or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1UserEvent setFeedback(GoogleCloudDiscoveryengineV1Feedback feedback) {
+    this.feedback = feedback;
     return this;
   }
 
@@ -573,6 +613,23 @@ public final class GoogleCloudDiscoveryengineV1UserEvent extends com.google.api.
    */
   public GoogleCloudDiscoveryengineV1UserEvent setPanel(GoogleCloudDiscoveryengineV1PanelInfo panel) {
     this.panel = panel;
+    return this;
+  }
+
+  /**
+   * Optional. List of panels associated with this event. Used for page-level impression data.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<GoogleCloudDiscoveryengineV1PanelInfo> getPanels() {
+    return panels;
+  }
+
+  /**
+   * Optional. List of panels associated with this event. Used for page-level impression data.
+   * @param panels panels or {@code null} for none
+   */
+  public GoogleCloudDiscoveryengineV1UserEvent setPanels(java.util.List<GoogleCloudDiscoveryengineV1PanelInfo> panels) {
+    this.panels = panels;
     return this;
   }
 

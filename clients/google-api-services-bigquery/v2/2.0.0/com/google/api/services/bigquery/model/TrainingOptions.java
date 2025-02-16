@@ -154,7 +154,7 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
   /**
    * The contribution metric. Applies to contribution analysis models. Allowed formats supported are
    * for summable and summable ratio contribution metrics. These include expressions such as
-   * "SUM(x)" or "SUM(x)/SUM(y)", where x and y are column names from the base table.
+   * `SUM(x)` or `SUM(x)/SUM(y)`, where x and y are column names from the base table.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -180,8 +180,8 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    * value tag are eval data, and the false are training data. 2. When data_split_method is SEQ, the
    * first DATA_SPLIT_EVAL_FRACTION rows (from smallest to largest) in the corresponding column are
    * used as training data, and the rest are eval data. It respects the order in Orderable data
-   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data-type-
-   * properties
+   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
+   * types#data_type_properties
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -259,6 +259,21 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean fitIntercept;
+
+  /**
+   * The forecast limit lower bound that was used during ARIMA model training with limits. To see
+   * more details of the algorithm: https://otexts.com/fpp2/limits.html
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double forecastLimitLowerBound;
+
+  /**
+   * The forecast limit upper bound that was used during ARIMA model training with limits.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Double forecastLimitUpperBound;
 
   /**
    * Hidden units for dnn models.
@@ -997,7 +1012,7 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
   /**
    * The contribution metric. Applies to contribution analysis models. Allowed formats supported are
    * for summable and summable ratio contribution metrics. These include expressions such as
-   * "SUM(x)" or "SUM(x)/SUM(y)", where x and y are column names from the base table.
+   * `SUM(x)` or `SUM(x)/SUM(y)`, where x and y are column names from the base table.
    * @return value or {@code null} for none
    */
   public java.lang.String getContributionMetric() {
@@ -1007,7 +1022,7 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
   /**
    * The contribution metric. Applies to contribution analysis models. Allowed formats supported are
    * for summable and summable ratio contribution metrics. These include expressions such as
-   * "SUM(x)" or "SUM(x)/SUM(y)", where x and y are column names from the base table.
+   * `SUM(x)` or `SUM(x)/SUM(y)`, where x and y are column names from the base table.
    * @param contributionMetric contributionMetric or {@code null} for none
    */
   public TrainingOptions setContributionMetric(java.lang.String contributionMetric) {
@@ -1055,8 +1070,8 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    * value tag are eval data, and the false are training data. 2. When data_split_method is SEQ, the
    * first DATA_SPLIT_EVAL_FRACTION rows (from smallest to largest) in the corresponding column are
    * used as training data, and the rest are eval data. It respects the order in Orderable data
-   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data-type-
-   * properties
+   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
+   * types#data_type_properties
    * @return value or {@code null} for none
    */
   public java.lang.String getDataSplitColumn() {
@@ -1069,8 +1084,8 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    * value tag are eval data, and the false are training data. 2. When data_split_method is SEQ, the
    * first DATA_SPLIT_EVAL_FRACTION rows (from smallest to largest) in the corresponding column are
    * used as training data, and the rest are eval data. It respects the order in Orderable data
-   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#data-type-
-   * properties
+   * types: https://cloud.google.com/bigquery/docs/reference/standard-sql/data-
+   * types#data_type_properties
    * @param dataSplitColumn dataSplitColumn or {@code null} for none
    */
   public TrainingOptions setDataSplitColumn(java.lang.String dataSplitColumn) {
@@ -1251,6 +1266,42 @@ public final class TrainingOptions extends com.google.api.client.json.GenericJso
    */
   public TrainingOptions setFitIntercept(java.lang.Boolean fitIntercept) {
     this.fitIntercept = fitIntercept;
+    return this;
+  }
+
+  /**
+   * The forecast limit lower bound that was used during ARIMA model training with limits. To see
+   * more details of the algorithm: https://otexts.com/fpp2/limits.html
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getForecastLimitLowerBound() {
+    return forecastLimitLowerBound;
+  }
+
+  /**
+   * The forecast limit lower bound that was used during ARIMA model training with limits. To see
+   * more details of the algorithm: https://otexts.com/fpp2/limits.html
+   * @param forecastLimitLowerBound forecastLimitLowerBound or {@code null} for none
+   */
+  public TrainingOptions setForecastLimitLowerBound(java.lang.Double forecastLimitLowerBound) {
+    this.forecastLimitLowerBound = forecastLimitLowerBound;
+    return this;
+  }
+
+  /**
+   * The forecast limit upper bound that was used during ARIMA model training with limits.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Double getForecastLimitUpperBound() {
+    return forecastLimitUpperBound;
+  }
+
+  /**
+   * The forecast limit upper bound that was used during ARIMA model training with limits.
+   * @param forecastLimitUpperBound forecastLimitUpperBound or {@code null} for none
+   */
+  public TrainingOptions setForecastLimitUpperBound(java.lang.Double forecastLimitUpperBound) {
+    this.forecastLimitUpperBound = forecastLimitUpperBound;
     return this;
   }
 

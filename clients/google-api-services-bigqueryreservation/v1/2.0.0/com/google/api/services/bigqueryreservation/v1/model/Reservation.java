@@ -42,7 +42,7 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
    * concurrently in this reservation. This is a soft target due to asynchronous nature of the
    * system and various optimizations for small queries. Default value is 0 which means that
    * concurrency target will be automatically computed by the system. NOTE: this field is exposed as
-   * target job concurrency in the Information Schema, DDL and BQ CLI.
+   * target job concurrency in the Information Schema, DDL and BigQuery CLI.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
@@ -72,6 +72,14 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean ignoreIdleSlots;
 
   /**
+   * Optional. The labels associated with this reservation. You can use these to organize and group
+   * your reservations. You can set this property when inserting or updating a reservation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> labels;
+
+  /**
    * Applicable only for reservations located within one of the BigQuery multi-regions (US or EU).
    * If set to true, this reservation is placed in the organization's secondary region which is
    * designated for disaster recovery purposes. If false, this reservation is placed in the
@@ -92,30 +100,37 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
-   * Optional. The original primary location of the reservation which is set only during its
-   * creation and remains unchanged afterwards. It can be used by the customer to answer questions
-   * about disaster recovery billing. The field is output only for customers and should not be
-   * specified, however, the google.api.field_behavior is not set to OUTPUT_ONLY since these fields
-   * are set in rerouted requests sent across regions.
+   * Output only. The location where the reservation was originally created. This is set only during
+   * the failover reservation's creation. All billing charges for the failover reservation will be
+   * applied to this location.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String originalPrimaryLocation;
 
   /**
-   * Optional. The primary location of the reservation. The field is only meaningful for reservation
-   * used for cross region disaster recovery. The field is output only for customers and should not
-   * be specified, however, the google.api.field_behavior is not set to OUTPUT_ONLY since these
-   * fields are set in rerouted requests sent across regions.
+   * Output only. The current location of the reservation's primary replica. This field is only set
+   * for reservations using the managed disaster recovery feature.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String primaryLocation;
 
   /**
-   * Optional. The secondary location of the reservation which is used for cross region disaster
-   * recovery purposes. Customer can set this in create/update reservation calls to create a
-   * failover reservation or convert a non-failover reservation to a failover reservation.
+   * Output only. The Disater Recovery(DR) replication status of the reservation. This is only
+   * available for the primary replica of DR/failover reservations and provides information about
+   * the both the staleness of the secondary and the last error encountered while trying to
+   * replicate changes from the primary to the secondary.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private ReplicationStatus replicationStatus;
+
+  /**
+   * Optional. The current location of the reservation's secondary replica. This field is only set
+   * for reservations using the managed disaster recovery feature. Users can set this in create
+   * reservation calls to create a failover reservation or in update reservation calls to convert a
+   * non-failover reservation to a failover reservation(or vice versa).
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -124,16 +139,13 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   /**
    * Baseline slots available to this reservation. A slot is a unit of computational power in
    * BigQuery, and serves as the unit of parallelism. Queries using this reservation might use more
-   * slots during runtime if ignore_idle_slots is set to false, or autoscaling is enabled. If
-   * edition is EDITION_UNSPECIFIED and total slot_capacity of the reservation and its siblings
-   * exceeds the total slot_count of all capacity commitments, the request will fail with
-   * `google.rpc.Code.RESOURCE_EXHAUSTED`. If edition is any value but EDITION_UNSPECIFIED, then the
-   * above requirement is not needed. The total slot_capacity of the reservation and its siblings
-   * may exceed the total slot_count of capacity commitments. In that case, the exceeding slots will
-   * be charged with the autoscale SKU. You can increase the number of baseline slots in a
-   * reservation every few minutes. If you want to decrease your baseline slots, you are limited to
-   * once an hour if you have recently changed your baseline slot capacity and your baseline slots
-   * exceed your committed slots. Otherwise, you can decrease your baseline slots every few minutes.
+   * slots during runtime if ignore_idle_slots is set to false, or autoscaling is enabled. The total
+   * slot_capacity of the reservation and its siblings may exceed the total slot_count of capacity
+   * commitments. In that case, the exceeding slots will be charged with the autoscale SKU. You can
+   * increase the number of baseline slots in a reservation every few minutes. If you want to
+   * decrease your baseline slots, you are limited to once an hour if you have recently changed your
+   * baseline slot capacity and your baseline slots exceed your committed slots. Otherwise, you can
+   * decrease your baseline slots every few minutes.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
@@ -168,7 +180,7 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
    * concurrently in this reservation. This is a soft target due to asynchronous nature of the
    * system and various optimizations for small queries. Default value is 0 which means that
    * concurrency target will be automatically computed by the system. NOTE: this field is exposed as
-   * target job concurrency in the Information Schema, DDL and BQ CLI.
+   * target job concurrency in the Information Schema, DDL and BigQuery CLI.
    * @return value or {@code null} for none
    */
   public java.lang.Long getConcurrency() {
@@ -180,7 +192,7 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
    * concurrently in this reservation. This is a soft target due to asynchronous nature of the
    * system and various optimizations for small queries. Default value is 0 which means that
    * concurrency target will be automatically computed by the system. NOTE: this field is exposed as
-   * target job concurrency in the Information Schema, DDL and BQ CLI.
+   * target job concurrency in the Information Schema, DDL and BigQuery CLI.
    * @param concurrency concurrency or {@code null} for none
    */
   public Reservation setConcurrency(java.lang.Long concurrency) {
@@ -244,6 +256,25 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Optional. The labels associated with this reservation. You can use these to organize and group
+   * your reservations. You can set this property when inserting or updating a reservation.
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getLabels() {
+    return labels;
+  }
+
+  /**
+   * Optional. The labels associated with this reservation. You can use these to organize and group
+   * your reservations. You can set this property when inserting or updating a reservation.
+   * @param labels labels or {@code null} for none
+   */
+  public Reservation setLabels(java.util.Map<String, java.lang.String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  /**
    * Applicable only for reservations located within one of the BigQuery multi-regions (US or EU).
    * If set to true, this reservation is placed in the organization's secondary region which is
    * designated for disaster recovery purposes. If false, this reservation is placed in the
@@ -290,11 +321,9 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The original primary location of the reservation which is set only during its
-   * creation and remains unchanged afterwards. It can be used by the customer to answer questions
-   * about disaster recovery billing. The field is output only for customers and should not be
-   * specified, however, the google.api.field_behavior is not set to OUTPUT_ONLY since these fields
-   * are set in rerouted requests sent across regions.
+   * Output only. The location where the reservation was originally created. This is set only during
+   * the failover reservation's creation. All billing charges for the failover reservation will be
+   * applied to this location.
    * @return value or {@code null} for none
    */
   public java.lang.String getOriginalPrimaryLocation() {
@@ -302,11 +331,9 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The original primary location of the reservation which is set only during its
-   * creation and remains unchanged afterwards. It can be used by the customer to answer questions
-   * about disaster recovery billing. The field is output only for customers and should not be
-   * specified, however, the google.api.field_behavior is not set to OUTPUT_ONLY since these fields
-   * are set in rerouted requests sent across regions.
+   * Output only. The location where the reservation was originally created. This is set only during
+   * the failover reservation's creation. All billing charges for the failover reservation will be
+   * applied to this location.
    * @param originalPrimaryLocation originalPrimaryLocation or {@code null} for none
    */
   public Reservation setOriginalPrimaryLocation(java.lang.String originalPrimaryLocation) {
@@ -315,10 +342,8 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The primary location of the reservation. The field is only meaningful for reservation
-   * used for cross region disaster recovery. The field is output only for customers and should not
-   * be specified, however, the google.api.field_behavior is not set to OUTPUT_ONLY since these
-   * fields are set in rerouted requests sent across regions.
+   * Output only. The current location of the reservation's primary replica. This field is only set
+   * for reservations using the managed disaster recovery feature.
    * @return value or {@code null} for none
    */
   public java.lang.String getPrimaryLocation() {
@@ -326,10 +351,8 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The primary location of the reservation. The field is only meaningful for reservation
-   * used for cross region disaster recovery. The field is output only for customers and should not
-   * be specified, however, the google.api.field_behavior is not set to OUTPUT_ONLY since these
-   * fields are set in rerouted requests sent across regions.
+   * Output only. The current location of the reservation's primary replica. This field is only set
+   * for reservations using the managed disaster recovery feature.
    * @param primaryLocation primaryLocation or {@code null} for none
    */
   public Reservation setPrimaryLocation(java.lang.String primaryLocation) {
@@ -338,9 +361,33 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The secondary location of the reservation which is used for cross region disaster
-   * recovery purposes. Customer can set this in create/update reservation calls to create a
-   * failover reservation or convert a non-failover reservation to a failover reservation.
+   * Output only. The Disater Recovery(DR) replication status of the reservation. This is only
+   * available for the primary replica of DR/failover reservations and provides information about
+   * the both the staleness of the secondary and the last error encountered while trying to
+   * replicate changes from the primary to the secondary.
+   * @return value or {@code null} for none
+   */
+  public ReplicationStatus getReplicationStatus() {
+    return replicationStatus;
+  }
+
+  /**
+   * Output only. The Disater Recovery(DR) replication status of the reservation. This is only
+   * available for the primary replica of DR/failover reservations and provides information about
+   * the both the staleness of the secondary and the last error encountered while trying to
+   * replicate changes from the primary to the secondary.
+   * @param replicationStatus replicationStatus or {@code null} for none
+   */
+  public Reservation setReplicationStatus(ReplicationStatus replicationStatus) {
+    this.replicationStatus = replicationStatus;
+    return this;
+  }
+
+  /**
+   * Optional. The current location of the reservation's secondary replica. This field is only set
+   * for reservations using the managed disaster recovery feature. Users can set this in create
+   * reservation calls to create a failover reservation or in update reservation calls to convert a
+   * non-failover reservation to a failover reservation(or vice versa).
    * @return value or {@code null} for none
    */
   public java.lang.String getSecondaryLocation() {
@@ -348,9 +395,10 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Optional. The secondary location of the reservation which is used for cross region disaster
-   * recovery purposes. Customer can set this in create/update reservation calls to create a
-   * failover reservation or convert a non-failover reservation to a failover reservation.
+   * Optional. The current location of the reservation's secondary replica. This field is only set
+   * for reservations using the managed disaster recovery feature. Users can set this in create
+   * reservation calls to create a failover reservation or in update reservation calls to convert a
+   * non-failover reservation to a failover reservation(or vice versa).
    * @param secondaryLocation secondaryLocation or {@code null} for none
    */
   public Reservation setSecondaryLocation(java.lang.String secondaryLocation) {
@@ -361,16 +409,13 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   /**
    * Baseline slots available to this reservation. A slot is a unit of computational power in
    * BigQuery, and serves as the unit of parallelism. Queries using this reservation might use more
-   * slots during runtime if ignore_idle_slots is set to false, or autoscaling is enabled. If
-   * edition is EDITION_UNSPECIFIED and total slot_capacity of the reservation and its siblings
-   * exceeds the total slot_count of all capacity commitments, the request will fail with
-   * `google.rpc.Code.RESOURCE_EXHAUSTED`. If edition is any value but EDITION_UNSPECIFIED, then the
-   * above requirement is not needed. The total slot_capacity of the reservation and its siblings
-   * may exceed the total slot_count of capacity commitments. In that case, the exceeding slots will
-   * be charged with the autoscale SKU. You can increase the number of baseline slots in a
-   * reservation every few minutes. If you want to decrease your baseline slots, you are limited to
-   * once an hour if you have recently changed your baseline slot capacity and your baseline slots
-   * exceed your committed slots. Otherwise, you can decrease your baseline slots every few minutes.
+   * slots during runtime if ignore_idle_slots is set to false, or autoscaling is enabled. The total
+   * slot_capacity of the reservation and its siblings may exceed the total slot_count of capacity
+   * commitments. In that case, the exceeding slots will be charged with the autoscale SKU. You can
+   * increase the number of baseline slots in a reservation every few minutes. If you want to
+   * decrease your baseline slots, you are limited to once an hour if you have recently changed your
+   * baseline slot capacity and your baseline slots exceed your committed slots. Otherwise, you can
+   * decrease your baseline slots every few minutes.
    * @return value or {@code null} for none
    */
   public java.lang.Long getSlotCapacity() {
@@ -380,16 +425,13 @@ public final class Reservation extends com.google.api.client.json.GenericJson {
   /**
    * Baseline slots available to this reservation. A slot is a unit of computational power in
    * BigQuery, and serves as the unit of parallelism. Queries using this reservation might use more
-   * slots during runtime if ignore_idle_slots is set to false, or autoscaling is enabled. If
-   * edition is EDITION_UNSPECIFIED and total slot_capacity of the reservation and its siblings
-   * exceeds the total slot_count of all capacity commitments, the request will fail with
-   * `google.rpc.Code.RESOURCE_EXHAUSTED`. If edition is any value but EDITION_UNSPECIFIED, then the
-   * above requirement is not needed. The total slot_capacity of the reservation and its siblings
-   * may exceed the total slot_count of capacity commitments. In that case, the exceeding slots will
-   * be charged with the autoscale SKU. You can increase the number of baseline slots in a
-   * reservation every few minutes. If you want to decrease your baseline slots, you are limited to
-   * once an hour if you have recently changed your baseline slot capacity and your baseline slots
-   * exceed your committed slots. Otherwise, you can decrease your baseline slots every few minutes.
+   * slots during runtime if ignore_idle_slots is set to false, or autoscaling is enabled. The total
+   * slot_capacity of the reservation and its siblings may exceed the total slot_count of capacity
+   * commitments. In that case, the exceeding slots will be charged with the autoscale SKU. You can
+   * increase the number of baseline slots in a reservation every few minutes. If you want to
+   * decrease your baseline slots, you are limited to once an hour if you have recently changed your
+   * baseline slot capacity and your baseline slots exceed your committed slots. Otherwise, you can
+   * decrease your baseline slots every few minutes.
    * @param slotCapacity slotCapacity or {@code null} for none
    */
   public Reservation setSlotCapacity(java.lang.Long slotCapacity) {

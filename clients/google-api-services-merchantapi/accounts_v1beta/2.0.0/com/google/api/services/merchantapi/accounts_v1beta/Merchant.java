@@ -556,7 +556,12 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
      * Lists accounts accessible to the calling user and matching the constraints of the request such as
      * page size or filters. This is not just listing the sub-accounts of an MCA, but all accounts the
      * calling user has access to including other MCAs, linked accounts, standalone accounts and so on.
-     * If no filter is provided, then it returns accounts the user is directly added to.
+     * If no filter is provided, then it returns accounts the user is directly added to. This method is
+     * eventually consistent, meaning changes such as creating, updating an account or a change of
+     * relationships between accounts may not show up in the results immediately. Instead, these changes
+     * propagate over a short period, after which the updated information can match the associated
+     * predicates. That means, that searching by account name might not return a recently changed
+     * account even though it satisfies the predicate.
      *
      * Create a request for the method "accounts.list".
      *
@@ -579,7 +584,12 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * Lists accounts accessible to the calling user and matching the constraints of the request such
        * as page size or filters. This is not just listing the sub-accounts of an MCA, but all accounts
        * the calling user has access to including other MCAs, linked accounts, standalone accounts and
-       * so on. If no filter is provided, then it returns accounts the user is directly added to.
+       * so on. If no filter is provided, then it returns accounts the user is directly added to. This
+       * method is eventually consistent, meaning changes such as creating, updating an account or a
+       * change of relationships between accounts may not show up in the results immediately. Instead,
+       * these changes propagate over a short period, after which the updated information can match the
+       * associated predicates. That means, that searching by account name might not return a recently
+       * changed account even though it satisfies the predicate.
        *
        * Create a request for the method "accounts.list".
        *
@@ -752,7 +762,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
      * This request holds the parameters needed by the merchantapi server.  After setting any optional
      * parameters, call the {@link ListSubaccounts#execute()} method to invoke the remote operation.
      *
-     * @param provider Required. The parent account. Format: `accounts/{account}`
+     * @param provider Required. The aggregation service provider. Format: `providers/{providerId}`
      * @return the request
      */
     public ListSubaccounts listSubaccounts(java.lang.String provider) throws java.io.IOException {
@@ -782,7 +792,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
        * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
        * the constructor. </p>
        *
-       * @param provider Required. The parent account. Format: `accounts/{account}`
+       * @param provider Required. The aggregation service provider. Format: `providers/{providerId}`
        * @since 1.13
        */
       protected ListSubaccounts(java.lang.String provider) {
@@ -860,17 +870,17 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         return (ListSubaccounts) super.setUploadProtocol(uploadProtocol);
       }
 
-      /** Required. The parent account. Format: `accounts/{account}` */
+      /** Required. The aggregation service provider. Format: `providers/{providerId}` */
       @com.google.api.client.util.Key
       private java.lang.String provider;
 
-      /** Required. The parent account. Format: `accounts/{account}`
+      /** Required. The aggregation service provider. Format: `providers/{providerId}`
        */
       public java.lang.String getProvider() {
         return provider;
       }
 
-      /** Required. The parent account. Format: `accounts/{account}` */
+      /** Required. The aggregation service provider. Format: `providers/{providerId}` */
       public ListSubaccounts setProvider(java.lang.String provider) {
         if (!getSuppressPatternChecks()) {
           com.google.api.client.util.Preconditions.checkArgument(PROVIDER_PATTERN.matcher(provider).matches(),
@@ -1066,17 +1076,26 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         return this;
       }
 
-      /** Required. List of fields being updated. */
+      /**
+       * Optional. List of fields being updated. The following fields are supported (in both
+       * `snake_case` and `lowerCamelCase`): - `account_name` - `adult_content` - `language_code` -
+       * `time_zone`
+       */
       @com.google.api.client.util.Key
       private String updateMask;
 
-      /** Required. List of fields being updated.
+      /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+     and `lowerCamelCase`): - `account_name` - `adult_content` - `language_code` - `time_zone`
        */
       public String getUpdateMask() {
         return updateMask;
       }
 
-      /** Required. List of fields being updated. */
+      /**
+       * Optional. List of fields being updated. The following fields are supported (in both
+       * `snake_case` and `lowerCamelCase`): - `account_name` - `adult_content` - `language_code` -
+       * `time_zone`
+       */
       public Patch setUpdateMask(String updateMask) {
         this.updateMask = updateMask;
         return this;
@@ -1713,17 +1732,27 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `black_owned` - `latino_owned` -
+         * `promotions_consent` - `small_business` - `veteran_owned` - `women_owned`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `black_owned` - `latino_owned` - `promotions_consent` - `small_business` -
+       `veteran_owned` - `women_owned`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `black_owned` - `latino_owned` -
+         * `promotions_consent` - `small_business` - `veteran_owned` - `women_owned`
+         */
         public UpdateBusinessIdentity setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -2033,17 +2062,26 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `address` - `customer_service` -
+         * `korean_business_registration_number`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `address` - `customer_service` - `korean_business_registration_number`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `address` - `customer_service` -
+         * `korean_business_registration_number`
+         */
         public UpdateBusinessInfo setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -2077,7 +2115,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
     public class EmailPreferences {
 
       /**
-       * Returns the email preferences for a Merchant Center account user. Use the
+       * Returns the email preferences for a Merchant Center account user. This service only permits
+       * retrieving and updating email preferences for the authenticated user. Use the
        * name=accounts/users/me/emailPreferences alias to get preferences for the authenticated user.
        *
        * Create a request for the method "emailPreferences.getEmailPreferences".
@@ -2103,7 +2142,8 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/users/[^/]+/emailPreferences$");
 
         /**
-         * Returns the email preferences for a Merchant Center account user. Use the
+         * Returns the email preferences for a Merchant Center account user. This service only permits
+         * retrieving and updating email preferences for the authenticated user. Use the
          * name=accounts/users/me/emailPreferences alias to get preferences for the authenticated user.
          *
          * Create a request for the method "emailPreferences.getEmailPreferences".
@@ -2370,17 +2410,24 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Required. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `news_and_tips`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Required. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `news_and_tips`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Required. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `news_and_tips`
+         */
         public UpdateEmailPreferences setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -2964,17 +3011,24 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `uri`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `uri`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `uri`
+         */
         public UpdateHomepage setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;
@@ -3275,7 +3329,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
     public class OnlineReturnPolicies {
 
       /**
-       * Gets an existing return policy.
+       * Gets an existing return policy for a given merchant.
        *
        * Create a request for the method "onlineReturnPolicies.get".
        *
@@ -3300,7 +3354,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/onlineReturnPolicies/[^/]+$");
 
         /**
-         * Gets an existing return policy.
+         * Gets an existing return policy for a given merchant.
          *
          * Create a request for the method "onlineReturnPolicies.get".
          *
@@ -3422,7 +3476,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
       /**
-       * Lists all existing return policies.
+       * Lists all existing return policies for a given merchant.
        *
        * Create a request for the method "onlineReturnPolicies.list".
        *
@@ -3446,7 +3500,7 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+$");
 
         /**
-         * Lists all existing return policies.
+         * Lists all existing return policies for a given merchant.
          *
          * Create a request for the method "onlineReturnPolicies.list".
          *
@@ -5877,7 +5931,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
         }
       }
       /**
-       * Deletes a Merchant Center account user. Executing this method requires admin access.
+       * Deletes a Merchant Center account user. Executing this method requires admin access. The user to
+       * be deleted can't be the last admin user of that account. Also a user is protected from deletion
+       * if it is managed by Business Manager"
        *
        * Create a request for the method "users.delete".
        *
@@ -5903,7 +5959,9 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
             java.util.regex.Pattern.compile("^accounts/[^/]+/users/[^/]+$");
 
         /**
-         * Deletes a Merchant Center account user. Executing this method requires admin access.
+         * Deletes a Merchant Center account user. Executing this method requires admin access. The user
+         * to be deleted can't be the last admin user of that account. Also a user is protected from
+         * deletion if it is managed by Business Manager"
          *
          * Create a request for the method "users.delete".
          *
@@ -6500,17 +6558,24 @@ public class Merchant extends com.google.api.client.googleapis.services.json.Abs
           return this;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `access_rights`
+         */
         @com.google.api.client.util.Key
         private String updateMask;
 
-        /** Required. List of fields being updated.
+        /** Optional. List of fields being updated. The following fields are supported (in both `snake_case`
+       and `lowerCamelCase`): - `access_rights`
          */
         public String getUpdateMask() {
           return updateMask;
         }
 
-        /** Required. List of fields being updated. */
+        /**
+         * Optional. List of fields being updated. The following fields are supported (in both
+         * `snake_case` and `lowerCamelCase`): - `access_rights`
+         */
         public Patch setUpdateMask(String updateMask) {
           this.updateMask = updateMask;
           return this;

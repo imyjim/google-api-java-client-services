@@ -139,6 +139,14 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   private GeminiInstanceConfig geminiConfig;
 
   /**
+   * Input only. Determines whether an in-place major version upgrade of replicas happens when an
+   * in-place major version upgrade of a primary instance is initiated.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean includeReplicasForMajorVersionUpgrade;
+
+  /**
    * The instance type.
    * The value may be {@code null}.
    */
@@ -260,7 +268,7 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   /**
    * A primary instance and disaster recovery (DR) replica pair. A DR replica is a cross-region
    * replica that you designate for failover in the event that the primary instance experiences
-   * regional failure. Only applicable to MySQL.
+   * regional failure. Applicable to MySQL and PostgreSQL.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -362,6 +370,17 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean switchTransactionLogsToCloudStorageEnabled;
+
+  /**
+   * Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You
+   * must represent each item in the map as: `"" : ""`. For example, a single resource can have the
+   * following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For
+   * more information on tag creation and management, see https://cloud.google.com/resource-
+   * manager/docs/tags/tags-overview.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> tags;
 
   /**
    * Output only. All database versions that are available for upgrade.
@@ -640,6 +659,25 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   public DatabaseInstance setGeminiConfig(GeminiInstanceConfig geminiConfig) {
     this.geminiConfig = geminiConfig;
+    return this;
+  }
+
+  /**
+   * Input only. Determines whether an in-place major version upgrade of replicas happens when an
+   * in-place major version upgrade of a primary instance is initiated.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getIncludeReplicasForMajorVersionUpgrade() {
+    return includeReplicasForMajorVersionUpgrade;
+  }
+
+  /**
+   * Input only. Determines whether an in-place major version upgrade of replicas happens when an
+   * in-place major version upgrade of a primary instance is initiated.
+   * @param includeReplicasForMajorVersionUpgrade includeReplicasForMajorVersionUpgrade or {@code null} for none
+   */
+  public DatabaseInstance setIncludeReplicasForMajorVersionUpgrade(java.lang.Boolean includeReplicasForMajorVersionUpgrade) {
+    this.includeReplicasForMajorVersionUpgrade = includeReplicasForMajorVersionUpgrade;
     return this;
   }
 
@@ -932,7 +970,7 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   /**
    * A primary instance and disaster recovery (DR) replica pair. A DR replica is a cross-region
    * replica that you designate for failover in the event that the primary instance experiences
-   * regional failure. Only applicable to MySQL.
+   * regional failure. Applicable to MySQL and PostgreSQL.
    * @return value or {@code null} for none
    */
   public ReplicationCluster getReplicationCluster() {
@@ -942,7 +980,7 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
   /**
    * A primary instance and disaster recovery (DR) replica pair. A DR replica is a cross-region
    * replica that you designate for failover in the event that the primary instance experiences
-   * regional failure. Only applicable to MySQL.
+   * regional failure. Applicable to MySQL and PostgreSQL.
    * @param replicationCluster replicationCluster or {@code null} for none
    */
   public DatabaseInstance setReplicationCluster(ReplicationCluster replicationCluster) {
@@ -1180,6 +1218,31 @@ public final class DatabaseInstance extends com.google.api.client.json.GenericJs
    */
   public DatabaseInstance setSwitchTransactionLogsToCloudStorageEnabled(java.lang.Boolean switchTransactionLogsToCloudStorageEnabled) {
     this.switchTransactionLogsToCloudStorageEnabled = switchTransactionLogsToCloudStorageEnabled;
+    return this;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You
+   * must represent each item in the map as: `"" : ""`. For example, a single resource can have the
+   * following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For
+   * more information on tag creation and management, see https://cloud.google.com/resource-
+   * manager/docs/tags/tags-overview.
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You
+   * must represent each item in the map as: `"" : ""`. For example, a single resource can have the
+   * following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For
+   * more information on tag creation and management, see https://cloud.google.com/resource-
+   * manager/docs/tags/tags-overview.
+   * @param tags tags or {@code null} for none
+   */
+  public DatabaseInstance setTags(java.util.Map<String, java.lang.String> tags) {
+    this.tags = tags;
     return this;
   }
 

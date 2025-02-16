@@ -59,11 +59,25 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   private java.lang.Boolean autoDeleteAutoCreatedReservations;
 
   /**
+   * If not present, then FR will not deliver a new commitment or update an existing commitment.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private FutureReservationCommitmentInfo commitmentInfo;
+
+  /**
    * [Output Only] The creation timestamp for this future reservation in RFC3339 text format.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private java.lang.String creationTimestamp;
+
+  /**
+   * Type of the deployment requested as part of future reservation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String deploymentType;
 
   /**
    * An optional description of this resource. Provide this property when you create the future
@@ -116,6 +130,23 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   private java.lang.String planningStatus;
 
   /**
+   * Name of reservations where the capacity is provisioned at the time of delivery of future
+   * reservations. If the reservation with the given name does not exist already, it is created
+   * automatically at the time of Approval with INACTIVE state till specified start-time. Either
+   * provide the reservation_name or a name_prefix.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String reservationName;
+
+  /**
+   * Maintenance information for this reservation
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String schedulingType;
+
+  /**
    * [Output Only] Server-defined fully-qualified URL for this resource.
    * The value may be {@code null}.
    */
@@ -135,6 +166,15 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private ShareSettings shareSettings;
+
+  /**
+   * Indicates whether the auto-created reservation can be consumed by VMs with affinity for "any"
+   * reservation. If the field is set, then only VMs that target the reservation by name can consume
+   * from the delivered reservation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean specificReservationRequired;
 
   /**
    * Future Reservation configuration to indicate instance properties and total count.
@@ -232,6 +272,23 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * If not present, then FR will not deliver a new commitment or update an existing commitment.
+   * @return value or {@code null} for none
+   */
+  public FutureReservationCommitmentInfo getCommitmentInfo() {
+    return commitmentInfo;
+  }
+
+  /**
+   * If not present, then FR will not deliver a new commitment or update an existing commitment.
+   * @param commitmentInfo commitmentInfo or {@code null} for none
+   */
+  public FutureReservation setCommitmentInfo(FutureReservationCommitmentInfo commitmentInfo) {
+    this.commitmentInfo = commitmentInfo;
+    return this;
+  }
+
+  /**
    * [Output Only] The creation timestamp for this future reservation in RFC3339 text format.
    * @return value or {@code null} for none
    */
@@ -245,6 +302,23 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
    */
   public FutureReservation setCreationTimestamp(java.lang.String creationTimestamp) {
     this.creationTimestamp = creationTimestamp;
+    return this;
+  }
+
+  /**
+   * Type of the deployment requested as part of future reservation.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDeploymentType() {
+    return deploymentType;
+  }
+
+  /**
+   * Type of the deployment requested as part of future reservation.
+   * @param deploymentType deploymentType or {@code null} for none
+   */
+  public FutureReservation setDeploymentType(java.lang.String deploymentType) {
+    this.deploymentType = deploymentType;
     return this;
   }
 
@@ -367,6 +441,46 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * Name of reservations where the capacity is provisioned at the time of delivery of future
+   * reservations. If the reservation with the given name does not exist already, it is created
+   * automatically at the time of Approval with INACTIVE state till specified start-time. Either
+   * provide the reservation_name or a name_prefix.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getReservationName() {
+    return reservationName;
+  }
+
+  /**
+   * Name of reservations where the capacity is provisioned at the time of delivery of future
+   * reservations. If the reservation with the given name does not exist already, it is created
+   * automatically at the time of Approval with INACTIVE state till specified start-time. Either
+   * provide the reservation_name or a name_prefix.
+   * @param reservationName reservationName or {@code null} for none
+   */
+  public FutureReservation setReservationName(java.lang.String reservationName) {
+    this.reservationName = reservationName;
+    return this;
+  }
+
+  /**
+   * Maintenance information for this reservation
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getSchedulingType() {
+    return schedulingType;
+  }
+
+  /**
+   * Maintenance information for this reservation
+   * @param schedulingType schedulingType or {@code null} for none
+   */
+  public FutureReservation setSchedulingType(java.lang.String schedulingType) {
+    this.schedulingType = schedulingType;
+    return this;
+  }
+
+  /**
    * [Output Only] Server-defined fully-qualified URL for this resource.
    * @return value or {@code null} for none
    */
@@ -414,6 +528,27 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
    */
   public FutureReservation setShareSettings(ShareSettings shareSettings) {
     this.shareSettings = shareSettings;
+    return this;
+  }
+
+  /**
+   * Indicates whether the auto-created reservation can be consumed by VMs with affinity for "any"
+   * reservation. If the field is set, then only VMs that target the reservation by name can consume
+   * from the delivered reservation.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getSpecificReservationRequired() {
+    return specificReservationRequired;
+  }
+
+  /**
+   * Indicates whether the auto-created reservation can be consumed by VMs with affinity for "any"
+   * reservation. If the field is set, then only VMs that target the reservation by name can consume
+   * from the delivered reservation.
+   * @param specificReservationRequired specificReservationRequired or {@code null} for none
+   */
+  public FutureReservation setSpecificReservationRequired(java.lang.Boolean specificReservationRequired) {
+    this.specificReservationRequired = specificReservationRequired;
     return this;
   }
 

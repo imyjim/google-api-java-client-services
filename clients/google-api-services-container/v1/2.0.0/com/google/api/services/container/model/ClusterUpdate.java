@@ -54,7 +54,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private AuthenticatorGroupsConfig desiredAuthenticatorGroupsConfig;
 
   /**
-   * The desired workload policy configuration for the autopilot cluster.
+   * WorkloadPolicyConfig is the configuration related to GCW workload policy
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -132,6 +132,13 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   private DefaultSnatStatus desiredDefaultSnatStatus;
 
   /**
+   * Enable/Disable L4 LB VPC firewall reconciliation for the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean desiredDisableL4LbFirewallReconciliation;
+
+  /**
    * DNSConfig contains clusterDNS config for this cluster.
    * The value may be {@code null}.
    */
@@ -168,6 +175,13 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean desiredEnablePrivateEndpoint;
+
+  /**
+   * The desired enterprise configuration for the cluster.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private DesiredEnterpriseConfig desiredEnterpriseConfig;
 
   /**
    * The desired fleet configuration for the cluster.
@@ -328,6 +342,14 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   @com.google.api.client.util.Key
   private NodeKubeletConfig desiredNodePoolAutoConfigKubeletConfig;
+
+  /**
+   * The desired Linux node config for all auto-provisioned node pools in autopilot clusters and
+   * node auto-provisioning enabled clusters. Currently only `cgroup_mode` can be set here.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private LinuxNodeConfig desiredNodePoolAutoConfigLinuxNodeConfig;
 
   /**
    * The desired network tags that apply to all auto-provisioned node pools in autopilot clusters
@@ -570,7 +592,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired workload policy configuration for the autopilot cluster.
+   * WorkloadPolicyConfig is the configuration related to GCW workload policy
    * @return value or {@code null} for none
    */
   public WorkloadPolicyConfig getDesiredAutopilotWorkloadPolicyConfig() {
@@ -578,7 +600,7 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * The desired workload policy configuration for the autopilot cluster.
+   * WorkloadPolicyConfig is the configuration related to GCW workload policy
    * @param desiredAutopilotWorkloadPolicyConfig desiredAutopilotWorkloadPolicyConfig or {@code null} for none
    */
   public ClusterUpdate setDesiredAutopilotWorkloadPolicyConfig(WorkloadPolicyConfig desiredAutopilotWorkloadPolicyConfig) {
@@ -759,6 +781,23 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
   }
 
   /**
+   * Enable/Disable L4 LB VPC firewall reconciliation for the cluster.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getDesiredDisableL4LbFirewallReconciliation() {
+    return desiredDisableL4LbFirewallReconciliation;
+  }
+
+  /**
+   * Enable/Disable L4 LB VPC firewall reconciliation for the cluster.
+   * @param desiredDisableL4LbFirewallReconciliation desiredDisableL4LbFirewallReconciliation or {@code null} for none
+   */
+  public ClusterUpdate setDesiredDisableL4LbFirewallReconciliation(java.lang.Boolean desiredDisableL4LbFirewallReconciliation) {
+    this.desiredDisableL4LbFirewallReconciliation = desiredDisableL4LbFirewallReconciliation;
+    return this;
+  }
+
+  /**
    * DNSConfig contains clusterDNS config for this cluster.
    * @return value or {@code null} for none
    */
@@ -846,6 +885,23 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   public ClusterUpdate setDesiredEnablePrivateEndpoint(java.lang.Boolean desiredEnablePrivateEndpoint) {
     this.desiredEnablePrivateEndpoint = desiredEnablePrivateEndpoint;
+    return this;
+  }
+
+  /**
+   * The desired enterprise configuration for the cluster.
+   * @return value or {@code null} for none
+   */
+  public DesiredEnterpriseConfig getDesiredEnterpriseConfig() {
+    return desiredEnterpriseConfig;
+  }
+
+  /**
+   * The desired enterprise configuration for the cluster.
+   * @param desiredEnterpriseConfig desiredEnterpriseConfig or {@code null} for none
+   */
+  public ClusterUpdate setDesiredEnterpriseConfig(DesiredEnterpriseConfig desiredEnterpriseConfig) {
+    this.desiredEnterpriseConfig = desiredEnterpriseConfig;
     return this;
   }
 
@@ -1226,6 +1282,25 @@ public final class ClusterUpdate extends com.google.api.client.json.GenericJson 
    */
   public ClusterUpdate setDesiredNodePoolAutoConfigKubeletConfig(NodeKubeletConfig desiredNodePoolAutoConfigKubeletConfig) {
     this.desiredNodePoolAutoConfigKubeletConfig = desiredNodePoolAutoConfigKubeletConfig;
+    return this;
+  }
+
+  /**
+   * The desired Linux node config for all auto-provisioned node pools in autopilot clusters and
+   * node auto-provisioning enabled clusters. Currently only `cgroup_mode` can be set here.
+   * @return value or {@code null} for none
+   */
+  public LinuxNodeConfig getDesiredNodePoolAutoConfigLinuxNodeConfig() {
+    return desiredNodePoolAutoConfigLinuxNodeConfig;
+  }
+
+  /**
+   * The desired Linux node config for all auto-provisioned node pools in autopilot clusters and
+   * node auto-provisioning enabled clusters. Currently only `cgroup_mode` can be set here.
+   * @param desiredNodePoolAutoConfigLinuxNodeConfig desiredNodePoolAutoConfigLinuxNodeConfig or {@code null} for none
+   */
+  public ClusterUpdate setDesiredNodePoolAutoConfigLinuxNodeConfig(LinuxNodeConfig desiredNodePoolAutoConfigLinuxNodeConfig) {
+    this.desiredNodePoolAutoConfigLinuxNodeConfig = desiredNodePoolAutoConfigLinuxNodeConfig;
     return this;
   }
 

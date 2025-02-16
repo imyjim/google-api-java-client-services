@@ -44,9 +44,11 @@ public final class BuildConfig extends com.google.api.client.json.GenericJson {
 
   /**
    * Docker Registry to use for this deployment. This configuration is only applicable to 1st Gen
-   * functions, 2nd Gen functions can only use Artifact Registry. If unspecified, it defaults to
-   * `ARTIFACT_REGISTRY`. If `docker_repository` field is specified, this field should either be
-   * left unspecified or set to `ARTIFACT_REGISTRY`.
+   * functions, 2nd Gen functions can only use Artifact Registry. Deprecated: Container Registry
+   * option will no longer be available after March 2025: https://cloud.google.com/artifact-
+   * registry/docs/transition/transition-from-gcr Please use Artifact Registry instead, which is the
+   * default choice. If unspecified, it defaults to `ARTIFACT_REGISTRY`. If `docker_repository`
+   * field is specified, this field should either be left unspecified or set to `ARTIFACT_REGISTRY`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -57,8 +59,7 @@ public final class BuildConfig extends com.google.api.client.json.GenericJson {
    * built by Cloud Build. If specified by user, it is created and managed by user with a customer
    * managed encryption key. Otherwise, GCF will create and use a repository named 'gcf-artifacts'
    * for every deployed region. It must match the pattern
-   * `projects/{project}/locations/{location}/repositories/{repository}`. Cross-project repositories
-   * are not supported. Cross-location repositories are not supported. Repository format must be
+   * `projects/{project}/locations/{location}/repositories/{repository}`. Repository format must be
    * 'DOCKER'.
    * The value may be {@code null}.
    */
@@ -174,9 +175,11 @@ public final class BuildConfig extends com.google.api.client.json.GenericJson {
 
   /**
    * Docker Registry to use for this deployment. This configuration is only applicable to 1st Gen
-   * functions, 2nd Gen functions can only use Artifact Registry. If unspecified, it defaults to
-   * `ARTIFACT_REGISTRY`. If `docker_repository` field is specified, this field should either be
-   * left unspecified or set to `ARTIFACT_REGISTRY`.
+   * functions, 2nd Gen functions can only use Artifact Registry. Deprecated: Container Registry
+   * option will no longer be available after March 2025: https://cloud.google.com/artifact-
+   * registry/docs/transition/transition-from-gcr Please use Artifact Registry instead, which is the
+   * default choice. If unspecified, it defaults to `ARTIFACT_REGISTRY`. If `docker_repository`
+   * field is specified, this field should either be left unspecified or set to `ARTIFACT_REGISTRY`.
    * @return value or {@code null} for none
    */
   public java.lang.String getDockerRegistry() {
@@ -185,9 +188,11 @@ public final class BuildConfig extends com.google.api.client.json.GenericJson {
 
   /**
    * Docker Registry to use for this deployment. This configuration is only applicable to 1st Gen
-   * functions, 2nd Gen functions can only use Artifact Registry. If unspecified, it defaults to
-   * `ARTIFACT_REGISTRY`. If `docker_repository` field is specified, this field should either be
-   * left unspecified or set to `ARTIFACT_REGISTRY`.
+   * functions, 2nd Gen functions can only use Artifact Registry. Deprecated: Container Registry
+   * option will no longer be available after March 2025: https://cloud.google.com/artifact-
+   * registry/docs/transition/transition-from-gcr Please use Artifact Registry instead, which is the
+   * default choice. If unspecified, it defaults to `ARTIFACT_REGISTRY`. If `docker_repository`
+   * field is specified, this field should either be left unspecified or set to `ARTIFACT_REGISTRY`.
    * @param dockerRegistry dockerRegistry or {@code null} for none
    */
   public BuildConfig setDockerRegistry(java.lang.String dockerRegistry) {
@@ -200,8 +205,7 @@ public final class BuildConfig extends com.google.api.client.json.GenericJson {
    * built by Cloud Build. If specified by user, it is created and managed by user with a customer
    * managed encryption key. Otherwise, GCF will create and use a repository named 'gcf-artifacts'
    * for every deployed region. It must match the pattern
-   * `projects/{project}/locations/{location}/repositories/{repository}`. Cross-project repositories
-   * are not supported. Cross-location repositories are not supported. Repository format must be
+   * `projects/{project}/locations/{location}/repositories/{repository}`. Repository format must be
    * 'DOCKER'.
    * @return value or {@code null} for none
    */
@@ -214,8 +218,7 @@ public final class BuildConfig extends com.google.api.client.json.GenericJson {
    * built by Cloud Build. If specified by user, it is created and managed by user with a customer
    * managed encryption key. Otherwise, GCF will create and use a repository named 'gcf-artifacts'
    * for every deployed region. It must match the pattern
-   * `projects/{project}/locations/{location}/repositories/{repository}`. Cross-project repositories
-   * are not supported. Cross-location repositories are not supported. Repository format must be
+   * `projects/{project}/locations/{location}/repositories/{repository}`. Repository format must be
    * 'DOCKER'.
    * @param dockerRepository dockerRepository or {@code null} for none
    */

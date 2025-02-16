@@ -54,6 +54,18 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
+   * Optional. Controls the default backup schedule behavior for new databases within the instance.
+   * By default, a backup schedule is created automatically when a new database is created in a new
+   * instance. Note that the `AUTOMATIC` value isn't permitted for free instances, as backups and
+   * backup schedules aren't supported for free instances. In the `GetInstance` or `ListInstances`
+   * response, if the value of `default_backup_schedule_type` isn't set, or set to `NONE`, Spanner
+   * doesn't create a default backup schedule for new databases in the instance.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String defaultBackupScheduleType;
+
+  /**
    * Required. The descriptive name for this instance as it appears in UIs. Must be unique per
    * project and between 4 and 30 characters in length.
    * The value may be {@code null}.
@@ -145,6 +157,15 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private java.lang.Integer processingUnits;
 
   /**
+   * Output only. Lists the compute capacity per ReplicaSelection. A replica selection identifies a
+   * set of replicas with common properties. Replicas identified by a ReplicaSelection are scaled
+   * with the same compute capacity.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<ReplicaComputeCapacity> replicaComputeCapacity;
+
+  /**
    * Output only. The current instance state. For CreateInstance, the state must be either omitted
    * or set to `CREATING`. For UpdateInstance, the state must be either omitted or set to `READY`.
    * The value may be {@code null}.
@@ -213,6 +234,33 @@ public final class Instance extends com.google.api.client.json.GenericJson {
    */
   public Instance setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * Optional. Controls the default backup schedule behavior for new databases within the instance.
+   * By default, a backup schedule is created automatically when a new database is created in a new
+   * instance. Note that the `AUTOMATIC` value isn't permitted for free instances, as backups and
+   * backup schedules aren't supported for free instances. In the `GetInstance` or `ListInstances`
+   * response, if the value of `default_backup_schedule_type` isn't set, or set to `NONE`, Spanner
+   * doesn't create a default backup schedule for new databases in the instance.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDefaultBackupScheduleType() {
+    return defaultBackupScheduleType;
+  }
+
+  /**
+   * Optional. Controls the default backup schedule behavior for new databases within the instance.
+   * By default, a backup schedule is created automatically when a new database is created in a new
+   * instance. Note that the `AUTOMATIC` value isn't permitted for free instances, as backups and
+   * backup schedules aren't supported for free instances. In the `GetInstance` or `ListInstances`
+   * response, if the value of `default_backup_schedule_type` isn't set, or set to `NONE`, Spanner
+   * doesn't create a default backup schedule for new databases in the instance.
+   * @param defaultBackupScheduleType defaultBackupScheduleType or {@code null} for none
+   */
+  public Instance setDefaultBackupScheduleType(java.lang.String defaultBackupScheduleType) {
+    this.defaultBackupScheduleType = defaultBackupScheduleType;
     return this;
   }
 
@@ -422,6 +470,27 @@ public final class Instance extends com.google.api.client.json.GenericJson {
    */
   public Instance setProcessingUnits(java.lang.Integer processingUnits) {
     this.processingUnits = processingUnits;
+    return this;
+  }
+
+  /**
+   * Output only. Lists the compute capacity per ReplicaSelection. A replica selection identifies a
+   * set of replicas with common properties. Replicas identified by a ReplicaSelection are scaled
+   * with the same compute capacity.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<ReplicaComputeCapacity> getReplicaComputeCapacity() {
+    return replicaComputeCapacity;
+  }
+
+  /**
+   * Output only. Lists the compute capacity per ReplicaSelection. A replica selection identifies a
+   * set of replicas with common properties. Replicas identified by a ReplicaSelection are scaled
+   * with the same compute capacity.
+   * @param replicaComputeCapacity replicaComputeCapacity or {@code null} for none
+   */
+  public Instance setReplicaComputeCapacity(java.util.List<ReplicaComputeCapacity> replicaComputeCapacity) {
+    this.replicaComputeCapacity = replicaComputeCapacity;
     return this;
   }
 

@@ -54,6 +54,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
+   * Custom domain configuration for the instance.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -223,7 +224,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   private String updateTime;
 
   /**
-   * User metadata.
+   * Optional. User metadata.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -285,6 +286,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Custom domain configuration for the instance.
    * @return value or {@code null} for none
    */
   public CustomDomain getCustomDomain() {
@@ -292,6 +294,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Custom domain configuration for the instance.
    * @param customDomain customDomain or {@code null} for none
    */
   public Instance setCustomDomain(CustomDomain customDomain) {
@@ -695,7 +698,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User metadata.
+   * Optional. User metadata.
    * @return value or {@code null} for none
    */
   public UserMetadata getUserMetadata() {
@@ -703,7 +706,7 @@ public final class Instance extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * User metadata.
+   * Optional. User metadata.
    * @param userMetadata userMetadata or {@code null} for none
    */
   public Instance setUserMetadata(UserMetadata userMetadata) {

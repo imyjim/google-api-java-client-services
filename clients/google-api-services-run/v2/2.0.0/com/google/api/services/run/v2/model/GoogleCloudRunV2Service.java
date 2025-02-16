@@ -52,6 +52,13 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
   private GoogleCloudRunV2BinaryAuthorization binaryAuthorization;
 
   /**
+   * Optional. Configuration for building a Cloud Run function.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudRunV2BuildConfig buildConfig;
+
+  /**
    * Arbitrary identifier for the API client.
    * The value may be {@code null}.
    */
@@ -134,7 +141,7 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
   private java.lang.String etag;
 
   /**
-   * Output only. For a deleted resource, the time after which it will be permamently deleted.
+   * Output only. For a deleted resource, the time after which it will be permanently deleted.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -159,7 +166,8 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
 
   /**
    * Optional. Disables IAM permission check for run.routes.invoke for callers of this service. This
-   * setting should not be used with external ingress.
+   * feature is available by invitation only. For more information, visit
+   * https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -238,7 +246,7 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
    * it into the desired state. When a new Service is created, or an existing one is updated, Cloud
    * Run will asynchronously perform all necessary steps to bring the Service to the desired serving
    * state. This process is called reconciliation. While reconciliation is in process,
-   * `observed_generation`, `latest_ready_revison`, `traffic_statuses`, and `uri` will have
+   * `observed_generation`, `latest_ready_revision`, `traffic_statuses`, and `uri` will have
    * transient values that might mismatch the intended state: Once reconciliation is over (and this
    * field is false), there are two possible outcomes: reconciliation succeeded and the serving
    * state matches the Service, or there was an error, and reconciliation failed. This state can be
@@ -370,6 +378,23 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
    */
   public GoogleCloudRunV2Service setBinaryAuthorization(GoogleCloudRunV2BinaryAuthorization binaryAuthorization) {
     this.binaryAuthorization = binaryAuthorization;
+    return this;
+  }
+
+  /**
+   * Optional. Configuration for building a Cloud Run function.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudRunV2BuildConfig getBuildConfig() {
+    return buildConfig;
+  }
+
+  /**
+   * Optional. Configuration for building a Cloud Run function.
+   * @param buildConfig buildConfig or {@code null} for none
+   */
+  public GoogleCloudRunV2Service setBuildConfig(GoogleCloudRunV2BuildConfig buildConfig) {
+    this.buildConfig = buildConfig;
     return this;
   }
 
@@ -556,7 +581,7 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
   }
 
   /**
-   * Output only. For a deleted resource, the time after which it will be permamently deleted.
+   * Output only. For a deleted resource, the time after which it will be permanently deleted.
    * @return value or {@code null} for none
    */
   public String getExpireTime() {
@@ -564,7 +589,7 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
   }
 
   /**
-   * Output only. For a deleted resource, the time after which it will be permamently deleted.
+   * Output only. For a deleted resource, the time after which it will be permanently deleted.
    * @param expireTime expireTime or {@code null} for none
    */
   public GoogleCloudRunV2Service setExpireTime(String expireTime) {
@@ -614,7 +639,8 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
 
   /**
    * Optional. Disables IAM permission check for run.routes.invoke for callers of this service. This
-   * setting should not be used with external ingress.
+   * feature is available by invitation only. For more information, visit
+   * https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getInvokerIamDisabled() {
@@ -623,7 +649,8 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
 
   /**
    * Optional. Disables IAM permission check for run.routes.invoke for callers of this service. This
-   * setting should not be used with external ingress.
+   * feature is available by invitation only. For more information, visit
+   * https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
    * @param invokerIamDisabled invokerIamDisabled or {@code null} for none
    */
   public GoogleCloudRunV2Service setInvokerIamDisabled(java.lang.Boolean invokerIamDisabled) {
@@ -793,7 +820,7 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
    * it into the desired state. When a new Service is created, or an existing one is updated, Cloud
    * Run will asynchronously perform all necessary steps to bring the Service to the desired serving
    * state. This process is called reconciliation. While reconciliation is in process,
-   * `observed_generation`, `latest_ready_revison`, `traffic_statuses`, and `uri` will have
+   * `observed_generation`, `latest_ready_revision`, `traffic_statuses`, and `uri` will have
    * transient values that might mismatch the intended state: Once reconciliation is over (and this
    * field is false), there are two possible outcomes: reconciliation succeeded and the serving
    * state matches the Service, or there was an error, and reconciliation failed. This state can be
@@ -814,7 +841,7 @@ public final class GoogleCloudRunV2Service extends com.google.api.client.json.Ge
    * it into the desired state. When a new Service is created, or an existing one is updated, Cloud
    * Run will asynchronously perform all necessary steps to bring the Service to the desired serving
    * state. This process is called reconciliation. While reconciliation is in process,
-   * `observed_generation`, `latest_ready_revison`, `traffic_statuses`, and `uri` will have
+   * `observed_generation`, `latest_ready_revision`, `traffic_statuses`, and `uri` will have
    * transient values that might mismatch the intended state: Once reconciliation is over (and this
    * field is false), there are two possible outcomes: reconciliation succeeded and the serving
    * state matches the Service, or there was an error, and reconciliation failed. This state can be

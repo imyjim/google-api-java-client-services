@@ -1377,7 +1377,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -1407,7 +1407,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -2019,7 +2019,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -2049,7 +2049,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
              * methods to check whether the cancellation succeeded or whether the operation completed despite
              * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-             * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+             * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
              * `Code.CANCELLED`.
              *
              * Create a request for the method "operations.cancel".
@@ -4901,27 +4901,27 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Optional. Specifies the KMS configuration for the one or more keys used to protect the
            * backup. Values are of the form `projects//locations//keyRings//cryptoKeys/`. The keys
-           * referenced by kms_key_names must fully cover all regions of the backup's instance
-           * configuration. Some examples: * For single region instance configs, specify a single
-           * regional location KMS key. * For multi-regional instance configs of type
-           * GOOGLE_MANAGED, either specify a multi-regional location KMS key or multiple regional
-           * location KMS keys that cover all regions in the instance config. * For an instance
-           * config of type USER_MANAGED, please specify only regional location KMS keys to cover
-           * each region in the instance config. Multi-regional location KMS keys are not supported
-           * for USER_MANAGED instance configs.
+           * referenced by `kms_key_names` must fully cover all regions of the backup's instance
+           * configuration. Some examples: * For regional (single-region) instance configurations,
+           * specify a regional location KMS key. * For multi-region instance configurations of type
+           * `GOOGLE_MANAGED`, either specify a multi-region location KMS key or multiple regional
+           * location KMS keys that cover all regions in the instance configuration. * For an
+           * instance configuration of type `USER_MANAGED`, specify only regional location KMS keys
+           * to cover each region in the instance configuration. Multi-region location KMS keys
+           * aren't supported for `USER_MANAGED` type instance configurations.
            */
           @com.google.api.client.util.Key("encryptionConfig.kmsKeyNames")
           private java.util.List<java.lang.String> encryptionConfigKmsKeyNames;
 
           /** Optional. Specifies the KMS configuration for the one or more keys used to protect the backup.
          Values are of the form `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
-         kms_key_names must fully cover all regions of the backup's instance configuration. Some examples: *
-         For single region instance configs, specify a single regional location KMS key. * For multi-
-         regional instance configs of type GOOGLE_MANAGED, either specify a multi-regional location KMS key
-         or multiple regional location KMS keys that cover all regions in the instance config. * For an
-         instance config of type USER_MANAGED, please specify only regional location KMS keys to cover each
-         region in the instance config. Multi-regional location KMS keys are not supported for USER_MANAGED
-         instance configs.
+         `kms_key_names` must fully cover all regions of the backup's instance configuration. Some examples:
+         * For regional (single-region) instance configurations, specify a regional location KMS key. * For
+         multi-region instance configurations of type `GOOGLE_MANAGED`, either specify a multi-region
+         location KMS key or multiple regional location KMS keys that cover all regions in the instance
+         configuration. * For an instance configuration of type `USER_MANAGED`, specify only regional
+         location KMS keys to cover each region in the instance configuration. Multi-region location KMS
+         keys aren't supported for `USER_MANAGED` type instance configurations.
            */
           public java.util.List<java.lang.String> getEncryptionConfigKmsKeyNames() {
             return encryptionConfigKmsKeyNames;
@@ -4930,14 +4930,14 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Optional. Specifies the KMS configuration for the one or more keys used to protect the
            * backup. Values are of the form `projects//locations//keyRings//cryptoKeys/`. The keys
-           * referenced by kms_key_names must fully cover all regions of the backup's instance
-           * configuration. Some examples: * For single region instance configs, specify a single
-           * regional location KMS key. * For multi-regional instance configs of type
-           * GOOGLE_MANAGED, either specify a multi-regional location KMS key or multiple regional
-           * location KMS keys that cover all regions in the instance config. * For an instance
-           * config of type USER_MANAGED, please specify only regional location KMS keys to cover
-           * each region in the instance config. Multi-regional location KMS keys are not supported
-           * for USER_MANAGED instance configs.
+           * referenced by `kms_key_names` must fully cover all regions of the backup's instance
+           * configuration. Some examples: * For regional (single-region) instance configurations,
+           * specify a regional location KMS key. * For multi-region instance configurations of type
+           * `GOOGLE_MANAGED`, either specify a multi-region location KMS key or multiple regional
+           * location KMS keys that cover all regions in the instance configuration. * For an
+           * instance configuration of type `USER_MANAGED`, specify only regional location KMS keys
+           * to cover each region in the instance configuration. Multi-region location KMS keys
+           * aren't supported for `USER_MANAGED` type instance configurations.
            */
           public Create setEncryptionConfigKmsKeyNames(java.util.List<java.lang.String> encryptionConfigKmsKeyNames) {
             this.encryptionConfigKmsKeyNames = encryptionConfigKmsKeyNames;
@@ -5229,7 +5229,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
          * Gets the access control policy for a database or backup resource. Returns an empty policy if a
          * database or backup exists but does not have a policy set. Authorization requires
          * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires
-         * `spanner.backups.getIamPolicy` permission on resource.
+         * `spanner.backups.getIamPolicy` permission on resource. For backup schedules, authorization
+         * requires `spanner.backupSchedules.getIamPolicy` permission on resource.
          *
          * Create a request for the method "backups.getIamPolicy".
          *
@@ -5259,7 +5260,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * Gets the access control policy for a database or backup resource. Returns an empty policy if a
            * database or backup exists but does not have a policy set. Authorization requires
            * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires
-           * `spanner.backups.getIamPolicy` permission on resource.
+           * `spanner.backups.getIamPolicy` permission on resource. For backup schedules, authorization
+           * requires `spanner.backupSchedules.getIamPolicy` permission on resource.
            *
            * Create a request for the method "backups.getIamPolicy".
            *
@@ -5833,7 +5835,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
         /**
          * Sets the access control policy on a database or backup resource. Replaces any existing policy.
          * Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups,
-         * authorization requires `spanner.backups.setIamPolicy` permission on resource.
+         * authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup
+         * schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on resource.
          *
          * Create a request for the method "backups.setIamPolicy".
          *
@@ -5862,7 +5865,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Sets the access control policy on a database or backup resource. Replaces any existing policy.
            * Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups,
-           * authorization requires `spanner.backups.setIamPolicy` permission on resource.
+           * authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup
+           * schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+           * resource.
            *
            * Create a request for the method "backups.setIamPolicy".
            *
@@ -5985,7 +5990,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
          * has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise
          * returns an empty set of permissions. Calling this method on a backup that does not exist will
          * result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing
-         * instance.
+         * instance. Calling this method on a backup schedule that does not exist will result in a NOT_FOUND
+         * error if the user has `spanner.backupSchedules.list` permission on the containing database.
          *
          * Create a request for the method "backups.testIamPermissions".
          *
@@ -6017,7 +6023,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance.
            * Otherwise returns an empty set of permissions. Calling this method on a backup that does not
            * exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the
-           * containing instance.
+           * containing instance. Calling this method on a backup schedule that does not exist will result
+           * in a NOT_FOUND error if the user has `spanner.backupSchedules.list` permission on the
+           * containing database.
            *
            * Create a request for the method "backups.testIamPermissions".
            *
@@ -6161,7 +6169,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -6191,7 +6199,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
              * methods to check whether the cancellation succeeded or whether the operation completed despite
              * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-             * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+             * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
              * `Code.CANCELLED`.
              *
              * Create a request for the method "operations.cancel".
@@ -6928,7 +6936,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * consists of a field name, a comparison operator, and a value for filtering. The value
            * must be a string, a number, or a boolean. The comparison operator must be one of: `<`,
            * `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the contains operator. Filter rules
-           * are not case sensitive. The following fields in the Operation are eligible for
+           * are not case sensitive. The following fields in the operation are eligible for
            * filtering: * `name` - The name of the long-running operation * `done` - False if the
            * operation is in progress, else true. * `metadata.@type` - the type of metadata. For
            * example, the type string for RestoreDatabaseMetadata is
@@ -6955,7 +6963,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
          name, a comparison operator, and a value for filtering. The value must be a string, a number, or a
          boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:`
          is the contains operator. Filter rules are not case sensitive. The following fields in the
-         Operation are eligible for filtering: * `name` - The name of the long-running operation * `done` -
+         operation are eligible for filtering: * `name` - The name of the long-running operation * `done` -
          False if the operation is in progress, else true. * `metadata.@type` - the type of metadata. For
          example, the type string for RestoreDatabaseMetadata is
          `type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata`. * `metadata.` - any
@@ -6982,7 +6990,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * consists of a field name, a comparison operator, and a value for filtering. The value
            * must be a string, a number, or a boolean. The comparison operator must be one of: `<`,
            * `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the contains operator. Filter rules
-           * are not case sensitive. The following fields in the Operation are eligible for
+           * are not case sensitive. The following fields in the operation are eligible for
            * filtering: * `name` - The name of the long-running operation * `done` - False if the
            * operation is in progress, else true. * `metadata.@type` - the type of metadata. For
            * example, the type string for RestoreDatabaseMetadata is
@@ -7080,6 +7088,146 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
        */
       public class Databases {
 
+        /**
+         * Adds split points to specified tables, indexes of a database.
+         *
+         * Create a request for the method "databases.addSplitPoints".
+         *
+         * This request holds the parameters needed by the spanner server.  After setting any optional
+         * parameters, call the {@link AddSplitPoints#execute()} method to invoke the remote operation.
+         *
+         * @param database Required. The database on whose tables/indexes split points are to be added. Values are of the form
+         *        `projects//instances//databases/`.
+         * @param content the {@link com.google.api.services.spanner.v1.model.AddSplitPointsRequest}
+         * @return the request
+         */
+        public AddSplitPoints addSplitPoints(java.lang.String database, com.google.api.services.spanner.v1.model.AddSplitPointsRequest content) throws java.io.IOException {
+          AddSplitPoints result = new AddSplitPoints(database, content);
+          initialize(result);
+          return result;
+        }
+
+        public class AddSplitPoints extends SpannerRequest<com.google.api.services.spanner.v1.model.AddSplitPointsResponse> {
+
+          private static final String REST_PATH = "v1/{+database}:addSplitPoints";
+
+          private final java.util.regex.Pattern DATABASE_PATTERN =
+              java.util.regex.Pattern.compile("^projects/[^/]+/instances/[^/]+/databases/[^/]+$");
+
+          /**
+           * Adds split points to specified tables, indexes of a database.
+           *
+           * Create a request for the method "databases.addSplitPoints".
+           *
+           * This request holds the parameters needed by the the spanner server.  After setting any optional
+           * parameters, call the {@link AddSplitPoints#execute()} method to invoke the remote operation.
+           * <p> {@link AddSplitPoints#initialize(com.google.api.client.googleapis.services.AbstractGoogleCl
+           * ientRequest)} must be called to initialize this instance immediately after invoking the
+           * constructor. </p>
+           *
+           * @param database Required. The database on whose tables/indexes split points are to be added. Values are of the form
+         *        `projects//instances//databases/`.
+           * @param content the {@link com.google.api.services.spanner.v1.model.AddSplitPointsRequest}
+           * @since 1.13
+           */
+          protected AddSplitPoints(java.lang.String database, com.google.api.services.spanner.v1.model.AddSplitPointsRequest content) {
+            super(Spanner.this, "POST", REST_PATH, content, com.google.api.services.spanner.v1.model.AddSplitPointsResponse.class);
+            this.database = com.google.api.client.util.Preconditions.checkNotNull(database, "Required parameter database must be specified.");
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(DATABASE_PATTERN.matcher(database).matches(),
+                  "Parameter database must conform to the pattern " +
+                  "^projects/[^/]+/instances/[^/]+/databases/[^/]+$");
+            }
+          }
+
+          @Override
+          public AddSplitPoints set$Xgafv(java.lang.String $Xgafv) {
+            return (AddSplitPoints) super.set$Xgafv($Xgafv);
+          }
+
+          @Override
+          public AddSplitPoints setAccessToken(java.lang.String accessToken) {
+            return (AddSplitPoints) super.setAccessToken(accessToken);
+          }
+
+          @Override
+          public AddSplitPoints setAlt(java.lang.String alt) {
+            return (AddSplitPoints) super.setAlt(alt);
+          }
+
+          @Override
+          public AddSplitPoints setCallback(java.lang.String callback) {
+            return (AddSplitPoints) super.setCallback(callback);
+          }
+
+          @Override
+          public AddSplitPoints setFields(java.lang.String fields) {
+            return (AddSplitPoints) super.setFields(fields);
+          }
+
+          @Override
+          public AddSplitPoints setKey(java.lang.String key) {
+            return (AddSplitPoints) super.setKey(key);
+          }
+
+          @Override
+          public AddSplitPoints setOauthToken(java.lang.String oauthToken) {
+            return (AddSplitPoints) super.setOauthToken(oauthToken);
+          }
+
+          @Override
+          public AddSplitPoints setPrettyPrint(java.lang.Boolean prettyPrint) {
+            return (AddSplitPoints) super.setPrettyPrint(prettyPrint);
+          }
+
+          @Override
+          public AddSplitPoints setQuotaUser(java.lang.String quotaUser) {
+            return (AddSplitPoints) super.setQuotaUser(quotaUser);
+          }
+
+          @Override
+          public AddSplitPoints setUploadType(java.lang.String uploadType) {
+            return (AddSplitPoints) super.setUploadType(uploadType);
+          }
+
+          @Override
+          public AddSplitPoints setUploadProtocol(java.lang.String uploadProtocol) {
+            return (AddSplitPoints) super.setUploadProtocol(uploadProtocol);
+          }
+
+          /**
+           * Required. The database on whose tables/indexes split points are to be added. Values are
+           * of the form `projects//instances//databases/`.
+           */
+          @com.google.api.client.util.Key
+          private java.lang.String database;
+
+          /** Required. The database on whose tables/indexes split points are to be added. Values are of the form
+         `projects//instances//databases/`.
+           */
+          public java.lang.String getDatabase() {
+            return database;
+          }
+
+          /**
+           * Required. The database on whose tables/indexes split points are to be added. Values are
+           * of the form `projects//instances//databases/`.
+           */
+          public AddSplitPoints setDatabase(java.lang.String database) {
+            if (!getSuppressPatternChecks()) {
+              com.google.api.client.util.Preconditions.checkArgument(DATABASE_PATTERN.matcher(database).matches(),
+                  "Parameter database must conform to the pattern " +
+                  "^projects/[^/]+/instances/[^/]+/databases/[^/]+$");
+            }
+            this.database = database;
+            return this;
+          }
+
+          @Override
+          public AddSplitPoints set(String parameterName, Object value) {
+            return (AddSplitPoints) super.set(parameterName, value);
+          }
+        }
         /**
          * `ChangeQuorum` is strictly restricted to databases that use dual-region instance configurations.
          * Initiates a background operation to change the quorum of a database from dual-region mode to
@@ -7808,7 +7956,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
          * Gets the access control policy for a database or backup resource. Returns an empty policy if a
          * database or backup exists but does not have a policy set. Authorization requires
          * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires
-         * `spanner.backups.getIamPolicy` permission on resource.
+         * `spanner.backups.getIamPolicy` permission on resource. For backup schedules, authorization
+         * requires `spanner.backupSchedules.getIamPolicy` permission on resource.
          *
          * Create a request for the method "databases.getIamPolicy".
          *
@@ -7838,7 +7987,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * Gets the access control policy for a database or backup resource. Returns an empty policy if a
            * database or backup exists but does not have a policy set. Authorization requires
            * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires
-           * `spanner.backups.getIamPolicy` permission on resource.
+           * `spanner.backups.getIamPolicy` permission on resource. For backup schedules, authorization
+           * requires `spanner.backupSchedules.getIamPolicy` permission on resource.
            *
            * Create a request for the method "databases.getIamPolicy".
            *
@@ -8717,7 +8867,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
         /**
          * Sets the access control policy on a database or backup resource. Replaces any existing policy.
          * Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups,
-         * authorization requires `spanner.backups.setIamPolicy` permission on resource.
+         * authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup
+         * schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on resource.
          *
          * Create a request for the method "databases.setIamPolicy".
          *
@@ -8746,7 +8897,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Sets the access control policy on a database or backup resource. Replaces any existing policy.
            * Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups,
-           * authorization requires `spanner.backups.setIamPolicy` permission on resource.
+           * authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup
+           * schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+           * resource.
            *
            * Create a request for the method "databases.setIamPolicy".
            *
@@ -8869,7 +9022,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
          * has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise
          * returns an empty set of permissions. Calling this method on a backup that does not exist will
          * result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing
-         * instance.
+         * instance. Calling this method on a backup schedule that does not exist will result in a NOT_FOUND
+         * error if the user has `spanner.backupSchedules.list` permission on the containing database.
          *
          * Create a request for the method "databases.testIamPermissions".
          *
@@ -8901,7 +9055,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance.
            * Otherwise returns an empty set of permissions. Calling this method on a backup that does not
            * exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the
-           * containing instance.
+           * containing instance. Calling this method on a backup schedule that does not exist will result
+           * in a NOT_FOUND error if the user has `spanner.backupSchedules.list` permission on the
+           * containing database.
            *
            * Create a request for the method "databases.testIamPermissions".
            *
@@ -9619,7 +9775,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * Gets the access control policy for a database or backup resource. Returns an empty policy if a
            * database or backup exists but does not have a policy set. Authorization requires
            * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires
-           * `spanner.backups.getIamPolicy` permission on resource.
+           * `spanner.backups.getIamPolicy` permission on resource. For backup schedules, authorization
+           * requires `spanner.backupSchedules.getIamPolicy` permission on resource.
            *
            * Create a request for the method "backupSchedules.getIamPolicy".
            *
@@ -9649,7 +9806,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * Gets the access control policy for a database or backup resource. Returns an empty policy if a
              * database or backup exists but does not have a policy set. Authorization requires
              * `spanner.databases.getIamPolicy` permission on resource. For backups, authorization requires
-             * `spanner.backups.getIamPolicy` permission on resource.
+             * `spanner.backups.getIamPolicy` permission on resource. For backup schedules, authorization
+             * requires `spanner.backupSchedules.getIamPolicy` permission on resource.
              *
              * Create a request for the method "backupSchedules.getIamPolicy".
              *
@@ -10143,7 +10301,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Sets the access control policy on a database or backup resource. Replaces any existing policy.
            * Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups,
-           * authorization requires `spanner.backups.setIamPolicy` permission on resource.
+           * authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup
+           * schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on resource.
            *
            * Create a request for the method "backupSchedules.setIamPolicy".
            *
@@ -10172,7 +10331,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Sets the access control policy on a database or backup resource. Replaces any existing policy.
              * Authorization requires `spanner.databases.setIamPolicy` permission on resource. For backups,
-             * authorization requires `spanner.backups.setIamPolicy` permission on resource.
+             * authorization requires `spanner.backups.setIamPolicy` permission on resource. For backup
+             * schedules, authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+             * resource.
              *
              * Create a request for the method "backupSchedules.setIamPolicy".
              *
@@ -10295,7 +10456,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise
            * returns an empty set of permissions. Calling this method on a backup that does not exist will
            * result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing
-           * instance.
+           * instance. Calling this method on a backup schedule that does not exist will result in a NOT_FOUND
+           * error if the user has `spanner.backupSchedules.list` permission on the containing database.
            *
            * Create a request for the method "backupSchedules.testIamPermissions".
            *
@@ -10327,7 +10489,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance.
              * Otherwise returns an empty set of permissions. Calling this method on a backup that does not
              * exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the
-             * containing instance.
+             * containing instance. Calling this method on a backup schedule that does not exist will result
+             * in a NOT_FOUND error if the user has `spanner.backupSchedules.list` permission on the
+             * containing database.
              *
              * Create a request for the method "backupSchedules.testIamPermissions".
              *
@@ -10665,7 +10829,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise
            * returns an empty set of permissions. Calling this method on a backup that does not exist will
            * result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing
-           * instance.
+           * instance. Calling this method on a backup schedule that does not exist will result in a NOT_FOUND
+           * error if the user has `spanner.backupSchedules.list` permission on the containing database.
            *
            * Create a request for the method "databaseRoles.testIamPermissions".
            *
@@ -10697,7 +10862,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance.
              * Otherwise returns an empty set of permissions. Calling this method on a backup that does not
              * exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the
-             * containing instance.
+             * containing instance. Calling this method on a backup schedule that does not exist will result
+             * in a NOT_FOUND error if the user has `spanner.backupSchedules.list` permission on the
+             * containing database.
              *
              * Create a request for the method "databaseRoles.testIamPermissions".
              *
@@ -10842,7 +11009,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -10872,7 +11039,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
              * methods to check whether the cancellation succeeded or whether the operation completed despite
              * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-             * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+             * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
              * `Code.CANCELLED`.
              *
              * Create a request for the method "operations.cancel".
@@ -12444,7 +12611,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * with a `FAILED_PRECONDITION` error. Operations inside read-write transactions might return
            * `ABORTED`. If this occurs, the application should restart the transaction from the beginning. See
            * Transaction for more details. Larger result sets can be fetched in streaming fashion by calling
-           * ExecuteStreamingSql instead.
+           * ExecuteStreamingSql instead. The query string can be SQL or [Graph Query Language
+           * (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
            *
            * Create a request for the method "sessions.executeSql".
            *
@@ -12474,7 +12642,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * fails with a `FAILED_PRECONDITION` error. Operations inside read-write transactions might
              * return `ABORTED`. If this occurs, the application should restart the transaction from the
              * beginning. See Transaction for more details. Larger result sets can be fetched in streaming
-             * fashion by calling ExecuteStreamingSql instead.
+             * fashion by calling ExecuteStreamingSql instead. The query string can be SQL or [Graph Query
+             * Language (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
              *
              * Create a request for the method "sessions.executeSql".
              *
@@ -12582,7 +12751,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Like ExecuteSql, except returns the result set as a stream. Unlike ExecuteSql, there is no limit
            * on the size of the returned result set. However, no individual row in the result set can exceed
-           * 100 MiB, and no column value can exceed 10 MiB.
+           * 100 MiB, and no column value can exceed 10 MiB. The query string can be SQL or [Graph Query
+           * Language (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
            *
            * Create a request for the method "sessions.executeStreamingSql".
            *
@@ -12609,7 +12779,9 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
             /**
              * Like ExecuteSql, except returns the result set as a stream. Unlike ExecuteSql, there is no
              * limit on the size of the returned result set. However, no individual row in the result set can
-             * exceed 100 MiB, and no column value can exceed 10 MiB.
+             * exceed 100 MiB, and no column value can exceed 10 MiB. The query string can be SQL or [Graph
+             * Query Language (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-
+             * intro).
              *
              * Create a request for the method "sessions.executeStreamingSql".
              *
@@ -14037,14 +14209,15 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Optional. Deadline used while retrieving metadata for instance partition operations.
            * Instance partitions whose operation metadata cannot be retrieved within this deadline
-           * will be added to unreachable in ListInstancePartitionOperationsResponse.
+           * will be added to unreachable_instance_partitions in
+           * ListInstancePartitionOperationsResponse.
            */
           @com.google.api.client.util.Key
           private String instancePartitionDeadline;
 
           /** Optional. Deadline used while retrieving metadata for instance partition operations. Instance
          partitions whose operation metadata cannot be retrieved within this deadline will be added to
-         unreachable in ListInstancePartitionOperationsResponse.
+         unreachable_instance_partitions in ListInstancePartitionOperationsResponse.
            */
           public String getInstancePartitionDeadline() {
             return instancePartitionDeadline;
@@ -14053,7 +14226,8 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
           /**
            * Optional. Deadline used while retrieving metadata for instance partition operations.
            * Instance partitions whose operation metadata cannot be retrieved within this deadline
-           * will be added to unreachable in ListInstancePartitionOperationsResponse.
+           * will be added to unreachable_instance_partitions in
+           * ListInstancePartitionOperationsResponse.
            */
           public List setInstancePartitionDeadline(String instancePartitionDeadline) {
             this.instancePartitionDeadline = instancePartitionDeadline;
@@ -15051,7 +15225,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -15081,7 +15255,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
              * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
              * methods to check whether the cancellation succeeded or whether the operation completed despite
              * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-             * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+             * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
              * `Code.CANCELLED`.
              *
              * Create a request for the method "operations.cancel".
@@ -15674,7 +15848,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -15704,7 +15878,7 @@ public class Spanner extends com.google.api.client.googleapis.services.json.Abst
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".

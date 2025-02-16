@@ -60,7 +60,7 @@ public final class Space extends com.google.api.client.json.GenericJson {
   private String createTime;
 
   /**
-   * The space's display name. Required when [creating a
+   * Optional. The space's display name. Required when [creating a
    * space](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/create) with a
    * `spaceType` of `SPACE`. If you receive the error message `ALREADY_EXISTS` when creating a space
    * or updating the `displayName`, try a different `displayName`. An existing space within the
@@ -72,11 +72,11 @@ public final class Space extends com.google.api.client.json.GenericJson {
   private java.lang.String displayName;
 
   /**
-   * Immutable. Whether this space permits any Google Chat user as a member. Input when creating a
-   * space in a Google Workspace organization. Omit this field when creating spaces in the following
-   * conditions: * The authenticated user uses a consumer account (unmanaged user account). By
-   * default, a space created by a consumer account permits any Google Chat user. For existing
-   * spaces, this field is output only.
+   * Optional. Immutable. Whether this space permits any Google Chat user as a member. Input when
+   * creating a space in a Google Workspace organization. Omit this field when creating spaces in
+   * the following conditions: * The authenticated user uses a consumer account (unmanaged user
+   * account). By default, a space created by a consumer account permits any Google Chat user. For
+   * existing spaces, this field is output only.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -91,6 +91,16 @@ public final class Space extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.Boolean importMode;
+
+  /**
+   * Output only. The time when the space will be automatically deleted by the system if it remains
+   * in import mode. Each space created in import mode must exit this mode before this expire time
+   * using `spaces.completeImport`. This field is only populated for spaces that were created with
+   * import mode.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String importModeExpireTime;
 
   /**
    * Output only. Timestamp of the last message in the space.
@@ -108,10 +118,10 @@ public final class Space extends com.google.api.client.json.GenericJson {
   private MembershipCount membershipCount;
 
   /**
-   * Resource name of the space. Format: `spaces/{space}` Where `{space}` represents the system-
-   * assigned ID for the space. You can obtain the space ID by calling the [`spaces.list()`](https:/
-   * /developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list) method or from the
-   * space URL. For example, if the space URL is
+   * Identifier. Resource name of the space. Format: `spaces/{space}` Where `{space}` represents the
+   * system-assigned ID for the space. You can obtain the space ID by calling the [`spaces.list()`](
+   * https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list) method or from
+   * the space URL. For example, if the space URL is
    * `https://mail.google.com/mail/u/0/#chat/space/AAAAAAAAA`, the space ID is `AAAAAAAAA`.
    * The value may be {@code null}.
    */
@@ -121,7 +131,13 @@ public final class Space extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Space permission settings for existing spaces. Input for updating exact space
    * permission settings, where existing permission settings are replaced. Output lists current
-   * permission settings.
+   * permission settings. Reading and updating permission settings supports: - In [Developer
+   * Preview](https://developers.google.com/workspace/preview), [App
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+   * with [administrator approval](https://support.google.com/a?p=chat-app-auth) with the
+   * `chat.app.spaces` scope. Only populated and settable when the Chat app created the space. -
+   * [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-
+   * user)
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -130,7 +146,12 @@ public final class Space extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Input only. Predefined space permission settings, input only when creating a space.
    * If the field is not set, a collaboration space is created. After you create the space, settings
-   * are populated in the `PermissionSettings` field.
+   * are populated in the `PermissionSettings` field. Setting predefined permission settings
+   * supports: - In [Developer Preview](https://developers.google.com/workspace/preview), [App
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+   * with [administrator approval](https://support.google.com/a?p=chat-app-auth) with the
+   * `chat.app.spaces` or `chat.app.spaces.create` scopes. - [User
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -144,14 +165,14 @@ public final class Space extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean singleUserBotDm;
 
   /**
-   * Details about the space including description and rules.
+   * Optional. Details about the space including description and rules.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private SpaceDetails spaceDetails;
 
   /**
-   * The message history state for messages and threads in this space.
+   * Optional. The message history state for messages and threads in this space.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -165,8 +186,8 @@ public final class Space extends com.google.api.client.json.GenericJson {
   private java.lang.String spaceThreadingState;
 
   /**
-   * The type of space. Required when creating a space or updating the space type of a space. Output
-   * only for other usage.
+   * Optional. The type of space. Required when creating a space or updating the space type of a
+   * space. Output only for other usage.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -262,7 +283,7 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The space's display name. Required when [creating a
+   * Optional. The space's display name. Required when [creating a
    * space](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/create) with a
    * `spaceType` of `SPACE`. If you receive the error message `ALREADY_EXISTS` when creating a space
    * or updating the `displayName`, try a different `displayName`. An existing space within the
@@ -275,7 +296,7 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The space's display name. Required when [creating a
+   * Optional. The space's display name. Required when [creating a
    * space](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/create) with a
    * `spaceType` of `SPACE`. If you receive the error message `ALREADY_EXISTS` when creating a space
    * or updating the `displayName`, try a different `displayName`. An existing space within the
@@ -289,11 +310,11 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Immutable. Whether this space permits any Google Chat user as a member. Input when creating a
-   * space in a Google Workspace organization. Omit this field when creating spaces in the following
-   * conditions: * The authenticated user uses a consumer account (unmanaged user account). By
-   * default, a space created by a consumer account permits any Google Chat user. For existing
-   * spaces, this field is output only.
+   * Optional. Immutable. Whether this space permits any Google Chat user as a member. Input when
+   * creating a space in a Google Workspace organization. Omit this field when creating spaces in
+   * the following conditions: * The authenticated user uses a consumer account (unmanaged user
+   * account). By default, a space created by a consumer account permits any Google Chat user. For
+   * existing spaces, this field is output only.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getExternalUserAllowed() {
@@ -301,11 +322,11 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Immutable. Whether this space permits any Google Chat user as a member. Input when creating a
-   * space in a Google Workspace organization. Omit this field when creating spaces in the following
-   * conditions: * The authenticated user uses a consumer account (unmanaged user account). By
-   * default, a space created by a consumer account permits any Google Chat user. For existing
-   * spaces, this field is output only.
+   * Optional. Immutable. Whether this space permits any Google Chat user as a member. Input when
+   * creating a space in a Google Workspace organization. Omit this field when creating spaces in
+   * the following conditions: * The authenticated user uses a consumer account (unmanaged user
+   * account). By default, a space created by a consumer account permits any Google Chat user. For
+   * existing spaces, this field is output only.
    * @param externalUserAllowed externalUserAllowed or {@code null} for none
    */
   public Space setExternalUserAllowed(java.lang.Boolean externalUserAllowed) {
@@ -333,6 +354,29 @@ public final class Space extends com.google.api.client.json.GenericJson {
    */
   public Space setImportMode(java.lang.Boolean importMode) {
     this.importMode = importMode;
+    return this;
+  }
+
+  /**
+   * Output only. The time when the space will be automatically deleted by the system if it remains
+   * in import mode. Each space created in import mode must exit this mode before this expire time
+   * using `spaces.completeImport`. This field is only populated for spaces that were created with
+   * import mode.
+   * @return value or {@code null} for none
+   */
+  public String getImportModeExpireTime() {
+    return importModeExpireTime;
+  }
+
+  /**
+   * Output only. The time when the space will be automatically deleted by the system if it remains
+   * in import mode. Each space created in import mode must exit this mode before this expire time
+   * using `spaces.completeImport`. This field is only populated for spaces that were created with
+   * import mode.
+   * @param importModeExpireTime importModeExpireTime or {@code null} for none
+   */
+  public Space setImportModeExpireTime(String importModeExpireTime) {
+    this.importModeExpireTime = importModeExpireTime;
     return this;
   }
 
@@ -373,10 +417,10 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Resource name of the space. Format: `spaces/{space}` Where `{space}` represents the system-
-   * assigned ID for the space. You can obtain the space ID by calling the [`spaces.list()`](https:/
-   * /developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list) method or from the
-   * space URL. For example, if the space URL is
+   * Identifier. Resource name of the space. Format: `spaces/{space}` Where `{space}` represents the
+   * system-assigned ID for the space. You can obtain the space ID by calling the [`spaces.list()`](
+   * https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list) method or from
+   * the space URL. For example, if the space URL is
    * `https://mail.google.com/mail/u/0/#chat/space/AAAAAAAAA`, the space ID is `AAAAAAAAA`.
    * @return value or {@code null} for none
    */
@@ -385,10 +429,10 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Resource name of the space. Format: `spaces/{space}` Where `{space}` represents the system-
-   * assigned ID for the space. You can obtain the space ID by calling the [`spaces.list()`](https:/
-   * /developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list) method or from the
-   * space URL. For example, if the space URL is
+   * Identifier. Resource name of the space. Format: `spaces/{space}` Where `{space}` represents the
+   * system-assigned ID for the space. You can obtain the space ID by calling the [`spaces.list()`](
+   * https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/list) method or from
+   * the space URL. For example, if the space URL is
    * `https://mail.google.com/mail/u/0/#chat/space/AAAAAAAAA`, the space ID is `AAAAAAAAA`.
    * @param name name or {@code null} for none
    */
@@ -400,7 +444,13 @@ public final class Space extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Space permission settings for existing spaces. Input for updating exact space
    * permission settings, where existing permission settings are replaced. Output lists current
-   * permission settings.
+   * permission settings. Reading and updating permission settings supports: - In [Developer
+   * Preview](https://developers.google.com/workspace/preview), [App
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+   * with [administrator approval](https://support.google.com/a?p=chat-app-auth) with the
+   * `chat.app.spaces` scope. Only populated and settable when the Chat app created the space. -
+   * [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-
+   * user)
    * @return value or {@code null} for none
    */
   public PermissionSettings getPermissionSettings() {
@@ -410,7 +460,13 @@ public final class Space extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Space permission settings for existing spaces. Input for updating exact space
    * permission settings, where existing permission settings are replaced. Output lists current
-   * permission settings.
+   * permission settings. Reading and updating permission settings supports: - In [Developer
+   * Preview](https://developers.google.com/workspace/preview), [App
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+   * with [administrator approval](https://support.google.com/a?p=chat-app-auth) with the
+   * `chat.app.spaces` scope. Only populated and settable when the Chat app created the space. -
+   * [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-
+   * user)
    * @param permissionSettings permissionSettings or {@code null} for none
    */
   public Space setPermissionSettings(PermissionSettings permissionSettings) {
@@ -421,7 +477,12 @@ public final class Space extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Input only. Predefined space permission settings, input only when creating a space.
    * If the field is not set, a collaboration space is created. After you create the space, settings
-   * are populated in the `PermissionSettings` field.
+   * are populated in the `PermissionSettings` field. Setting predefined permission settings
+   * supports: - In [Developer Preview](https://developers.google.com/workspace/preview), [App
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+   * with [administrator approval](https://support.google.com/a?p=chat-app-auth) with the
+   * `chat.app.spaces` or `chat.app.spaces.create` scopes. - [User
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
    * @return value or {@code null} for none
    */
   public java.lang.String getPredefinedPermissionSettings() {
@@ -431,7 +492,12 @@ public final class Space extends com.google.api.client.json.GenericJson {
   /**
    * Optional. Input only. Predefined space permission settings, input only when creating a space.
    * If the field is not set, a collaboration space is created. After you create the space, settings
-   * are populated in the `PermissionSettings` field.
+   * are populated in the `PermissionSettings` field. Setting predefined permission settings
+   * supports: - In [Developer Preview](https://developers.google.com/workspace/preview), [App
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+   * with [administrator approval](https://support.google.com/a?p=chat-app-auth) with the
+   * `chat.app.spaces` or `chat.app.spaces.create` scopes. - [User
+   * authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
    * @param predefinedPermissionSettings predefinedPermissionSettings or {@code null} for none
    */
   public Space setPredefinedPermissionSettings(java.lang.String predefinedPermissionSettings) {
@@ -457,7 +523,7 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Details about the space including description and rules.
+   * Optional. Details about the space including description and rules.
    * @return value or {@code null} for none
    */
   public SpaceDetails getSpaceDetails() {
@@ -465,7 +531,7 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Details about the space including description and rules.
+   * Optional. Details about the space including description and rules.
    * @param spaceDetails spaceDetails or {@code null} for none
    */
   public Space setSpaceDetails(SpaceDetails spaceDetails) {
@@ -474,7 +540,7 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The message history state for messages and threads in this space.
+   * Optional. The message history state for messages and threads in this space.
    * @return value or {@code null} for none
    */
   public java.lang.String getSpaceHistoryState() {
@@ -482,7 +548,7 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The message history state for messages and threads in this space.
+   * Optional. The message history state for messages and threads in this space.
    * @param spaceHistoryState spaceHistoryState or {@code null} for none
    */
   public Space setSpaceHistoryState(java.lang.String spaceHistoryState) {
@@ -508,8 +574,8 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The type of space. Required when creating a space or updating the space type of a space. Output
-   * only for other usage.
+   * Optional. The type of space. Required when creating a space or updating the space type of a
+   * space. Output only for other usage.
    * @return value or {@code null} for none
    */
   public java.lang.String getSpaceType() {
@@ -517,8 +583,8 @@ public final class Space extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * The type of space. Required when creating a space or updating the space type of a space. Output
-   * only for other usage.
+   * Optional. The type of space. Required when creating a space or updating the space type of a
+   * space. Output only for other usage.
    * @param spaceType spaceType or {@code null} for none
    */
   public Space setSpaceType(java.lang.String spaceType) {

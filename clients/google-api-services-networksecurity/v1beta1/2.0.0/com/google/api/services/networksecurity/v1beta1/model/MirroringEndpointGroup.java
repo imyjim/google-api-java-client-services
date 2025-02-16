@@ -17,7 +17,7 @@
 package com.google.api.services.networksecurity.v1beta1.model;
 
 /**
- * Message describing MirroringEndpointGroup object. Next ID: 10
+ * Message describing MirroringEndpointGroup object.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the Network Security API. For a detailed explanation see:
@@ -30,11 +30,27 @@ package com.google.api.services.networksecurity.v1beta1.model;
 public final class MirroringEndpointGroup extends com.google.api.client.json.GenericJson {
 
   /**
+   * Output only. List of Mirroring Endpoint Group Associations that are associated to this endpoint
+   * group.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<MirroringEndpointGroupAssociationDetails> associations;
+
+  /**
    * Output only. [Output only] Create time stamp
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private String createTime;
+
+  /**
+   * Optional. User-provided description of the endpoint group. Used as additional context for the
+   * endpoint group.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String description;
 
   /**
    * Optional. Labels as key value pairs
@@ -52,7 +68,7 @@ public final class MirroringEndpointGroup extends com.google.api.client.json.Gen
   private java.lang.String mirroringDeploymentGroup;
 
   /**
-   * Immutable. Identifier. The name of the MirroringEndpointGroup.
+   * Immutable. Identifier. Next ID: 11 The name of the MirroringEndpointGroup.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -80,6 +96,25 @@ public final class MirroringEndpointGroup extends com.google.api.client.json.Gen
   private String updateTime;
 
   /**
+   * Output only. List of Mirroring Endpoint Group Associations that are associated to this endpoint
+   * group.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<MirroringEndpointGroupAssociationDetails> getAssociations() {
+    return associations;
+  }
+
+  /**
+   * Output only. List of Mirroring Endpoint Group Associations that are associated to this endpoint
+   * group.
+   * @param associations associations or {@code null} for none
+   */
+  public MirroringEndpointGroup setAssociations(java.util.List<MirroringEndpointGroupAssociationDetails> associations) {
+    this.associations = associations;
+    return this;
+  }
+
+  /**
    * Output only. [Output only] Create time stamp
    * @return value or {@code null} for none
    */
@@ -93,6 +128,25 @@ public final class MirroringEndpointGroup extends com.google.api.client.json.Gen
    */
   public MirroringEndpointGroup setCreateTime(String createTime) {
     this.createTime = createTime;
+    return this;
+  }
+
+  /**
+   * Optional. User-provided description of the endpoint group. Used as additional context for the
+   * endpoint group.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getDescription() {
+    return description;
+  }
+
+  /**
+   * Optional. User-provided description of the endpoint group. Used as additional context for the
+   * endpoint group.
+   * @param description description or {@code null} for none
+   */
+  public MirroringEndpointGroup setDescription(java.lang.String description) {
+    this.description = description;
     return this;
   }
 
@@ -133,7 +187,7 @@ public final class MirroringEndpointGroup extends com.google.api.client.json.Gen
   }
 
   /**
-   * Immutable. Identifier. The name of the MirroringEndpointGroup.
+   * Immutable. Identifier. Next ID: 11 The name of the MirroringEndpointGroup.
    * @return value or {@code null} for none
    */
   public java.lang.String getName() {
@@ -141,7 +195,7 @@ public final class MirroringEndpointGroup extends com.google.api.client.json.Gen
   }
 
   /**
-   * Immutable. Identifier. The name of the MirroringEndpointGroup.
+   * Immutable. Identifier. Next ID: 11 The name of the MirroringEndpointGroup.
    * @param name name or {@code null} for none
    */
   public MirroringEndpointGroup setName(java.lang.String name) {

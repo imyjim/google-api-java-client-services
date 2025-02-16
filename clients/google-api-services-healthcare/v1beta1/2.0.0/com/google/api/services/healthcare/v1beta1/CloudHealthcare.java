@@ -17865,6 +17865,29 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
                     return this;
                   }
 
+                  /**
+                   * Optional. The viewport setting to use as specified in https://dicom.nema.org/me
+                   * dical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+                   */
+                  @com.google.api.client.util.Key
+                  private java.lang.String viewport;
+
+                  /** Optional. The viewport setting to use as specified in
+                 https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+                   */
+                  public java.lang.String getViewport() {
+                    return viewport;
+                  }
+
+                  /**
+                   * Optional. The viewport setting to use as specified in https://dicom.nema.org/me
+                   * dical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+                   */
+                  public RetrieveRendered setViewport(java.lang.String viewport) {
+                    this.viewport = viewport;
+                    return this;
+                  }
+
                   @Override
                   public RetrieveRendered set(String parameterName, Object value) {
                     return (RetrieveRendered) super.set(parameterName, value);
@@ -18529,6 +18552,29 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
                             "^studies/[^/]+/series/[^/]+/instances/[^/]+/frames/[^/]+/rendered$");
                       }
                       this.dicomWebPath = dicomWebPath;
+                      return this;
+                    }
+
+                    /**
+                     * Optional. The viewport setting to use as specified in https://dicom.nema.org/
+                     * medical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+                     */
+                    @com.google.api.client.util.Key
+                    private java.lang.String viewport;
+
+                    /** Optional. The viewport setting to use as specified in
+                   https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+                     */
+                    public java.lang.String getViewport() {
+                      return viewport;
+                    }
+
+                    /**
+                     * Optional. The viewport setting to use as specified in https://dicom.nema.org/
+                     * medical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+                     */
+                    public RetrieveRendered setViewport(java.lang.String viewport) {
+                      this.viewport = viewport;
                       return this;
                     }
 
@@ -21721,7 +21767,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
              * `contentType` will be filled in using the value of the `Content-Type` header, and the
              * `securityContext` field (not present in `DSTU2`) will be populated from the `X-Security-Context`
              * header if it exists. At this time `securityContext` has no special behavior in the Cloud
-             * Healthcare API. Note: the limit on data ingested through this method is 2 GB. For best
+             * Healthcare API. Note: the limit on data ingested through this method is 1 GB. For best
              * performance, use a non-FHIR data type instead of wrapping the data in a Binary resource. Some of
              * the Healthcare API features, such as [exporting to BigQuery](https://cloud.google.com/healthcare-
              * api/docs/how-tos/fhir-export-bigquery) or [Pub/Sub
@@ -21770,7 +21816,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
                * `contentType` will be filled in using the value of the `Content-Type` header, and the
                * `securityContext` field (not present in `DSTU2`) will be populated from the `X-Security-
                * Context` header if it exists. At this time `securityContext` has no special behavior in the
-               * Cloud Healthcare API. Note: the limit on data ingested through this method is 2 GB. For best
+               * Cloud Healthcare API. Note: the limit on data ingested through this method is 1 GB. For best
                * performance, use a non-FHIR data type instead of wrapping the data in a Binary resource. Some
                * of the Healthcare API features, such as [exporting to
                * BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery) or
@@ -24681,7 +24727,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
               }
 
               /**
-               * Required. The canonical URL of a profile that this resource should be validated
+               * Optional. The canonical URL of a profile that this resource should be validated
                * against. For example, to validate a Patient resource against the US Core Patient
                * profile this parameter would be
                * `http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient`. A
@@ -24690,7 +24736,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
               @com.google.api.client.util.Key
               private java.lang.String profile;
 
-              /** Required. The canonical URL of a profile that this resource should be validated against. For
+              /** Optional. The canonical URL of a profile that this resource should be validated against. For
              example, to validate a Patient resource against the US Core Patient profile this parameter would be
              `http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient`. A StructureDefinition with this
              canonical URL must exist in the FHIR store.
@@ -24700,7 +24746,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
               }
 
               /**
-               * Required. The canonical URL of a profile that this resource should be validated
+               * Optional. The canonical URL of a profile that this resource should be validated
                * against. For example, to validate a Patient resource against the US Core Patient
                * profile this parameter would be
                * `http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient`. A
@@ -27009,7 +27055,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
              * parameters, call the {@link SearchType#execute()} method to invoke the remote operation.
              *
              * @param parent Required. Name of the FHIR store to retrieve resources from.
-             * @param resourceType Required. The FHIR resource type to search, such as Patient or Observation. For a complete list, see
+             * @param resourceType Optional. The FHIR resource type to search, such as Patient or Observation. For a complete list, see
              *        the FHIR Resource Index
              *        ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
              *        [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -27095,7 +27141,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
                * must be called to initialize this instance immediately after invoking the constructor. </p>
                *
                * @param parent Required. Name of the FHIR store to retrieve resources from.
-               * @param resourceType Required. The FHIR resource type to search, such as Patient or Observation. For a complete list, see
+               * @param resourceType Optional. The FHIR resource type to search, such as Patient or Observation. For a complete list, see
              *        the FHIR Resource Index
              *        ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
              *        [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -27191,7 +27237,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
               }
 
               /**
-               * Required. The FHIR resource type to search, such as Patient or Observation. For a
+               * Optional. The FHIR resource type to search, such as Patient or Observation. For a
                * complete list, see the FHIR Resource Index
                * ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
                * [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -27200,7 +27246,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
               @com.google.api.client.util.Key
               private java.lang.String resourceType;
 
-              /** Required. The FHIR resource type to search, such as Patient or Observation. For a complete list,
+              /** Optional. The FHIR resource type to search, such as Patient or Observation. For a complete list,
              see the FHIR Resource Index
              ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
              [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -27211,7 +27257,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
               }
 
               /**
-               * Required. The FHIR resource type to search, such as Patient or Observation. For a
+               * Optional. The FHIR resource type to search, such as Patient or Observation. For a
                * complete list, see the FHIR Resource Index
                * ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
                * [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
@@ -30898,7 +30944,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -30929,7 +30975,7 @@ public class CloudHealthcare extends com.google.api.client.googleapis.services.j
              * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
              * methods to check whether the cancellation succeeded or whether the operation completed despite
              * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-             * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+             * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
              * `Code.CANCELLED`.
              *
              * Create a request for the method "operations.cancel".

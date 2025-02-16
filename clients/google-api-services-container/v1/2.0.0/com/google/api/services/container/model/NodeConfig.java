@@ -190,6 +190,13 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
   private java.lang.Integer localSsdCount;
 
   /**
+   * Specifies which method should be used for encrypting the Local SSDs attached to the node.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String localSsdEncryptionMode;
+
+  /**
    * Logging configuration.
    * The value may be {@code null}.
    */
@@ -204,6 +211,13 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private java.lang.String machineType;
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String maxRunDuration;
 
   /**
    * The metadata key/value pairs assigned to instances in the cluster. Keys must conform to the
@@ -740,6 +754,23 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Specifies which method should be used for encrypting the Local SSDs attached to the node.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getLocalSsdEncryptionMode() {
+    return localSsdEncryptionMode;
+  }
+
+  /**
+   * Specifies which method should be used for encrypting the Local SSDs attached to the node.
+   * @param localSsdEncryptionMode localSsdEncryptionMode or {@code null} for none
+   */
+  public NodeConfig setLocalSsdEncryptionMode(java.lang.String localSsdEncryptionMode) {
+    this.localSsdEncryptionMode = localSsdEncryptionMode;
+    return this;
+  }
+
+  /**
    * Logging configuration.
    * @return value or {@code null} for none
    */
@@ -774,6 +805,23 @@ public final class NodeConfig extends com.google.api.client.json.GenericJson {
    */
   public NodeConfig setMachineType(java.lang.String machineType) {
     this.machineType = machineType;
+    return this;
+  }
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * @return value or {@code null} for none
+   */
+  public String getMaxRunDuration() {
+    return maxRunDuration;
+  }
+
+  /**
+   * The maximum duration for the nodes to exist. If unspecified, the nodes can exist indefinitely.
+   * @param maxRunDuration maxRunDuration or {@code null} for none
+   */
+  public NodeConfig setMaxRunDuration(String maxRunDuration) {
+    this.maxRunDuration = maxRunDuration;
     return this;
   }
 

@@ -19,7 +19,7 @@ package com.google.api.services.merchantapi.products_v1beta.model;
 /**
  * This resource represents input data you submit for a product, not the processed product that you
  * see in Merchant Center, in Shopping ads, or across Google surfaces. Product inputs, rules and
- * supplemental data source data are combined to create the processed product. Required product
+ * supplemental data source data are combined to create the processed Product. Required product
  * input attributes to pass data validation checks are primarily defined in the [Products Data
  * Specification](https://support.google.com/merchants/answer/188494). The following attributes are
  * required: feedLabel, contentLanguage and offerId. After inserting, updating, or deleting a
@@ -46,8 +46,7 @@ public final class ProductInput extends com.google.api.client.json.GenericJson {
   private Attributes attributes;
 
   /**
-   * Required. Immutable. The [channel](https://support.google.com/merchants/answer/7361332) of the
-   * product.
+   * Immutable. The [channel](https://support.google.com/merchants/answer/7361332) of the product.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -146,8 +145,7 @@ public final class ProductInput extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Immutable. The [channel](https://support.google.com/merchants/answer/7361332) of the
-   * product.
+   * Immutable. The [channel](https://support.google.com/merchants/answer/7361332) of the product.
    * @return value or {@code null} for none
    */
   public java.lang.String getChannel() {
@@ -155,8 +153,7 @@ public final class ProductInput extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Required. Immutable. The [channel](https://support.google.com/merchants/answer/7361332) of the
-   * product.
+   * Immutable. The [channel](https://support.google.com/merchants/answer/7361332) of the product.
    * @param channel channel or {@code null} for none
    */
   public ProductInput setChannel(java.lang.String channel) {

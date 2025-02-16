@@ -4102,14 +4102,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -4117,8 +4116,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -14079,14 +14077,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -14094,8 +14091,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -16196,8 +16192,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
          * This request holds the parameters needed by the logging server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+         * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
          * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
          * @return the request
          */
@@ -16224,8 +16220,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+           * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
            * @since 1.13
            */
@@ -16295,22 +16291,24 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Output only. The resource name of the log scope.For example:projects/my-
-         project/locations/global/logScopes/my-log-scope
+          /** Output only. The resource name of the log scope.Log scopes are only available in the global
+         location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           public Patch setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -22605,13 +22603,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
           /**
            * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-           * 100 characters and can include only letters, digits, underscores, hyphens, and periods.
+           * 100 characters and can include only letters, digits, underscores, and hyphens.
            */
           @com.google.api.client.util.Key
           private java.lang.String viewId;
 
           /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-         and can include only letters, digits, underscores, hyphens, and periods.
+         and can include only letters, digits, underscores, and hyphens.
            */
           public java.lang.String getViewId() {
             return viewId;
@@ -22619,7 +22617,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
           /**
            * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-           * 100 characters and can include only letters, digits, underscores, hyphens, and periods.
+           * 100 characters and can include only letters, digits, underscores, and hyphens.
            */
           public Create setViewId(java.lang.String viewId) {
             this.viewId = viewId;
@@ -29208,14 +29206,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -29223,8 +29220,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -31325,8 +31321,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
          * This request holds the parameters needed by the logging server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+         * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
          * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
          * @return the request
          */
@@ -31353,8 +31349,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+           * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
            * @since 1.13
            */
@@ -31424,22 +31420,24 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Output only. The resource name of the log scope.For example:projects/my-
-         project/locations/global/logScopes/my-log-scope
+          /** Output only. The resource name of the log scope.Log scopes are only available in the global
+         location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           public Patch setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {
@@ -38988,14 +38986,13 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             @com.google.api.client.util.Key
             private java.lang.String viewId;
 
             /** Required. A client-assigned identifier such as "my-view". Identifiers are limited to 100 characters
-           and can include only letters, digits, underscores, hyphens, and periods.
+           and can include only letters, digits, underscores, and hyphens.
              */
             public java.lang.String getViewId() {
               return viewId;
@@ -39003,8 +39000,7 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
 
             /**
              * Required. A client-assigned identifier such as "my-view". Identifiers are limited to
-             * 100 characters and can include only letters, digits, underscores, hyphens, and
-             * periods.
+             * 100 characters and can include only letters, digits, underscores, and hyphens.
              */
             public Create setViewId(java.lang.String viewId) {
               this.viewId = viewId;
@@ -41105,8 +41101,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
          * This request holds the parameters needed by the logging server.  After setting any optional
          * parameters, call the {@link Patch#execute()} method to invoke the remote operation.
          *
-         * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+         * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
          * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
          * @return the request
          */
@@ -41133,8 +41129,8 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
            * Patch#initialize(com.google.api.client.googleapis.services.AbstractGoogleClientRequest)} must
            * be called to initialize this instance immediately after invoking the constructor. </p>
            *
-           * @param name Output only. The resource name of the log scope.For example:projects/my-
-         *        project/locations/global/logScopes/my-log-scope
+           * @param name Output only. The resource name of the log scope.Log scopes are only available in the global
+         *        location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            * @param content the {@link com.google.api.services.logging.v2.model.LogScope}
            * @since 1.13
            */
@@ -41204,22 +41200,24 @@ public class Logging extends com.google.api.client.googleapis.services.json.Abst
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           @com.google.api.client.util.Key
           private java.lang.String name;
 
-          /** Output only. The resource name of the log scope.For example:projects/my-
-         project/locations/global/logScopes/my-log-scope
+          /** Output only. The resource name of the log scope.Log scopes are only available in the global
+         location. For example:projects/my-project/locations/global/logScopes/my-log-scope
            */
           public java.lang.String getName() {
             return name;
           }
 
           /**
-           * Output only. The resource name of the log scope.For example:projects/my-
-           * project/locations/global/logScopes/my-log-scope
+           * Output only. The resource name of the log scope.Log scopes are only available in the
+           * global location. For example:projects/my-project/locations/global/logScopes/my-log-
+           * scope
            */
           public Patch setName(java.lang.String name) {
             if (!getSuppressPatternChecks()) {

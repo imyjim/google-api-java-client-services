@@ -18,7 +18,7 @@ package com.google.api.services.networkconnectivity.v1.model;
 
 /**
  * The internal range resource for IPAM operations within a VPC network. Used to represent a private
- * address range along with behavioral characterstics of that range (its usage and peering
+ * address range along with behavioral characteristics of that range (its usage and peering
  * behavior). Networking resources can link to this range if they are created as belonging to it.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
@@ -63,7 +63,7 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   private java.util.Map<String, java.lang.String> labels;
 
   /**
-   * Optional. Should be present if usage is set to FOR_MIGRATION.
+   * Optional. Must be present if usage is set to FOR_MIGRATION.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -223,7 +223,7 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Optional. Should be present if usage is set to FOR_MIGRATION.
+   * Optional. Must be present if usage is set to FOR_MIGRATION.
    * @return value or {@code null} for none
    */
   public Migration getMigration() {
@@ -231,7 +231,7 @@ public final class InternalRange extends com.google.api.client.json.GenericJson 
   }
 
   /**
-   * Optional. Should be present if usage is set to FOR_MIGRATION.
+   * Optional. Must be present if usage is set to FOR_MIGRATION.
    * @param migration migration or {@code null} for none
    */
   public InternalRange setMigration(Migration migration) {

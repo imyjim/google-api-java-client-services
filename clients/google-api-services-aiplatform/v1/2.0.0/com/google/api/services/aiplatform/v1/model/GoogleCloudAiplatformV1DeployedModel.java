@@ -103,6 +103,13 @@ public final class GoogleCloudAiplatformV1DeployedModel extends com.google.api.c
   private GoogleCloudAiplatformV1ExplanationSpec explanationSpec;
 
   /**
+   * Configuration for faster model deployment.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1FasterDeploymentConfig fasterDeploymentConfig;
+
+  /**
    * Immutable. The ID of the DeployedModel. If not provided upon deployment, Vertex AI will
    * generate a value for this ID. This value should be 1-10 characters, and valid characters are
    * `/[0-9]/`.
@@ -156,6 +163,28 @@ public final class GoogleCloudAiplatformV1DeployedModel extends com.google.api.c
    */
   @com.google.api.client.util.Key
   private java.lang.String sharedResources;
+
+  /**
+   * Optional. Spec for configuring speculative decoding.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1SpeculativeDecodingSpec speculativeDecodingSpec;
+
+  /**
+   * Output only. Runtime status of the deployed model.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1DeployedModelStatus status;
+
+  /**
+   * System labels to apply to Model Garden deployments. System labels are managed by Google for
+   * internal use only.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.Map<String, java.lang.String> systemLabels;
 
   /**
    * A description of resources that to large degree are decided by Vertex AI, and require only a
@@ -328,6 +357,23 @@ public final class GoogleCloudAiplatformV1DeployedModel extends com.google.api.c
   }
 
   /**
+   * Configuration for faster model deployment.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1FasterDeploymentConfig getFasterDeploymentConfig() {
+    return fasterDeploymentConfig;
+  }
+
+  /**
+   * Configuration for faster model deployment.
+   * @param fasterDeploymentConfig fasterDeploymentConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1DeployedModel setFasterDeploymentConfig(GoogleCloudAiplatformV1FasterDeploymentConfig fasterDeploymentConfig) {
+    this.fasterDeploymentConfig = fasterDeploymentConfig;
+    return this;
+  }
+
+  /**
    * Immutable. The ID of the DeployedModel. If not provided upon deployment, Vertex AI will
    * generate a value for this ID. This value should be 1-10 characters, and valid characters are
    * `/[0-9]/`.
@@ -452,6 +498,59 @@ public final class GoogleCloudAiplatformV1DeployedModel extends com.google.api.c
    */
   public GoogleCloudAiplatformV1DeployedModel setSharedResources(java.lang.String sharedResources) {
     this.sharedResources = sharedResources;
+    return this;
+  }
+
+  /**
+   * Optional. Spec for configuring speculative decoding.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1SpeculativeDecodingSpec getSpeculativeDecodingSpec() {
+    return speculativeDecodingSpec;
+  }
+
+  /**
+   * Optional. Spec for configuring speculative decoding.
+   * @param speculativeDecodingSpec speculativeDecodingSpec or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1DeployedModel setSpeculativeDecodingSpec(GoogleCloudAiplatformV1SpeculativeDecodingSpec speculativeDecodingSpec) {
+    this.speculativeDecodingSpec = speculativeDecodingSpec;
+    return this;
+  }
+
+  /**
+   * Output only. Runtime status of the deployed model.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1DeployedModelStatus getStatus() {
+    return status;
+  }
+
+  /**
+   * Output only. Runtime status of the deployed model.
+   * @param status status or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1DeployedModel setStatus(GoogleCloudAiplatformV1DeployedModelStatus status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * System labels to apply to Model Garden deployments. System labels are managed by Google for
+   * internal use only.
+   * @return value or {@code null} for none
+   */
+  public java.util.Map<String, java.lang.String> getSystemLabels() {
+    return systemLabels;
+  }
+
+  /**
+   * System labels to apply to Model Garden deployments. System labels are managed by Google for
+   * internal use only.
+   * @param systemLabels systemLabels or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1DeployedModel setSystemLabels(java.util.Map<String, java.lang.String> systemLabels) {
+    this.systemLabels = systemLabels;
     return this;
   }
 

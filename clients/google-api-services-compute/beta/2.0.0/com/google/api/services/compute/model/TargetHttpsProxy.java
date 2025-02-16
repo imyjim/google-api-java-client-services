@@ -20,7 +20,7 @@ package com.google.api.services.compute.model;
  * Represents a Target HTTPS Proxy resource. Google Compute Engine has two Target HTTPS Proxy
  * resources: * [Global](/compute/docs/reference/rest/beta/targetHttpsProxies) *
  * [Regional](/compute/docs/reference/rest/beta/regionTargetHttpsProxies) A target HTTPS proxy is a
- * component of GCP HTTPS load balancers. * targetHttpProxies are used by global external
+ * component of Google Cloud HTTPS load balancers. * targetHttpProxies are used by global external
  * Application Load Balancers, classic Application Load Balancers, cross-region internal Application
  * Load Balancers, and Traffic Director. * regionTargetHttpProxies are used by regional internal
  * Application Load Balancers and regional external Application Load Balancers. Forwarding rules
@@ -209,11 +209,11 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * when the load balancing scheme is set to INTERNAL_SELF_MANAGED. The URLs should refer to a SSL
    * Certificate resource or Certificate Manager Certificate resource. Mixing Classic Certificates
    * and Certificate Manager Certificates is not allowed. Certificate Manager Certificates must
-   * include the certificatemanager API. Certificate Manager Certificates are not supported by
-   * Global external Application Load Balancer or Classic Application Load Balancer, use
-   * certificate_map instead. Currently, you may specify up to 15 Classic SSL Certificates.
-   * Certificate Manager Certificates accepted formats are: -
-   * //certificatemanager.googleapis.com/projects/{project}/locations/{
+   * include the certificatemanager API namespace. Using Certificate Manager Certificates in this
+   * field is not supported by Global external Application Load Balancer or Classic Application Load
+   * Balancer, use certificate_map instead. Currently, you may specify up to 15 Classic SSL
+   * Certificates or up to 100 Certificate Manager Certificates. Certificate Manager Certificates
+   * accepted formats are: - //certificatemanager.googleapis.com/projects/{project}/locations/{
    * location}/certificates/{resourceName}. -
    * https://certificatemanager.googleapis.com/v1alpha1/projects/{project
    * }/locations/{location}/certificates/{resourceName}.
@@ -683,11 +683,11 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * when the load balancing scheme is set to INTERNAL_SELF_MANAGED. The URLs should refer to a SSL
    * Certificate resource or Certificate Manager Certificate resource. Mixing Classic Certificates
    * and Certificate Manager Certificates is not allowed. Certificate Manager Certificates must
-   * include the certificatemanager API. Certificate Manager Certificates are not supported by
-   * Global external Application Load Balancer or Classic Application Load Balancer, use
-   * certificate_map instead. Currently, you may specify up to 15 Classic SSL Certificates.
-   * Certificate Manager Certificates accepted formats are: -
-   * //certificatemanager.googleapis.com/projects/{project}/locations/{
+   * include the certificatemanager API namespace. Using Certificate Manager Certificates in this
+   * field is not supported by Global external Application Load Balancer or Classic Application Load
+   * Balancer, use certificate_map instead. Currently, you may specify up to 15 Classic SSL
+   * Certificates or up to 100 Certificate Manager Certificates. Certificate Manager Certificates
+   * accepted formats are: - //certificatemanager.googleapis.com/projects/{project}/locations/{
    * location}/certificates/{resourceName}. -
    * https://certificatemanager.googleapis.com/v1alpha1/projects/{project
    * }/locations/{location}/certificates/{resourceName}.
@@ -703,11 +703,11 @@ public final class TargetHttpsProxy extends com.google.api.client.json.GenericJs
    * when the load balancing scheme is set to INTERNAL_SELF_MANAGED. The URLs should refer to a SSL
    * Certificate resource or Certificate Manager Certificate resource. Mixing Classic Certificates
    * and Certificate Manager Certificates is not allowed. Certificate Manager Certificates must
-   * include the certificatemanager API. Certificate Manager Certificates are not supported by
-   * Global external Application Load Balancer or Classic Application Load Balancer, use
-   * certificate_map instead. Currently, you may specify up to 15 Classic SSL Certificates.
-   * Certificate Manager Certificates accepted formats are: -
-   * //certificatemanager.googleapis.com/projects/{project}/locations/{
+   * include the certificatemanager API namespace. Using Certificate Manager Certificates in this
+   * field is not supported by Global external Application Load Balancer or Classic Application Load
+   * Balancer, use certificate_map instead. Currently, you may specify up to 15 Classic SSL
+   * Certificates or up to 100 Certificate Manager Certificates. Certificate Manager Certificates
+   * accepted formats are: - //certificatemanager.googleapis.com/projects/{project}/locations/{
    * location}/certificates/{resourceName}. -
    * https://certificatemanager.googleapis.com/v1alpha1/projects/{project
    * }/locations/{location}/certificates/{resourceName}.

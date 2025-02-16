@@ -131,6 +131,13 @@ public final class Repository extends com.google.api.client.json.GenericJson {
   private java.lang.String name;
 
   /**
+   * Output only. The repository endpoint, for example: `us-docker.pkg.dev/my-proj/my-repo`.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String registryUri;
+
+  /**
    * Configuration specific for a Remote Repository.
    * The value may be {@code null}.
    */
@@ -172,6 +179,13 @@ public final class Repository extends com.google.api.client.json.GenericJson {
    */
   @com.google.api.client.util.Key
   private VirtualRepositoryConfig virtualRepositoryConfig;
+
+  /**
+   * Optional. Config and state for vulnerability scanning of resources within this Repository.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private VulnerabilityScanningConfig vulnerabilityScanningConfig;
 
   /**
    * Optional. Cleanup policies for this repository. Cleanup policies indicate when certain package
@@ -398,6 +412,23 @@ public final class Repository extends com.google.api.client.json.GenericJson {
   }
 
   /**
+   * Output only. The repository endpoint, for example: `us-docker.pkg.dev/my-proj/my-repo`.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getRegistryUri() {
+    return registryUri;
+  }
+
+  /**
+   * Output only. The repository endpoint, for example: `us-docker.pkg.dev/my-proj/my-repo`.
+   * @param registryUri registryUri or {@code null} for none
+   */
+  public Repository setRegistryUri(java.lang.String registryUri) {
+    this.registryUri = registryUri;
+    return this;
+  }
+
+  /**
    * Configuration specific for a Remote Repository.
    * @return value or {@code null} for none
    */
@@ -498,6 +529,23 @@ public final class Repository extends com.google.api.client.json.GenericJson {
    */
   public Repository setVirtualRepositoryConfig(VirtualRepositoryConfig virtualRepositoryConfig) {
     this.virtualRepositoryConfig = virtualRepositoryConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Config and state for vulnerability scanning of resources within this Repository.
+   * @return value or {@code null} for none
+   */
+  public VulnerabilityScanningConfig getVulnerabilityScanningConfig() {
+    return vulnerabilityScanningConfig;
+  }
+
+  /**
+   * Optional. Config and state for vulnerability scanning of resources within this Repository.
+   * @param vulnerabilityScanningConfig vulnerabilityScanningConfig or {@code null} for none
+   */
+  public Repository setVulnerabilityScanningConfig(VulnerabilityScanningConfig vulnerabilityScanningConfig) {
+    this.vulnerabilityScanningConfig = vulnerabilityScanningConfig;
     return this;
   }
 

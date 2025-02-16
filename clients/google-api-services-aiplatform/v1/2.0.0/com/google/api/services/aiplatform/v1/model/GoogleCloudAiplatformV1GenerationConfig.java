@@ -30,6 +30,13 @@ package com.google.api.services.aiplatform.v1.model;
 public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. If enabled, audio timestamp will be included in the request to the model.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean audioTimestamp;
+
+  /**
    * Optional. Number of candidates to generate.
    * The value may be {@code null}.
    */
@@ -58,6 +65,13 @@ public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.ap
   private java.lang.Integer maxOutputTokens;
 
   /**
+   * Optional. If specified, the media resolution specified will be used.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String mediaResolution;
+
+  /**
    * Optional. Positive penalties.
    * The value may be {@code null}.
    */
@@ -80,6 +94,13 @@ public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.ap
    */
   @com.google.api.client.util.Key
   private java.lang.String responseMimeType;
+
+  /**
+   * Optional. The modalities of the response.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> responseModalities;
 
   /**
    * Optional. The `Schema` object allows the definition of input and output data types. These types
@@ -105,6 +126,13 @@ public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.ap
    */
   @com.google.api.client.util.Key
   private java.lang.Integer seed;
+
+  /**
+   * Optional. The speech generation config.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1SpeechConfig speechConfig;
 
   /**
    * Optional. Stop sequences.
@@ -133,6 +161,23 @@ public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.ap
    */
   @com.google.api.client.util.Key
   private java.lang.Float topP;
+
+  /**
+   * Optional. If enabled, audio timestamp will be included in the request to the model.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAudioTimestamp() {
+    return audioTimestamp;
+  }
+
+  /**
+   * Optional. If enabled, audio timestamp will be included in the request to the model.
+   * @param audioTimestamp audioTimestamp or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1GenerationConfig setAudioTimestamp(java.lang.Boolean audioTimestamp) {
+    this.audioTimestamp = audioTimestamp;
+    return this;
+  }
 
   /**
    * Optional. Number of candidates to generate.
@@ -203,6 +248,23 @@ public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.ap
   }
 
   /**
+   * Optional. If specified, the media resolution specified will be used.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getMediaResolution() {
+    return mediaResolution;
+  }
+
+  /**
+   * Optional. If specified, the media resolution specified will be used.
+   * @param mediaResolution mediaResolution or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1GenerationConfig setMediaResolution(java.lang.String mediaResolution) {
+    this.mediaResolution = mediaResolution;
+    return this;
+  }
+
+  /**
    * Optional. Positive penalties.
    * @return value or {@code null} for none
    */
@@ -256,6 +318,23 @@ public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.ap
    */
   public GoogleCloudAiplatformV1GenerationConfig setResponseMimeType(java.lang.String responseMimeType) {
     this.responseMimeType = responseMimeType;
+    return this;
+  }
+
+  /**
+   * Optional. The modalities of the response.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getResponseModalities() {
+    return responseModalities;
+  }
+
+  /**
+   * Optional. The modalities of the response.
+   * @param responseModalities responseModalities or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1GenerationConfig setResponseModalities(java.util.List<java.lang.String> responseModalities) {
+    this.responseModalities = responseModalities;
     return this;
   }
 
@@ -315,6 +394,23 @@ public final class GoogleCloudAiplatformV1GenerationConfig extends com.google.ap
    */
   public GoogleCloudAiplatformV1GenerationConfig setSeed(java.lang.Integer seed) {
     this.seed = seed;
+    return this;
+  }
+
+  /**
+   * Optional. The speech generation config.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1SpeechConfig getSpeechConfig() {
+    return speechConfig;
+  }
+
+  /**
+   * Optional. The speech generation config.
+   * @param speechConfig speechConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1GenerationConfig setSpeechConfig(GoogleCloudAiplatformV1SpeechConfig speechConfig) {
+    this.speechConfig = speechConfig;
     return this;
   }
 

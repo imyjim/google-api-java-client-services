@@ -73,6 +73,13 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
   private GoogleCloudAiplatformV1beta1RagEmbeddingModelConfig ragEmbeddingModelConfig;
 
   /**
+   * Output only. Number of RagFiles in the RagCorpus.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer ragFilesCount;
+
+  /**
    * Optional. Immutable. The Vector DB config of the RagCorpus.
    * The value may be {@code null}.
    */
@@ -85,6 +92,20 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
    */
   @com.google.api.client.util.Key
   private String updateTime;
+
+  /**
+   * Optional. Immutable. The config for the Vector DBs.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagVectorDbConfig vectorDbConfig;
+
+  /**
+   * Optional. Immutable. The config for the Vertex AI Search.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1VertexAiSearchConfig vertexAiSearchConfig;
 
   /**
    * Output only. RagCorpus state.
@@ -191,6 +212,23 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
   }
 
   /**
+   * Output only. Number of RagFiles in the RagCorpus.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getRagFilesCount() {
+    return ragFilesCount;
+  }
+
+  /**
+   * Output only. Number of RagFiles in the RagCorpus.
+   * @param ragFilesCount ragFilesCount or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setRagFilesCount(java.lang.Integer ragFilesCount) {
+    this.ragFilesCount = ragFilesCount;
+    return this;
+  }
+
+  /**
    * Optional. Immutable. The Vector DB config of the RagCorpus.
    * @return value or {@code null} for none
    */
@@ -221,6 +259,40 @@ public final class GoogleCloudAiplatformV1beta1RagCorpus extends com.google.api.
    */
   public GoogleCloudAiplatformV1beta1RagCorpus setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
+    return this;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vector DBs.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagVectorDbConfig getVectorDbConfig() {
+    return vectorDbConfig;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vector DBs.
+   * @param vectorDbConfig vectorDbConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setVectorDbConfig(GoogleCloudAiplatformV1beta1RagVectorDbConfig vectorDbConfig) {
+    this.vectorDbConfig = vectorDbConfig;
+    return this;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vertex AI Search.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1VertexAiSearchConfig getVertexAiSearchConfig() {
+    return vertexAiSearchConfig;
+  }
+
+  /**
+   * Optional. Immutable. The config for the Vertex AI Search.
+   * @param vertexAiSearchConfig vertexAiSearchConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagCorpus setVertexAiSearchConfig(GoogleCloudAiplatformV1beta1VertexAiSearchConfig vertexAiSearchConfig) {
+    this.vertexAiSearchConfig = vertexAiSearchConfig;
     return this;
   }
 

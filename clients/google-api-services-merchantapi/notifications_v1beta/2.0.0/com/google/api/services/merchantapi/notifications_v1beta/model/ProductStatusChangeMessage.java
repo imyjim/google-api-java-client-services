@@ -57,6 +57,14 @@ public final class ProductStatusChangeMessage extends com.google.api.client.json
   }
 
   /**
+   * The product expiration time. This field will not bet set if the notification is sent for a
+   * product deletion event.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private String expirationTime;
+
+  /**
    * The account that manages the merchant's account. can be the same as merchant id if it is
    * standalone account. Format : `accounts/{service_provider_id}`
    * The value may be {@code null}.
@@ -133,6 +141,25 @@ public final class ProductStatusChangeMessage extends com.google.api.client.json
    */
   public ProductStatusChangeMessage setChanges(java.util.List<ProductChange> changes) {
     this.changes = changes;
+    return this;
+  }
+
+  /**
+   * The product expiration time. This field will not bet set if the notification is sent for a
+   * product deletion event.
+   * @return value or {@code null} for none
+   */
+  public String getExpirationTime() {
+    return expirationTime;
+  }
+
+  /**
+   * The product expiration time. This field will not bet set if the notification is sent for a
+   * product deletion event.
+   * @param expirationTime expirationTime or {@code null} for none
+   */
+  public ProductStatusChangeMessage setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
     return this;
   }
 

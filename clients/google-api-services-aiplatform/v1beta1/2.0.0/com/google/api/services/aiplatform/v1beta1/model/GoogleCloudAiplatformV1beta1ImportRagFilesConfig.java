@@ -64,16 +64,18 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
 
   /**
    * The BigQuery destination to write partial failures to. It should be a bigquery table resource
-   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). If the dataset id does not exist, it will
-   * be created. If the table does not exist, it will be created with the expected schema. If the
-   * table exists, the schema will be validated and data will be added to this existing table.
+   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does
+   * not exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table. Deprecated. Prefer to use
+   * `import_result_bq_sink`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1BigQueryDestination partialFailureBigquerySink;
 
   /**
-   * The Cloud Storage path to write partial failures to.
+   * The Cloud Storage path to write partial failures to. Deprecated. Prefer to use
+   * `import_result_gcs_sink`.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -87,11 +89,19 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   private GoogleCloudAiplatformV1beta1RagFileChunkingConfig ragFileChunkingConfig;
 
   /**
-   * Specifies the parsing config for RagFiles.
+   * Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this
+   * field is not set.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
   private GoogleCloudAiplatformV1beta1RagFileParsingConfig ragFileParsingConfig;
+
+  /**
+   * Specifies the transformation config for RagFiles.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1RagFileTransformationConfig ragFileTransformationConfig;
 
   /**
    * SharePoint sources.
@@ -187,9 +197,10 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
 
   /**
    * The BigQuery destination to write partial failures to. It should be a bigquery table resource
-   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). If the dataset id does not exist, it will
-   * be created. If the table does not exist, it will be created with the expected schema. If the
-   * table exists, the schema will be validated and data will be added to this existing table.
+   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does
+   * not exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table. Deprecated. Prefer to use
+   * `import_result_bq_sink`.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1BigQueryDestination getPartialFailureBigquerySink() {
@@ -198,9 +209,10 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
 
   /**
    * The BigQuery destination to write partial failures to. It should be a bigquery table resource
-   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). If the dataset id does not exist, it will
-   * be created. If the table does not exist, it will be created with the expected schema. If the
-   * table exists, the schema will be validated and data will be added to this existing table.
+   * name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does
+   * not exist, it will be created with the expected schema. If the table exists, the schema will be
+   * validated and data will be added to this existing table. Deprecated. Prefer to use
+   * `import_result_bq_sink`.
    * @param partialFailureBigquerySink partialFailureBigquerySink or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setPartialFailureBigquerySink(GoogleCloudAiplatformV1beta1BigQueryDestination partialFailureBigquerySink) {
@@ -209,7 +221,8 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * The Cloud Storage path to write partial failures to.
+   * The Cloud Storage path to write partial failures to. Deprecated. Prefer to use
+   * `import_result_gcs_sink`.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1GcsDestination getPartialFailureGcsSink() {
@@ -217,7 +230,8 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * The Cloud Storage path to write partial failures to.
+   * The Cloud Storage path to write partial failures to. Deprecated. Prefer to use
+   * `import_result_gcs_sink`.
    * @param partialFailureGcsSink partialFailureGcsSink or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setPartialFailureGcsSink(GoogleCloudAiplatformV1beta1GcsDestination partialFailureGcsSink) {
@@ -243,7 +257,8 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * Specifies the parsing config for RagFiles.
+   * Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this
+   * field is not set.
    * @return value or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1RagFileParsingConfig getRagFileParsingConfig() {
@@ -251,11 +266,29 @@ public final class GoogleCloudAiplatformV1beta1ImportRagFilesConfig extends com.
   }
 
   /**
-   * Specifies the parsing config for RagFiles.
+   * Optional. Specifies the parsing config for RagFiles. RAG will use the default parser if this
+   * field is not set.
    * @param ragFileParsingConfig ragFileParsingConfig or {@code null} for none
    */
   public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setRagFileParsingConfig(GoogleCloudAiplatformV1beta1RagFileParsingConfig ragFileParsingConfig) {
     this.ragFileParsingConfig = ragFileParsingConfig;
+    return this;
+  }
+
+  /**
+   * Specifies the transformation config for RagFiles.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1RagFileTransformationConfig getRagFileTransformationConfig() {
+    return ragFileTransformationConfig;
+  }
+
+  /**
+   * Specifies the transformation config for RagFiles.
+   * @param ragFileTransformationConfig ragFileTransformationConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1ImportRagFilesConfig setRagFileTransformationConfig(GoogleCloudAiplatformV1beta1RagFileTransformationConfig ragFileTransformationConfig) {
+    this.ragFileTransformationConfig = ragFileTransformationConfig;
     return this;
   }
 

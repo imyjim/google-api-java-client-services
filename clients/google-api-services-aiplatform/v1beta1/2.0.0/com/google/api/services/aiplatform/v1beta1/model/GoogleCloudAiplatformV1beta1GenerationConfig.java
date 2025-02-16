@@ -30,6 +30,13 @@ package com.google.api.services.aiplatform.v1beta1.model;
 public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.google.api.client.json.GenericJson {
 
   /**
+   * Optional. If enabled, audio timestamp will be included in the request to the model.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Boolean audioTimestamp;
+
+  /**
    * Optional. Number of candidates to generate.
    * The value may be {@code null}.
    */
@@ -58,6 +65,13 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
   private java.lang.Integer maxOutputTokens;
 
   /**
+   * Optional. If specified, the media resolution specified will be used.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String mediaResolution;
+
+  /**
    * Optional. Positive penalties.
    * The value may be {@code null}.
    */
@@ -80,6 +94,13 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
    */
   @com.google.api.client.util.Key
   private java.lang.String responseMimeType;
+
+  /**
+   * Optional. The modalities of the response.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> responseModalities;
 
   /**
    * Optional. The `Schema` object allows the definition of input and output data types. These types
@@ -107,6 +128,13 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
   private java.lang.Integer seed;
 
   /**
+   * Optional. The speech generation config.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1SpeechConfig speechConfig;
+
+  /**
    * Optional. Stop sequences.
    * The value may be {@code null}.
    */
@@ -121,6 +149,14 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
   private java.lang.Float temperature;
 
   /**
+   * Optional. Config for thinking features. An error will be returned if this field is set for
+   * models that don't support thinking.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private GoogleCloudAiplatformV1beta1GenerationConfigThinkingConfig thinkingConfig;
+
+  /**
    * Optional. If specified, top-k sampling will be used.
    * The value may be {@code null}.
    */
@@ -133,6 +169,23 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
    */
   @com.google.api.client.util.Key
   private java.lang.Float topP;
+
+  /**
+   * Optional. If enabled, audio timestamp will be included in the request to the model.
+   * @return value or {@code null} for none
+   */
+  public java.lang.Boolean getAudioTimestamp() {
+    return audioTimestamp;
+  }
+
+  /**
+   * Optional. If enabled, audio timestamp will be included in the request to the model.
+   * @param audioTimestamp audioTimestamp or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GenerationConfig setAudioTimestamp(java.lang.Boolean audioTimestamp) {
+    this.audioTimestamp = audioTimestamp;
+    return this;
+  }
 
   /**
    * Optional. Number of candidates to generate.
@@ -203,6 +256,23 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
   }
 
   /**
+   * Optional. If specified, the media resolution specified will be used.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getMediaResolution() {
+    return mediaResolution;
+  }
+
+  /**
+   * Optional. If specified, the media resolution specified will be used.
+   * @param mediaResolution mediaResolution or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GenerationConfig setMediaResolution(java.lang.String mediaResolution) {
+    this.mediaResolution = mediaResolution;
+    return this;
+  }
+
+  /**
    * Optional. Positive penalties.
    * @return value or {@code null} for none
    */
@@ -256,6 +326,23 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
    */
   public GoogleCloudAiplatformV1beta1GenerationConfig setResponseMimeType(java.lang.String responseMimeType) {
     this.responseMimeType = responseMimeType;
+    return this;
+  }
+
+  /**
+   * Optional. The modalities of the response.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getResponseModalities() {
+    return responseModalities;
+  }
+
+  /**
+   * Optional. The modalities of the response.
+   * @param responseModalities responseModalities or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GenerationConfig setResponseModalities(java.util.List<java.lang.String> responseModalities) {
+    this.responseModalities = responseModalities;
     return this;
   }
 
@@ -319,6 +406,23 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
   }
 
   /**
+   * Optional. The speech generation config.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1SpeechConfig getSpeechConfig() {
+    return speechConfig;
+  }
+
+  /**
+   * Optional. The speech generation config.
+   * @param speechConfig speechConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GenerationConfig setSpeechConfig(GoogleCloudAiplatformV1beta1SpeechConfig speechConfig) {
+    this.speechConfig = speechConfig;
+    return this;
+  }
+
+  /**
    * Optional. Stop sequences.
    * @return value or {@code null} for none
    */
@@ -349,6 +453,25 @@ public final class GoogleCloudAiplatformV1beta1GenerationConfig extends com.goog
    */
   public GoogleCloudAiplatformV1beta1GenerationConfig setTemperature(java.lang.Float temperature) {
     this.temperature = temperature;
+    return this;
+  }
+
+  /**
+   * Optional. Config for thinking features. An error will be returned if this field is set for
+   * models that don't support thinking.
+   * @return value or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GenerationConfigThinkingConfig getThinkingConfig() {
+    return thinkingConfig;
+  }
+
+  /**
+   * Optional. Config for thinking features. An error will be returned if this field is set for
+   * models that don't support thinking.
+   * @param thinkingConfig thinkingConfig or {@code null} for none
+   */
+  public GoogleCloudAiplatformV1beta1GenerationConfig setThinkingConfig(GoogleCloudAiplatformV1beta1GenerationConfigThinkingConfig thinkingConfig) {
+    this.thinkingConfig = thinkingConfig;
     return this;
   }
 

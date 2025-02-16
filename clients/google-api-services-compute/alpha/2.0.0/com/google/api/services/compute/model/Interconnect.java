@@ -32,7 +32,7 @@ package com.google.api.services.compute.model;
 public final class Interconnect extends com.google.api.client.json.GenericJson {
 
   /**
-   * Enable or disable the Application Aware Interconnect(AAI) feature on this interconnect.
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -48,8 +48,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   private java.lang.Boolean adminEnabled;
 
   /**
-   * Configuration for enabling Application Aware Interconnect (AAI) on this Cloud Interconnect
-   * connection between Google and your on-premises router.
+   * Configuration information for application awareness on this Cloud Interconnect.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -321,7 +320,15 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   private java.lang.String state;
 
   /**
-   * Enable or disable the Application Aware Interconnect(AAI) feature on this interconnect.
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.util.List<java.lang.String> wireGroups;
+
+  /**
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
    * @return value or {@code null} for none
    */
   public java.lang.Boolean getAaiEnabled() {
@@ -329,7 +336,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Enable or disable the Application Aware Interconnect(AAI) feature on this interconnect.
+   * Enable or disable the application awareness feature on this Cloud Interconnect.
    * @param aaiEnabled aaiEnabled or {@code null} for none
    */
   public Interconnect setAaiEnabled(java.lang.Boolean aaiEnabled) {
@@ -359,8 +366,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for enabling Application Aware Interconnect (AAI) on this Cloud Interconnect
-   * connection between Google and your on-premises router.
+   * Configuration information for application awareness on this Cloud Interconnect.
    * @return value or {@code null} for none
    */
   public InterconnectApplicationAwareInterconnect getApplicationAwareInterconnect() {
@@ -368,8 +374,7 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
   }
 
   /**
-   * Configuration for enabling Application Aware Interconnect (AAI) on this Cloud Interconnect
-   * connection between Google and your on-premises router.
+   * Configuration information for application awareness on this Cloud Interconnect.
    * @param applicationAwareInterconnect applicationAwareInterconnect or {@code null} for none
    */
   public Interconnect setApplicationAwareInterconnect(InterconnectApplicationAwareInterconnect applicationAwareInterconnect) {
@@ -1035,6 +1040,25 @@ public final class Interconnect extends com.google.api.client.json.GenericJson {
    */
   public Interconnect setState(java.lang.String state) {
     this.state = state;
+    return this;
+  }
+
+  /**
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * @return value or {@code null} for none
+   */
+  public java.util.List<java.lang.String> getWireGroups() {
+    return wireGroups;
+  }
+
+  /**
+   * [Output Only] A list of the URLs of all CrossSiteNetwork WireGroups configured to use this
+   * Interconnect. The Interconnect cannot be deleted if this list is non-empty.
+   * @param wireGroups wireGroups or {@code null} for none
+   */
+  public Interconnect setWireGroups(java.util.List<java.lang.String> wireGroups) {
+    this.wireGroups = wireGroups;
     return this;
   }
 

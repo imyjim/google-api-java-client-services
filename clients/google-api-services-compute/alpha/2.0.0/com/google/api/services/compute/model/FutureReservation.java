@@ -30,6 +30,13 @@ package com.google.api.services.compute.model;
 public final class FutureReservation extends com.google.api.client.json.GenericJson {
 
   /**
+   * Aggregate reservation details for the future reservation.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private AllocationAggregateReservation aggregateReservation;
+
+  /**
    * Future timestamp when the FR auto-created reservations will be deleted by Compute Engine.
    * Format of this field must be a valid href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339 value.
    * The value may be {@code null}.
@@ -88,27 +95,12 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   private java.lang.String description;
 
   /**
-   * Indicates if this group of VMs have opportunistic maintenance enabled. This will be set on the
-   * FR by customers, and will be used for reservation and reservation block maintenance .
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.lang.Boolean enableOpportunisticMaintenance;
-
-  /**
    * [Output Only] A unique identifier for this future reservation. The server defines this
    * identifier.
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
   private java.math.BigInteger id;
-
-  /**
-   * Action to take during reservation termination.
-   * The value may be {@code null}.
-   */
-  @com.google.api.client.util.Key
-  private java.lang.String instanceTerminationAction;
 
   /**
    * [Output Only] Type of the resource. Always compute#futureReservation for future reservations.
@@ -145,6 +137,13 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   private java.lang.String planningStatus;
 
   /**
+   * The reservation mode which determines reservation-termination behavior and expected pricing.
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String reservationMode;
+
+  /**
    * Name of reservations where the capacity is provisioned at the time of delivery of future
    * reservations. If the reservation with the given name does not exist already, it is created
    * automatically at the time of Approval with INACTIVE state till specified start-time. Either
@@ -155,8 +154,7 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   private java.lang.String reservationName;
 
   /**
-   * Indicates the maintenance type for this group of VMs. This will be set on the reservation via
-   * FR, and will be inherited for reservation blocks.
+   * Maintenance information for this reservation
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
@@ -219,6 +217,23 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
    */
   @com.google.api.client.util.Key
   private java.lang.String zone;
+
+  /**
+   * Aggregate reservation details for the future reservation.
+   * @return value or {@code null} for none
+   */
+  public AllocationAggregateReservation getAggregateReservation() {
+    return aggregateReservation;
+  }
+
+  /**
+   * Aggregate reservation details for the future reservation.
+   * @param aggregateReservation aggregateReservation or {@code null} for none
+   */
+  public FutureReservation setAggregateReservation(AllocationAggregateReservation aggregateReservation) {
+    this.aggregateReservation = aggregateReservation;
+    return this;
+  }
 
   /**
    * Future timestamp when the FR auto-created reservations will be deleted by Compute Engine.
@@ -358,25 +373,6 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Indicates if this group of VMs have opportunistic maintenance enabled. This will be set on the
-   * FR by customers, and will be used for reservation and reservation block maintenance .
-   * @return value or {@code null} for none
-   */
-  public java.lang.Boolean getEnableOpportunisticMaintenance() {
-    return enableOpportunisticMaintenance;
-  }
-
-  /**
-   * Indicates if this group of VMs have opportunistic maintenance enabled. This will be set on the
-   * FR by customers, and will be used for reservation and reservation block maintenance .
-   * @param enableOpportunisticMaintenance enableOpportunisticMaintenance or {@code null} for none
-   */
-  public FutureReservation setEnableOpportunisticMaintenance(java.lang.Boolean enableOpportunisticMaintenance) {
-    this.enableOpportunisticMaintenance = enableOpportunisticMaintenance;
-    return this;
-  }
-
-  /**
    * [Output Only] A unique identifier for this future reservation. The server defines this
    * identifier.
    * @return value or {@code null} for none
@@ -392,23 +388,6 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
    */
   public FutureReservation setId(java.math.BigInteger id) {
     this.id = id;
-    return this;
-  }
-
-  /**
-   * Action to take during reservation termination.
-   * @return value or {@code null} for none
-   */
-  public java.lang.String getInstanceTerminationAction() {
-    return instanceTerminationAction;
-  }
-
-  /**
-   * Action to take during reservation termination.
-   * @param instanceTerminationAction instanceTerminationAction or {@code null} for none
-   */
-  public FutureReservation setInstanceTerminationAction(java.lang.String instanceTerminationAction) {
-    this.instanceTerminationAction = instanceTerminationAction;
     return this;
   }
 
@@ -493,6 +472,23 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   }
 
   /**
+   * The reservation mode which determines reservation-termination behavior and expected pricing.
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getReservationMode() {
+    return reservationMode;
+  }
+
+  /**
+   * The reservation mode which determines reservation-termination behavior and expected pricing.
+   * @param reservationMode reservationMode or {@code null} for none
+   */
+  public FutureReservation setReservationMode(java.lang.String reservationMode) {
+    this.reservationMode = reservationMode;
+    return this;
+  }
+
+  /**
    * Name of reservations where the capacity is provisioned at the time of delivery of future
    * reservations. If the reservation with the given name does not exist already, it is created
    * automatically at the time of Approval with INACTIVE state till specified start-time. Either
@@ -516,8 +512,7 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Indicates the maintenance type for this group of VMs. This will be set on the reservation via
-   * FR, and will be inherited for reservation blocks.
+   * Maintenance information for this reservation
    * @return value or {@code null} for none
    */
   public java.lang.String getSchedulingType() {
@@ -525,8 +520,7 @@ public final class FutureReservation extends com.google.api.client.json.GenericJ
   }
 
   /**
-   * Indicates the maintenance type for this group of VMs. This will be set on the reservation via
-   * FR, and will be inherited for reservation blocks.
+   * Maintenance information for this reservation
    * @param schedulingType schedulingType or {@code null} for none
    */
   public FutureReservation setSchedulingType(java.lang.String schedulingType) {

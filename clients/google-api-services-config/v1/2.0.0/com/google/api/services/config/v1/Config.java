@@ -3928,7 +3928,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
          * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
          * methods to check whether the cancellation succeeded or whether the operation completed despite
          * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-         * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+         * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
          * `Code.CANCELLED`.
          *
          * Create a request for the method "operations.cancel".
@@ -3959,7 +3959,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
            * it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other
            * methods to check whether the cancellation succeeded or whether the operation completed despite
            * cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an
-           * operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to
+           * operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to
            * `Code.CANCELLED`.
            *
            * Create a request for the method "operations.cancel".
@@ -5828,24 +5828,24 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
           }
 
           /**
-           * Optional. When requesting a page of resources, 'page_size' specifies number of
-           * resources to return. If unspecified, at most 500 will be returned. The maximum value is
-           * 1000.
+           * Optional. When requesting a page of terraform versions, 'page_size' specifies number of
+           * terraform versions to return. If unspecified, at most 500 will be returned. The maximum
+           * value is 1000.
            */
           @com.google.api.client.util.Key
           private java.lang.Integer pageSize;
 
-          /** Optional. When requesting a page of resources, 'page_size' specifies number of resources to return.
-         If unspecified, at most 500 will be returned. The maximum value is 1000.
+          /** Optional. When requesting a page of terraform versions, 'page_size' specifies number of terraform
+         versions to return. If unspecified, at most 500 will be returned. The maximum value is 1000.
            */
           public java.lang.Integer getPageSize() {
             return pageSize;
           }
 
           /**
-           * Optional. When requesting a page of resources, 'page_size' specifies number of
-           * resources to return. If unspecified, at most 500 will be returned. The maximum value is
-           * 1000.
+           * Optional. When requesting a page of terraform versions, 'page_size' specifies number of
+           * terraform versions to return. If unspecified, at most 500 will be returned. The maximum
+           * value is 1000.
            */
           public List setPageSize(java.lang.Integer pageSize) {
             this.pageSize = pageSize;
@@ -5854,13 +5854,13 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Optional. Token returned by previous call to 'ListTerraformVersions' which specifies
-           * the position in the list from where to continue listing the resources.
+           * the position in the list from where to continue listing the terraform versions.
            */
           @com.google.api.client.util.Key
           private java.lang.String pageToken;
 
           /** Optional. Token returned by previous call to 'ListTerraformVersions' which specifies the position
-         in the list from where to continue listing the resources.
+         in the list from where to continue listing the terraform versions.
            */
           public java.lang.String getPageToken() {
             return pageToken;
@@ -5868,7 +5868,7 @@ public class Config extends com.google.api.client.googleapis.services.json.Abstr
 
           /**
            * Optional. Token returned by previous call to 'ListTerraformVersions' which specifies
-           * the position in the list from where to continue listing the resources.
+           * the position in the list from where to continue listing the terraform versions.
            */
           public List setPageToken(java.lang.String pageToken) {
             this.pageToken = pageToken;
